@@ -1,0 +1,391 @@
+@import url("https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;0,1000;1,400;1,500;1,700&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "Nunito Sans", sans-serif;
+  box-sizing: border-box;
+  // outline: 1px solid red;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  overflow-x: hidden;
+}
+
+h1 {
+  font-size: 40px;
+  font-weight: 700;
+  font-style: normal;
+  line-height: 49px;
+  color: #4d5a52;
+}
+
+.bg-green1 {
+  color: #34a753;
+}
+
+.bg-green2 {
+  color: #0c5b21;
+}
+
+.bg-orange {
+  color: #fd7b38;
+}
+
+.section-m1 {
+  padding-top: 80px;
+}
+
+.mar-top {
+  margin-top: 100px;
+}
+
+// todo 1,2. Login & Register
+.login,
+.forgot-password {
+  background-color: #42ba96;
+  .container {
+    .login-box,
+    .register-box {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      .left-container {
+        img {
+          width: 437px;
+          height: 505px;
+          border-radius: 10px 0px 0px 10px;
+          object-position: center;
+          object-fit: cover;
+        }
+      }
+      .right-container {
+        width: 437px;
+        height: 505px;
+        background-color: #ffffff;
+        display: grid;
+        align-content: center;
+        padding: 50px;
+        border-radius: 0 10px 10px 0;
+        -webkit-border-radius: 0 10px 10px 0;
+        -moz-border-radius: 0 10px 10px 0;
+        -ms-border-radius: 0 10px 10px 0;
+        -o-border-radius: 0 10px 10px 0;
+        .logo {
+          width: 150px;
+          height: 100px;
+          display: flex;
+          margin: auto;
+          padding: 15px;
+        }
+        .input {
+          width: 337px;
+          height: 46px;
+          background: #ffffff;
+          border: 1px solid #dadada;
+          border-radius: 40px;
+          margin-bottom: 15px;
+          -webkit-border-radius: 40px;
+          -moz-border-radius: 40px;
+          -ms-border-radius: 40px;
+          -o-border-radius: 40px;
+        }
+        .input-name {
+          height: 46px;
+          background: #ffffff;
+          border: 1px solid #dadada;
+          border-radius: 40px;
+          margin-bottom: 15px;
+          -webkit-border-radius: 40px;
+          -moz-border-radius: 40px;
+          -ms-border-radius: 40px;
+          -o-border-radius: 40px;
+        }
+        .btn-danger {
+          background: #d40508;
+        }
+        .btn-blue {
+          background-color: #2596be;
+        }
+        .checkbox {
+          cursor: pointer;
+        }
+        .right-top-paragraf {
+          font-size: 14px;
+        }
+        h6 {
+          font-weight: 500;
+          font-size: 18px;
+          line-height: 22px;
+          color: #ffffff;
+          margin-bottom: 23px;
+        }
+        button {
+          width: 337px;
+          height: 46px;
+          background: #3ac601;
+          border: 1px solid #dadada;
+          border-radius: 40px;
+          margin-bottom: 15px;
+          color: #ffffff;
+          -webkit-border-radius: 40px;
+          -moz-border-radius: 40px;
+          -ms-border-radius: 40px;
+          -o-border-radius: 40px;
+        }
+        a {
+          text-decoration: none;
+        }
+      }
+    }
+  }
+}
+// todo 3. Register
+.register {
+  background-color: #42ba96;
+  .container {
+    .login-box,
+    .register-box {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      .left-container {
+        img {
+          width: 457px;
+          height: 575px;
+          border-radius: 10px 0px 0px 10px;
+          object-position: center;
+          object-fit: cover;
+        }
+      }
+      .right-container {
+        width: 457px;
+        height: 575px;
+        background-color: #ffffff;
+        display: grid;
+        align-content: center;
+        padding: 50px;
+        border-radius: 0 10px 10px 0;
+        -webkit-border-radius: 0 10px 10px 0;
+        -moz-border-radius: 0 10px 10px 0;
+        -ms-border-radius: 0 10px 10px 0;
+        -o-border-radius: 0 10px 10px 0;
+        .logo {
+          width: 150px;
+          height: 100px;
+          display: flex;
+          margin: auto;
+          padding: 15px;
+        }
+        .input {
+          width: 337px;
+          height: 46px;
+          background: #ffffff;
+          border: 1px solid #dadada;
+          border-radius: 40px;
+          margin-bottom: 15px;
+          -webkit-border-radius: 40px;
+          -moz-border-radius: 40px;
+          -ms-border-radius: 40px;
+          -o-border-radius: 40px;
+        }
+        .input-name {
+          height: 46px;
+          background: #ffffff;
+          border: 1px solid #dadada;
+          border-radius: 40px;
+          margin-bottom: 10px;
+          -webkit-border-radius: 40px;
+          -moz-border-radius: 40px;
+          -ms-border-radius: 40px;
+          -o-border-radius: 40px;
+        }
+        .btn-danger {
+          background: #d40508;
+        }
+        .btn-blue {
+          background-color: #2596be;
+        }
+        .checkbox {
+          cursor: pointer;
+        }
+        .right-top-paragraf {
+          font-size: 14px;
+        }
+        h6 {
+          font-weight: 500;
+          font-size: 18px;
+          line-height: 22px;
+          color: #ffffff;
+          margin-bottom: 23px;
+        }
+        button {
+          width: 337px;
+          height: 46px;
+          background: #3ac601;
+          border: 1px solid #dadada;
+          border-radius: 40px;
+          margin-bottom: 15px;
+          color: #ffffff;
+          -webkit-border-radius: 40px;
+          -moz-border-radius: 40px;
+          -ms-border-radius: 40px;
+          -o-border-radius: 40px;
+        }
+        a {
+          text-decoration: none;
+        }
+      }
+    }
+  }
+}
+
+// todo 4. Not Found Page
+.not-found {
+  background-color: #4f4f4f;
+  .container {
+    .content {
+      color: #ffffff;
+      display: flex;
+      height: 100vh;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      img {
+        width: 50%;
+        height: 50%;
+        border-radius: 10px;
+        -webkit-border-radius: 10px;
+        -moz-border-radius: 10px;
+        -ms-border-radius: 10px;
+        -o-border-radius: 10px;
+        box-shadow: 5px 5px 5px white;
+      }
+      .sorry {
+        padding-top: 20px;
+      }
+    }
+  }
+}
+
+//! Responsive
+@media screen and (max-width: 1125px) {
+}
+
+@media screen and (max-width: 992px) {
+  .login,
+  .forgot-password {
+    .container {
+      .login-box,
+      .left-container {
+        img {
+          width: 437px;
+          height: 475px;
+          border-radius: 10px 0 0 10px;
+          -webkit-border-radius: 10px 0 0 10px;
+          -moz-border-radius: 10px 0 0 10px;
+          -ms-border-radius: 10px 0 0 10px;
+          -o-border-radius: 10px 0 0 10px;
+        }
+      }
+      .right-container {
+        width: 437px;
+        height: 475px;
+        border-radius: 0 10px 10px 0;
+        -webkit-border-radius: 0 10px 10px 0;
+        -moz-border-radius: 0 10px 10px 0;
+        -ms-border-radius: 0 10px 10px 0;
+        -o-border-radius: 0 10px 10px 0;
+      }
+    }
+  }
+}
+
+.register,
+.container {
+  .login-box,
+  .register-box {
+    .left-container {
+      img {
+        width: 437px;
+        height: 485px;
+        border-radius: 10px 0 0 10px;
+        -webkit-border-radius: 10px 0 0 10px;
+        -moz-border-radius: 10px 0 0 10px;
+        -ms-border-radius: 10px 0 0 10px;
+        -o-border-radius: 10px 0 0 10px;
+      }
+    }
+    .right-container {
+      width: 437px;
+      height: 485px;
+      border-radius: 0 10px 10px 0;
+      -webkit-border-radius: 0 10px 10px 0;
+      -moz-border-radius: 0 10px 10px 0;
+      -ms-border-radius: 0 10px 10px 0;
+      -o-border-radius: 0 10px 10px 0;
+    }
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .login,
+  .forgot-password {
+    .container {
+      .login-box,
+      .left-container {
+        img {
+          width: 437px;
+          height: 475px;
+          border-radius: 10px 0 0 10px;
+          -webkit-border-radius: 10px 0 0 10px;
+          -moz-border-radius: 10px 0 0 10px;
+          -ms-border-radius: 10px 0 0 10px;
+          -o-border-radius: 10px 0 0 10px;
+        }
+      }
+      .right-container {
+        width: 437px;
+        height: 475px;
+        border-radius: 0 10px 10px 0;
+        -webkit-border-radius: 0 10px 10px 0;
+        -moz-border-radius: 0 10px 10px 0;
+        -ms-border-radius: 0 10px 10px 0;
+        -o-border-radius: 0 10px 10px 0;
+      }
+    }
+  }
+
+  .register,
+  .container {
+    .login-box,
+    .register-box {
+      .left-container {
+        img {
+          display: none;
+        }
+      }
+      .right-container {
+        border-radius: 10px;
+        -webkit-border-radius: 10px;
+        -moz-border-radius: 10px;
+        -ms-border-radius: 10px;
+        -o-border-radius: 10px;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 575px) {
+  .login,
+  .register,
+  .forgot-password {
+    background-color: #ffffff;
+  }
+}

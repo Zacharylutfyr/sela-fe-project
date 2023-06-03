@@ -1,30 +1,419 @@
 <template>
-  <nav>
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
-  </nav>
+  
   <router-view/>
 </template>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
+@import url("https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;0,1000;1,400;1,500;1,700&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "Nunito Sans", sans-serif;
+  box-sizing: border-box;
 }
 
-nav {
-  padding: 30px;
+html {
+  scroll-behavior: smooth;
 }
 
-nav a {
-  font-weight: bold;
-  color: #2c3e50;
+body {
+  overflow-x: hidden;
 }
 
-nav a.router-link-exact-active {
-  color: #42b983;
+h1 {
+  font-size: 40px;
+  font-weight: 700;
+  font-style: normal;
+  line-height: 49px;
+  color: #4d5a52;
 }
+
+.bg-green1 {
+  color: #34a753;
+}
+
+.bg-green2 {
+  color: #0c5b21;
+}
+
+.bg-orange {
+  color: #fd7b38;
+}
+
+.section-m1 {
+  padding-top: 80px;
+}
+
+.mar-top {
+  margin-top: 100px;
+}
+
+.login,
+.forgot-password {
+  background-color: #42ba96;
+}
+.login .container .login-box,
+.login .container .register-box,
+.forgot-password .container .login-box,
+.forgot-password .container .register-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+.login .container .login-box .left-container img,
+.login .container .register-box .left-container img,
+.forgot-password .container .login-box .left-container img,
+.forgot-password .container .register-box .left-container img {
+  width: 437px;
+  height: 505px;
+  border-radius: 10px 0px 0px 10px;
+  -o-object-position: center;
+     object-position: center;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.login .container .login-box .right-container,
+.login .container .register-box .right-container,
+.forgot-password .container .login-box .right-container,
+.forgot-password .container .register-box .right-container {
+  width: 437px;
+  height: 505px;
+  background-color: #ffffff;
+  display: grid;
+  align-content: center;
+  padding: 50px;
+  border-radius: 0 10px 10px 0;
+  -webkit-border-radius: 0 10px 10px 0;
+  -moz-border-radius: 0 10px 10px 0;
+  -ms-border-radius: 0 10px 10px 0;
+  -o-border-radius: 0 10px 10px 0;
+}
+.login .container .login-box .right-container .logo,
+.login .container .register-box .right-container .logo,
+.forgot-password .container .login-box .right-container .logo,
+.forgot-password .container .register-box .right-container .logo {
+  width: 150px;
+  height: 100px;
+  display: flex;
+  margin: auto;
+  padding: 15px;
+}
+.login .container .login-box .right-container .input,
+.login .container .register-box .right-container .input,
+.forgot-password .container .login-box .right-container .input,
+.forgot-password .container .register-box .right-container .input {
+  width: 337px;
+  height: 46px;
+  background: #ffffff;
+  border: 1px solid #dadada;
+  border-radius: 40px;
+  margin-bottom: 15px;
+  -webkit-border-radius: 40px;
+  -moz-border-radius: 40px;
+  -ms-border-radius: 40px;
+  -o-border-radius: 40px;
+}
+.login .container .login-box .right-container .input-name,
+.login .container .register-box .right-container .input-name,
+.forgot-password .container .login-box .right-container .input-name,
+.forgot-password .container .register-box .right-container .input-name {
+  height: 46px;
+  background: #ffffff;
+  border: 1px solid #dadada;
+  border-radius: 40px;
+  margin-bottom: 15px;
+  -webkit-border-radius: 40px;
+  -moz-border-radius: 40px;
+  -ms-border-radius: 40px;
+  -o-border-radius: 40px;
+}
+.login .container .login-box .right-container .btn-danger,
+.login .container .register-box .right-container .btn-danger,
+.forgot-password .container .login-box .right-container .btn-danger,
+.forgot-password .container .register-box .right-container .btn-danger {
+  background: #d40508;
+}
+.login .container .login-box .right-container .btn-blue,
+.login .container .register-box .right-container .btn-blue,
+.forgot-password .container .login-box .right-container .btn-blue,
+.forgot-password .container .register-box .right-container .btn-blue {
+  background-color: #2596be;
+}
+.login .container .login-box .right-container .checkbox,
+.login .container .register-box .right-container .checkbox,
+.forgot-password .container .login-box .right-container .checkbox,
+.forgot-password .container .register-box .right-container .checkbox {
+  cursor: pointer;
+}
+.login .container .login-box .right-container .right-top-paragraf,
+.login .container .register-box .right-container .right-top-paragraf,
+.forgot-password .container .login-box .right-container .right-top-paragraf,
+.forgot-password .container .register-box .right-container .right-top-paragraf {
+  font-size: 14px;
+}
+.login .container .login-box .right-container h6,
+.login .container .register-box .right-container h6,
+.forgot-password .container .login-box .right-container h6,
+.forgot-password .container .register-box .right-container h6 {
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 22px;
+  color: #ffffff;
+  margin-bottom: 23px;
+}
+.login .container .login-box .right-container button,
+.login .container .register-box .right-container button,
+.forgot-password .container .login-box .right-container button,
+.forgot-password .container .register-box .right-container button {
+  width: 337px;
+  height: 46px;
+  background: #3ac601;
+  border: 1px solid #dadada;
+  border-radius: 40px;
+  margin-bottom: 15px;
+  color: #ffffff;
+  -webkit-border-radius: 40px;
+  -moz-border-radius: 40px;
+  -ms-border-radius: 40px;
+  -o-border-radius: 40px;
+}
+.login .container .login-box .right-container a,
+.login .container .register-box .right-container a,
+.forgot-password .container .login-box .right-container a,
+.forgot-password .container .register-box .right-container a {
+  text-decoration: none;
+}
+
+.register {
+  background-color: #42ba96;
+}
+.register .container .login-box,
+.register .container .register-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+.register .container .login-box .left-container img,
+.register .container .register-box .left-container img {
+  width: 457px;
+  height: 575px;
+  border-radius: 10px 0px 0px 10px;
+  -o-object-position: center;
+     object-position: center;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.register .container .login-box .right-container,
+.register .container .register-box .right-container {
+  width: 457px;
+  height: 575px;
+  background-color: #ffffff;
+  display: grid;
+  align-content: center;
+  padding: 50px;
+  border-radius: 0 10px 10px 0;
+  -webkit-border-radius: 0 10px 10px 0;
+  -moz-border-radius: 0 10px 10px 0;
+  -ms-border-radius: 0 10px 10px 0;
+  -o-border-radius: 0 10px 10px 0;
+}
+.register .container .login-box .right-container .logo,
+.register .container .register-box .right-container .logo {
+  width: 150px;
+  height: 100px;
+  display: flex;
+  margin: auto;
+  padding: 15px;
+}
+.register .container .login-box .right-container .input,
+.register .container .register-box .right-container .input {
+  width: 337px;
+  height: 46px;
+  background: #ffffff;
+  border: 1px solid #dadada;
+  border-radius: 40px;
+  margin-bottom: 15px;
+  -webkit-border-radius: 40px;
+  -moz-border-radius: 40px;
+  -ms-border-radius: 40px;
+  -o-border-radius: 40px;
+}
+.register .container .login-box .right-container .input-name,
+.register .container .register-box .right-container .input-name {
+  height: 46px;
+  background: #ffffff;
+  border: 1px solid #dadada;
+  border-radius: 40px;
+  margin-bottom: 10px;
+  -webkit-border-radius: 40px;
+  -moz-border-radius: 40px;
+  -ms-border-radius: 40px;
+  -o-border-radius: 40px;
+}
+.register .container .login-box .right-container .btn-danger,
+.register .container .register-box .right-container .btn-danger {
+  background: #d40508;
+}
+.register .container .login-box .right-container .btn-blue,
+.register .container .register-box .right-container .btn-blue {
+  background-color: #2596be;
+}
+.register .container .login-box .right-container .checkbox,
+.register .container .register-box .right-container .checkbox {
+  cursor: pointer;
+}
+.register .container .login-box .right-container .right-top-paragraf,
+.register .container .register-box .right-container .right-top-paragraf {
+  font-size: 14px;
+}
+.register .container .login-box .right-container h6,
+.register .container .register-box .right-container h6 {
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 22px;
+  color: #ffffff;
+  margin-bottom: 23px;
+}
+.register .container .login-box .right-container button,
+.register .container .register-box .right-container button {
+  width: 337px;
+  height: 46px;
+  background: #3ac601;
+  border: 1px solid #dadada;
+  border-radius: 40px;
+  margin-bottom: 15px;
+  color: #ffffff;
+  -webkit-border-radius: 40px;
+  -moz-border-radius: 40px;
+  -ms-border-radius: 40px;
+  -o-border-radius: 40px;
+}
+.register .container .login-box .right-container a,
+.register .container .register-box .right-container a {
+  text-decoration: none;
+}
+
+.not-found {
+  background-color: #4f4f4f;
+}
+.not-found .container .content {
+  color: #ffffff;
+  display: flex;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.not-found .container .content img {
+  width: 50%;
+  height: 50%;
+  border-radius: 10px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
+  box-shadow: 5px 5px 5px white;
+}
+.not-found .container .content .sorry {
+  padding-top: 20px;
+}
+
+@media screen and (max-width: 992px) {
+  .login .container .login-box img,
+  .login .container .left-container img,
+  .forgot-password .container .login-box img,
+  .forgot-password .container .left-container img {
+    width: 437px;
+    height: 475px;
+    border-radius: 10px 0 0 10px;
+    -webkit-border-radius: 10px 0 0 10px;
+    -moz-border-radius: 10px 0 0 10px;
+    -ms-border-radius: 10px 0 0 10px;
+    -o-border-radius: 10px 0 0 10px;
+  }
+  .login .container .right-container,
+  .forgot-password .container .right-container {
+    width: 437px;
+    height: 475px;
+    border-radius: 0 10px 10px 0;
+    -webkit-border-radius: 0 10px 10px 0;
+    -moz-border-radius: 0 10px 10px 0;
+    -ms-border-radius: 0 10px 10px 0;
+    -o-border-radius: 0 10px 10px 0;
+  }
+}
+.register .login-box .left-container img,
+.register .register-box .left-container img,
+.container .login-box .left-container img,
+.container .register-box .left-container img {
+  width: 437px;
+  height: 485px;
+  border-radius: 10px 0 0 10px;
+  -webkit-border-radius: 10px 0 0 10px;
+  -moz-border-radius: 10px 0 0 10px;
+  -ms-border-radius: 10px 0 0 10px;
+  -o-border-radius: 10px 0 0 10px;
+}
+.register .login-box .right-container,
+.register .register-box .right-container,
+.container .login-box .right-container,
+.container .register-box .right-container {
+  width: 437px;
+  height: 485px;
+  border-radius: 0 10px 10px 0;
+  -webkit-border-radius: 0 10px 10px 0;
+  -moz-border-radius: 0 10px 10px 0;
+  -ms-border-radius: 0 10px 10px 0;
+  -o-border-radius: 0 10px 10px 0;
+}
+
+@media screen and (max-width: 768px) {
+  .login .container .login-box img,
+  .login .container .left-container img,
+  .forgot-password .container .login-box img,
+  .forgot-password .container .left-container img {
+    width: 437px;
+    height: 475px;
+    border-radius: 10px 0 0 10px;
+    -webkit-border-radius: 10px 0 0 10px;
+    -moz-border-radius: 10px 0 0 10px;
+    -ms-border-radius: 10px 0 0 10px;
+    -o-border-radius: 10px 0 0 10px;
+  }
+  .login .container .right-container,
+  .forgot-password .container .right-container {
+    width: 437px;
+    height: 475px;
+    border-radius: 0 10px 10px 0;
+    -webkit-border-radius: 0 10px 10px 0;
+    -moz-border-radius: 0 10px 10px 0;
+    -ms-border-radius: 0 10px 10px 0;
+    -o-border-radius: 0 10px 10px 0;
+  }
+  .register .login-box .left-container img,
+  .register .register-box .left-container img,
+  .container .login-box .left-container img,
+  .container .register-box .left-container img {
+    display: none;
+  }
+  .register .login-box .right-container,
+  .register .register-box .right-container,
+  .container .login-box .right-container,
+  .container .register-box .right-container {
+    border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
+  }
+}
+@media screen and (max-width: 575px) {
+  .login,
+  .register,
+  .forgot-password {
+    background-color: #ffffff;
+  }
+}/*# sourceMappingURL=style.css.map */
 </style>
