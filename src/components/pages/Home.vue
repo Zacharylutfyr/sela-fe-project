@@ -750,5 +750,7 @@
 </template>
 
 <script>
-export default {};
+export default {
+  name: 'Home',
+};
 </script>

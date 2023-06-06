@@ -61,8 +61,45 @@
   </div>
 </template>
 
-<script lang='ts'>
+<script>
+import Vue from "vue";
+import axios from "axios";
+// Vue.use(axios);
+
 export default {
-  name: 'Login',
+  name: "Login",
+  data() {
+    return {
+      result: {},
+      employee: {
+        email: "",
+        password: "",
+      },
+    };
+  },
+  created() {},
+  mounted() {
+    console.log("mounted() called.......");
+  },
+  methods: {
+    LoginData() {
+      axios
+        .post("http://localhost:8085/api/v1/employee/login", this.employee)
+        .then(({ data }) => {
+          console.log(data);
+          try {
+            if (data.message === "Email not exits") {
+              alert("Email not exits");
+            } else if (data.message == "Login Success") {
+              this.$router.push({ name: "Home" });
+            } else {
+              alert("Incorrect Email and Password not match");
+            }
+          } catch (err) {
+            alert("Error, please try again");
+          }
+        });
+    },
+  },
 };
 </script>

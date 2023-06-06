@@ -1,14 +1,17 @@
 <template>
-  <Home />
+  <SideNav/>
+  <Footer/>
+
 </template>
 
 <script>
-import Home from "@/components/pages/Home.vue";
+import SideNav from '../../components/includes/SideNav.vue'
+import Footer from '../../components/includes/Footer.vue'
 
 export default {
   name: "HomeView",
   components: {
-    Home,
+    SideNav, Footer
   },
 };
 </script>
