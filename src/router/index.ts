@@ -3,7 +3,7 @@ import Login from "@/components/auth/Login.vue";
 import Register from "@/components/auth/Register.vue";
 import ForgotPassword from "@/components/auth/ForgotPassword.vue";
 import NotFound from "@/components/pages/NotFound.vue";
-import Home from "@/views/home/HomeView.vue";
+import Homediv from "@/views/admindivisi/HomedivView.vue";
 
 const routes: Array<RouteRecordRaw> = [
   {
@@ -22,9 +22,9 @@ const routes: Array<RouteRecordRaw> = [
     component: ForgotPassword,
   },
   {
-    path: "/home",
-    name: "Home",
-    component: Home,
+    path: "/homediv",
+    name: "HomedivView",
+    component: Homediv,
   },
   {
     path: "/:catchAll(.*)",
