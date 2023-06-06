@@ -9,7 +9,7 @@
           />
         </div>
         <div class="right-container">
-          <form class="user" action="POST">
+          <form @submit.prevent="submit">
             <img class="logo" src="../../assets/images/sela-logo.jpg" alt="" />
             <div class="right-container-top"></div>
             <div class="form-group">

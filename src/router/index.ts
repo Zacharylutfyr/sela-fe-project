@@ -38,6 +38,8 @@ const router = createRouter({
   routes,
 });
 
+
+
 // const isAuthenticated = true;
 
 // router.beforeEach((to, from, next) => {
