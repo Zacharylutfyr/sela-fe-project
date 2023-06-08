@@ -9,12 +9,13 @@
           />
         </div>
         <div class="right-container">
-          <form @submit.prevent="submit">
+          <form @submit="login">
             <img class="logo" src="../../assets/images/sela-logo.jpg" alt="" />
             <div class="right-container-top"></div>
             <div class="form-group">
               <input
                 type="email"
+                v-model="email"
                 class="input form-control form-control-user"
                 id="exampleInputEmail"
                 aria-describedby="emailHelp"
@@ -24,6 +25,7 @@
             <div class="form-group">
               <input
                 type="password"
+                v-model="password"
                 class="input form-control form-control-user"
                 id="exampleInputPassword"
                 placeholder="Password"
@@ -43,7 +45,26 @@
               </div>
             </div>
             <hr />
-            <button type="button" class="btn button mt-4">Login</button>
+            <!-- <router-link to="/homediv">
+                   <button
+                type="submit"
+                value="save"
+                class="btn button mt-4"
+              >
+                Login
+              </button>
+              </router-link> -->
+            <div>
+              <button
+                @click="fetchData"
+                type="submit"
+                value="save"
+                class="btn button mt-4"
+              >
+                Login
+              </button>
+              <p>{{ data }}</p>
+            </div>
             <hr />
 
             <div class="text-center">
@@ -61,45 +82,30 @@
   </div>
 </template>
 
-<script>
-import Vue from "vue";
-import axios from "axios";
-// Vue.use(axios);
+<script lang="ts">
+import { defineComponent } from "vue";
+import { login } from "@/api";
 
-export default {
-  name: "Login",
+export default defineComponent({
   data() {
     return {
-      result: {},
-      employee: {
-        email: "",
-        password: "",
-      },
+      email: "",
+      password: "",
     };
   },
-  created() {},
-  mounted() {
-    console.log("mounted() called.......");
-  },
   methods: {
-    LoginData() {
-      axios
-        .post("http://localhost:8085/api/v1/employee/login", this.employee)
-        .then(({ data }) => {
-          console.log(data);
-          try {
-            if (data.message === "Email not exits") {
-              alert("Email not exits");
-            } else if (data.message == "Login Success") {
-              this.$router.push({ name: "Home" });
-            } else {
-              alert("Incorrect Email and Password not match");
-            }
-          } catch (err) {
-            alert("Error, please try again");
-          }
-        });
+    async login() {
+      try {
+        const response = await login(this.email, this.password);
+        // Tanggapi respons sukses dari API
+        // simpan token di LocalStorage dan arahkan ke dashboard
+        localStorage.setItem("token", response.token);
+        this.$router.push("/homediv");
+      } catch (error) {
+        // Tanggapi kesalahan dari API
+        console.error(error);
+      }
     },
   },
-};
+});
 </script>

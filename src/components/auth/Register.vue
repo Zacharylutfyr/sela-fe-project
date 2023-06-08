@@ -86,40 +86,8 @@
   </div>
 </template>
 
-<script>
-// import Vue from "vue";
-// import axios from "axios";
-// // Vue.use(axios);
-
-// export default {
-//   name: "Register",
-//   data() {
-//     return {
-//       result: {},
-//       employee: {
-//         employeename: "",
-//         email: "",
-//         password: "",
-//       },
-//     };
-//   },
-//   created() {},
-//   mounted() {
-//     console.log("mounted() called.......");
-//   },
-//   methods: {
-//     saveData() {
-//       axios
-//         .post("http://localhost:8085/api/v1/employee/save", this.employee)
-//         .then(({ data }) => {
-//           console.log(data);
-//           try {
-//             alert("Employee Registation Successfully");
-//           } catch (err) {
-//             alert("failed");
-//           }
-//         });
-//     },
-//   },
-// };
+<script lang='ts'>
+export default {
+  name: 'Register'
+};
 </script>
