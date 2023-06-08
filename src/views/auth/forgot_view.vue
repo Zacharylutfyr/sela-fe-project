@@ -3,7 +3,7 @@
 </template>
 
 <script>
-import ForgotPassword from "@/components/auth/ForgotPassword.vue";
+import ForgotPassword from "@/components/auth/forgot_password.vue";
 
 export default {
   name: "ForgotView",

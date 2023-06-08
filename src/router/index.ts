@@ -1,10 +1,10 @@
 import { createRouter, createWebHistory, RouteRecordRaw } from "vue-router";
 import Login from "@/components/auth/Login.vue";
 import Register from "@/components/auth/Register.vue";
-import ForgotPassword from "@/components/auth/ForgotPassword.vue";
-import NotFound from "@/components/pages/NotFound.vue";
-import Homediv from "@/views/admindivisi/HomedivView.vue";
-import Formpengajuandiv from "@/views/admindivisi/FormpengajuandivView.vue";
+import ForgotPassword from "@/components/auth/forgot_password.vue";
+import NotFound from "@/components/pages/not_found.vue";
+import Homediv from "@/views/admindivisi/home_div_view.vue";
+import Formpengajuandiv from "@/views/admindivisi/form_pengajuan_div_view.vue";
 
 const routes: Array<RouteRecordRaw> = [
   {

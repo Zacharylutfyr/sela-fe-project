@@ -3,7 +3,7 @@
 </template>
 
 <script>
-import NotFound from "@/components/pages/NotFound.vue";
+import NotFound from "@/components/pages/not_found.vue";
 export default {
   name: "NotFoundView",
   components: {
@@ -11,4 +11,5 @@ export default {
   },
 };
 </script>
+
 
