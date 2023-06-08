@@ -9,7 +9,7 @@
           />
         </div>
         <div class="right-container">
-          <form @submit="login">
+          <form>
             <img class="logo" src="../../assets/images/sela-logo.jpg" alt="" />
             <div class="right-container-top"></div>
             <div class="form-group">
@@ -56,10 +56,10 @@
               </router-link> -->
             <div>
               <button
-                @click="fetchData"
-                type="submit"
+                type="button"
                 value="save"
                 class="btn button mt-4"
+                @click=login
               >
                 Login
               </button>
@@ -84,19 +84,19 @@
 
 <script lang="ts">
 import { defineComponent } from "vue";
-import { login } from "@/api";
+import { loginApi } from "@/api";
 
 export default defineComponent({
   data() {
     return {
-      email: "",
-      password: "",
+      userEmail: "tesla@gmail.com",
+      password: "sela",
     };
   },
   methods: {
     async login() {
       try {
-        const response = await login(this.email, this.password);
+        const response = await loginApi(this.userEmail, this.password);
         // Tanggapi respons sukses dari API
         // simpan token di LocalStorage dan arahkan ke dashboard admin divisi
         localStorage.setItem("token", response.token);
