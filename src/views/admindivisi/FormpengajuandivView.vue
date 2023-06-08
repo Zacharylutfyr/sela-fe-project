@@ -7,7 +7,7 @@
         </div>
     </div>
 </template>
-  
+
 <script>
 import Sidenav from '../../components/includes/Sidenav.vue'
 import Formpengajuandiv from '../../components/pages/Formpengajuandiv.vue'

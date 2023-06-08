@@ -327,12 +327,12 @@
                       </tr>
                       <tr v-for="pengajuans of pengajuan" v-bind:key="pengajuans.id">
                         <td>{{ pengajuans.id }}</td>
-                        <td><input type="text" v-model="pengajuans.Memo" /></td>
-                        <td><input type="text" v-model="pengajuans.NIK" /></td>
-                        <td><input type="text" v-model="pengajuans.Nama" /></td>
-                        <td><input type="text" v-model="pengajuans.Divisi" /></td>
-                        <td><input type="text" v-model="pengajuans.Tanggal" /></td>
-                        <td><input type="text" v-model="pengajuans.Status" /></td>
+                        <td><input type="text" class="form-control" v-model="pengajuans.Memo" /></td>
+                        <td><input type="text" class="form-control" v-model="pengajuans.NIK" /></td>
+                        <td><input type="text" class="form-control" v-model="pengajuans.Nama" /></td>
+                        <td><input type="text" class="form-control" v-model="pengajuans.Divisi" /></td>
+                        <td><input type="text" class="form-control" v-model="pengajuans.Tanggal" /></td>
+                        <td><input type="text" class="form-control" v-model="pengajuans.Status" /></td>
                         <td class="d-flex justify-content-center">
                             <a v-on:click="PutApi(pengajuans.id, pengajuans.Memo, pengajuans.NIK, pengajuans.Nama, pengajuans.Divisi, pengajuans.Tanggal, pengajuans.Status)" href="#" class="btn btn-warning btn-circle mr-1">
                                 <i class="fas fa-pen"></i>

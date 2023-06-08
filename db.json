@@ -44,15 +44,32 @@
       "Divisi": "PASTI",
       "Tanggal": "07 Juni 2023",
       "Status": "Diajukan"
+    }
+  ],
+  "stokmanajemen": [
+    {
+      "id": 1,
+      "Merk": "ASUS",
+      "Spek": "RAM 16GB Triple White",
+      "Stok": "10"
     },
     {
-      "Memo": "012",
-      "NIK": "170845",
-      "Nama": "Zachary Dua",
-      "Divisi": "SELA",
-      "Tanggal": "07 Juli 2023",
-      "Status": "Diajukan",
-      "id": 6
+      "id": 2,
+      "Merk": "Apple",
+      "Spek": "Macbook Pro, RAM 16GB Metalic Tiger",
+      "Stok": "25"
+    },
+    {
+      "id": 3,
+      "Merk": "Lenovo",
+      "Spek": "Ideapad Slim 3, RAM 8GB Dark Grey",
+      "Stok": "15"
+    },
+    {
+      "id": 4,
+      "Merk": "ASUS",
+      "Spek": "Republic of Gaming, RAM 16GB Bombastic Red",
+      "Stok": "25"
     }
   ]
 }
