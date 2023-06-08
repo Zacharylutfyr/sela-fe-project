@@ -262,7 +262,6 @@
               <div class="card-body">
                 <div class="table-responsive">
                   <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                    <!-- TABEL DATA DUMMY -->
                     <thead>
                       <tr class="bg-gray-100 text-dark">
                         <th>No</th>
@@ -270,48 +269,19 @@
                         <th>NIK</th>
                         <th>Nama</th>
                         <th>Divisi</th>
-                        <th>Tanggal Pengajuan</th>
+                        <th>Tanggal</th>
                         <th>Status</th>
                       </tr>
+                      <tr v-for="pengajuans of pengajuan" v-bind:key="pengajuans.id">
+                        <td>{{ pengajuans.No }}</td>
+                        <td>{{ pengajuans.Memo }}</td>
+                        <td>{{ pengajuans.NIK }}</td>
+                        <td>{{ pengajuans.Nama }}</td>
+                        <td>{{ pengajuans.Divisi }}</td>
+                        <td>{{ pengajuans.Tanggal }}</td>
+                        <td>{{ pengajuans.Status }}</td>
+                      </tr>
                     </thead>
-                    <tbody>
-                      <tr>
-                        <td>1</td>
-                        <td>SPK 039/00020.05/2020</td>
-                        <td>P98352</td>
-                        <td>Bessie Cooper</td>
-                        <td>PASTI</td>
-                        <td>01/06/2023</td>
-                        <td>Diajukan</td>
-                      </tr>
-                      <tr>
-                        <td>2</td>
-                        <td>SPK 070/00020.05/2020</td>
-                        <td>P85690</td>
-                        <td>Brooklyn Simmons</td>
-                        <td>PASTI</td>
-                        <td>01/06/2023</td>
-                        <td>Diajukan</td>
-                      </tr>
-                      <tr>
-                        <td>3</td>
-                        <td>SPK 032/00020.05/2020</td>
-                        <td>P89034</td>
-                        <td>Albert Flores</td>
-                        <td>PASTI</td>
-                        <td>01/06/2023</td>
-                        <td>Diajukan</td>
-                      </tr>
-                      <tr>
-                        <td>4</td>
-                        <td>SPK 082/00020.05/2020</td>
-                        <td>P80905</td>
-                        <td>Jenny Wilson</td>
-                        <td>PASTI</td>
-                        <td>01/06/2023</td>
-                        <td>Diajukan</td>
-                      </tr>
-                    </tbody>
                   </table>
                 </div>
               </div>
@@ -363,7 +333,30 @@
 </template>
 
 <script>
+import axios from "axios"
+const baseUrl = "http://localhost:3000/pengajuan/";
 export default {
   name: 'Homediv',
-};
+  data() {
+    return {
+      pengajuan: []
+    }
+  },
+  methods: {
+    async GetApi() {
+      await axios
+        .get(baseUrl)
+        .then((resp) => {
+          this.pengajuan = resp.data;
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    },
+  },
+  mounted() {
+    this.GetApi();
+  }
+}
+
 </script>

@@ -1,10 +1,15 @@
 <template>
   
-  <router-view/>
+  <router-view />
 </template>
+
+<script>
+
+</script>
 
 <style>
 @import url("https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;0,1000;1,400;1,500;1,700&display=swap");
+
 * {
   margin: 0;
   padding: 0;
@@ -52,6 +57,7 @@ h1 {
 .forgot-password {
   background-color: #42ba96;
 }
+
 .login .container .login-box,
 .login .container .register-box,
 .forgot-password .container .login-box,
@@ -61,6 +67,7 @@ h1 {
   align-items: center;
   height: 100vh;
 }
+
 .login .container .login-box .left-container img,
 .login .container .register-box .left-container img,
 .forgot-password .container .login-box .left-container img,
@@ -69,10 +76,11 @@ h1 {
   height: 505px;
   border-radius: 10px 0px 0px 10px;
   -o-object-position: center;
-     object-position: center;
+  object-position: center;
   -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
 }
+
 .login .container .login-box .right-container,
 .login .container .register-box .right-container,
 .forgot-password .container .login-box .right-container,
@@ -89,6 +97,7 @@ h1 {
   -ms-border-radius: 0 10px 10px 0;
   -o-border-radius: 0 10px 10px 0;
 }
+
 .login .container .login-box .right-container .logo,
 .login .container .register-box .right-container .logo,
 .forgot-password .container .login-box .right-container .logo,
@@ -99,6 +108,7 @@ h1 {
   margin: auto;
   padding: 15px;
 }
+
 .login .container .login-box .right-container .input,
 .login .container .register-box .right-container .input,
 .forgot-password .container .login-box .right-container .input,
@@ -114,6 +124,7 @@ h1 {
   -ms-border-radius: 40px;
   -o-border-radius: 40px;
 }
+
 .login .container .login-box .right-container .input-name,
 .login .container .register-box .right-container .input-name,
 .forgot-password .container .login-box .right-container .input-name,
@@ -128,30 +139,35 @@ h1 {
   -ms-border-radius: 40px;
   -o-border-radius: 40px;
 }
+
 .login .container .login-box .right-container .btn-danger,
 .login .container .register-box .right-container .btn-danger,
 .forgot-password .container .login-box .right-container .btn-danger,
 .forgot-password .container .register-box .right-container .btn-danger {
   background: #d40508;
 }
+
 .login .container .login-box .right-container .btn-blue,
 .login .container .register-box .right-container .btn-blue,
 .forgot-password .container .login-box .right-container .btn-blue,
 .forgot-password .container .register-box .right-container .btn-blue {
   background-color: #2596be;
 }
+
 .login .container .login-box .right-container .checkbox,
 .login .container .register-box .right-container .checkbox,
 .forgot-password .container .login-box .right-container .checkbox,
 .forgot-password .container .register-box .right-container .checkbox {
   cursor: pointer;
 }
+
 .login .container .login-box .right-container .right-top-paragraf,
 .login .container .register-box .right-container .right-top-paragraf,
 .forgot-password .container .login-box .right-container .right-top-paragraf,
 .forgot-password .container .register-box .right-container .right-top-paragraf {
   font-size: 14px;
 }
+
 .login .container .login-box .right-container h6,
 .login .container .register-box .right-container h6,
 .forgot-password .container .login-box .right-container h6,
@@ -162,6 +178,7 @@ h1 {
   color: #ffffff;
   margin-bottom: 23px;
 }
+
 .login .container .login-box .right-container button,
 .login .container .register-box .right-container button,
 .forgot-password .container .login-box .right-container button,
@@ -178,6 +195,7 @@ h1 {
   -ms-border-radius: 40px;
   -o-border-radius: 40px;
 }
+
 .login .container .login-box .right-container a,
 .login .container .register-box .right-container a,
 .forgot-password .container .login-box .right-container a,
@@ -188,6 +206,7 @@ h1 {
 .register {
   background-color: #42ba96;
 }
+
 .register .container .login-box,
 .register .container .register-box {
   display: flex;
@@ -195,16 +214,18 @@ h1 {
   align-items: center;
   height: 100vh;
 }
+
 .register .container .login-box .left-container img,
 .register .container .register-box .left-container img {
   width: 457px;
   height: 575px;
   border-radius: 10px 0px 0px 10px;
   -o-object-position: center;
-     object-position: center;
+  object-position: center;
   -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
 }
+
 .register .container .login-box .right-container,
 .register .container .register-box .right-container {
   width: 457px;
@@ -219,6 +240,7 @@ h1 {
   -ms-border-radius: 0 10px 10px 0;
   -o-border-radius: 0 10px 10px 0;
 }
+
 .register .container .login-box .right-container .logo,
 .register .container .register-box .right-container .logo {
   width: 150px;
@@ -227,6 +249,7 @@ h1 {
   margin: auto;
   padding: 15px;
 }
+
 .register .container .login-box .right-container .input,
 .register .container .register-box .right-container .input {
   width: 337px;
@@ -240,6 +263,7 @@ h1 {
   -ms-border-radius: 40px;
   -o-border-radius: 40px;
 }
+
 .register .container .login-box .right-container .input-name,
 .register .container .register-box .right-container .input-name {
   height: 46px;
@@ -252,22 +276,27 @@ h1 {
   -ms-border-radius: 40px;
   -o-border-radius: 40px;
 }
+
 .register .container .login-box .right-container .btn-danger,
 .register .container .register-box .right-container .btn-danger {
   background: #d40508;
 }
+
 .register .container .login-box .right-container .btn-blue,
 .register .container .register-box .right-container .btn-blue {
   background-color: #2596be;
 }
+
 .register .container .login-box .right-container .checkbox,
 .register .container .register-box .right-container .checkbox {
   cursor: pointer;
 }
+
 .register .container .login-box .right-container .right-top-paragraf,
 .register .container .register-box .right-container .right-top-paragraf {
   font-size: 14px;
 }
+
 .register .container .login-box .right-container h6,
 .register .container .register-box .right-container h6 {
   font-weight: 500;
@@ -276,6 +305,7 @@ h1 {
   color: #ffffff;
   margin-bottom: 23px;
 }
+
 .register .container .login-box .right-container button,
 .register .container .register-box .right-container button {
   width: 337px;
@@ -290,6 +320,7 @@ h1 {
   -ms-border-radius: 40px;
   -o-border-radius: 40px;
 }
+
 .register .container .login-box .right-container a,
 .register .container .register-box .right-container a {
   text-decoration: none;
@@ -298,6 +329,7 @@ h1 {
 .not-found {
   background-color: #4f4f4f;
 }
+
 .not-found .container .content {
   color: #ffffff;
   display: flex;
@@ -306,6 +338,7 @@ h1 {
   align-items: center;
   flex-direction: column;
 }
+
 .not-found .container .content img {
   width: 50%;
   height: 50%;
@@ -316,11 +349,13 @@ h1 {
   -o-border-radius: 10px;
   box-shadow: 5px 5px 5px white;
 }
+
 .not-found .container .content .sorry {
   padding-top: 20px;
 }
 
 @media screen and (max-width: 992px) {
+
   .login .container .login-box img,
   .login .container .left-container img,
   .forgot-password .container .login-box img,
@@ -333,6 +368,7 @@ h1 {
     -ms-border-radius: 10px 0 0 10px;
     -o-border-radius: 10px 0 0 10px;
   }
+
   .login .container .right-container,
   .forgot-password .container .right-container {
     width: 437px;
@@ -344,6 +380,7 @@ h1 {
     -o-border-radius: 0 10px 10px 0;
   }
 }
+
 .register .login-box .left-container img,
 .register .register-box .left-container img,
 .container .login-box .left-container img,
@@ -356,6 +393,7 @@ h1 {
   -ms-border-radius: 10px 0 0 10px;
   -o-border-radius: 10px 0 0 10px;
 }
+
 .register .login-box .right-container,
 .register .register-box .right-container,
 .container .login-box .right-container,
@@ -370,6 +408,7 @@ h1 {
 }
 
 @media screen and (max-width: 768px) {
+
   .login .container .login-box img,
   .login .container .left-container img,
   .forgot-password .container .login-box img,
@@ -382,6 +421,7 @@ h1 {
     -ms-border-radius: 10px 0 0 10px;
     -o-border-radius: 10px 0 0 10px;
   }
+
   .login .container .right-container,
   .forgot-password .container .right-container {
     width: 437px;
@@ -392,12 +432,14 @@ h1 {
     -ms-border-radius: 0 10px 10px 0;
     -o-border-radius: 0 10px 10px 0;
   }
+
   .register .login-box .left-container img,
   .register .register-box .left-container img,
   .container .login-box .left-container img,
   .container .register-box .left-container img {
     display: none;
   }
+
   .register .login-box .right-container,
   .register .register-box .right-container,
   .container .login-box .right-container,
@@ -409,11 +451,15 @@ h1 {
     -o-border-radius: 10px;
   }
 }
+
 @media screen and (max-width: 575px) {
+
   .login,
   .register,
   .forgot-password {
     background-color: #ffffff;
   }
-}/*# sourceMappingURL=style.css.map */
+}
+
+/*# sourceMappingURL=style.css.map */
 </style>
