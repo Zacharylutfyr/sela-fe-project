@@ -323,6 +323,7 @@
                         <th>Divisi</th>
                         <th>Tanggal</th>
                         <th>Status</th>
+                        <th>Aksi</th>
                       </tr>
                       <tr v-for="pengajuans of pengajuan" v-bind:key="pengajuans.id">
                         <td>{{ pengajuans.id }}</td>
@@ -332,6 +333,14 @@
                         <td>{{ pengajuans.Divisi }}</td>
                         <td>{{ pengajuans.Tanggal }}</td>
                         <td>{{ pengajuans.Status }}</td>
+                        <td class="d-flex justify-content-center">
+                            <a href="#" class="btn btn-warning btn-circle mr-1">
+                                <i class="fas fa-pen"></i>
+                            </a>
+                            <a v-on:click="DeleteApi(pengajuans.id)" href="#" class="btn btn-danger btn-circle">
+                                <i class="fas fa-trash"></i>
+                            </a>
+                        </td>
                       </tr>
                     </thead>
                   </table>
@@ -351,7 +360,7 @@
 </div>
 <!-- End of Content Wrapper -->
 </template>
-<script lang="js">
+<script>
 import axios from "axios"
 const baseUrl = "http://localhost:3000/pengajuan/";
 export default {
@@ -393,6 +402,17 @@ export default {
                     console.log(err);
                 });
         },
+        async DeleteApi(id) {
+            await axios
+                .delete(baseUrl + id)
+                .then((resp) => {
+                    console.log(resp);
+                    this.GetApi();
+                })
+                .catch((err) => {
+                    console.log(err);
+                });
+        }
     },
     mounted() {
         this.GetApi();

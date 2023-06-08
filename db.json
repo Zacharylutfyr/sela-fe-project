@@ -1,15 +1,6 @@
 {
   "pengajuan": [
     {
-      "id": 1,
-      "Memo": "039",
-      "NIK": "P98352",
-      "Nama": "Badrus Zaman SMP",
-      "Divisi": "PASTI",
-      "Tanggal": "07 Juni 2023",
-      "Status": "Diajukan"
-    },
-    {
       "id": 2,
       "Memo": "040",
       "NIK": "P98352",
