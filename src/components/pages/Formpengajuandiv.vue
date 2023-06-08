@@ -351,7 +351,7 @@
 </div>
 <!-- End of Content Wrapper -->
 </template>
-<script>
+<script lang="js">
 import axios from "axios"
 const baseUrl = "http://localhost:3000/pengajuan/";
 export default {
