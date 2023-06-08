@@ -8,6 +8,7 @@
   },
   "dependencies": {
     "axios": "^1.4.0",
+    "cors": "^2.8.5",
     "json-server": "^0.17.3",
     "jsonwebtoken": "^9.0.0",
     "vee-validate": "^2.2.15",
@@ -17,6 +18,7 @@
     "vuex-module-decorators": "^2.0.0"
   },
   "devDependencies": {
+    "@types/cors": "^2.8.13",
     "@vue/cli-plugin-router": "~5.0.0",
     "@vue/cli-plugin-typescript": "~5.0.0",
     "@vue/cli-plugin-vuex": "~5.0.0",
