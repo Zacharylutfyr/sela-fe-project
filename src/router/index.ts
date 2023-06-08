@@ -4,6 +4,7 @@ import Register from "@/components/auth/Register.vue";
 import ForgotPassword from "@/components/auth/ForgotPassword.vue";
 import NotFound from "@/components/pages/NotFound.vue";
 import Homediv from "@/views/admindivisi/HomedivView.vue";
+import Formpengajuandiv from "@/views/admindivisi/FormpengajuandivView.vue";
 
 const routes: Array<RouteRecordRaw> = [
   {
@@ -25,6 +26,11 @@ const routes: Array<RouteRecordRaw> = [
     path: "/homediv",
     name: "HomedivView",
     component: Homediv,
+  },
+  {
+    path: "/formpengajuandiv",
+    name: "FormpengajuandivView",
+    component: Formpengajuandiv,
   },
   {
     path: "/:catchAll(.*)",

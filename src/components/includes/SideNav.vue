@@ -171,6 +171,9 @@
 <div class="text-center d-none d-md-inline">
     <button class="rounded-circle border-0" id="sidebarToggle"></button>
 </div>
+<div class="marbot">
+
+</div>
 
 </ul>
     <!-- End of Sidebar -->
@@ -178,7 +181,11 @@
 </template>
 <script lang="ts">
 export default {
-  name: "Sidenav",
-};
+    name: "Sidenav",
+}
 </script>
-<style lang=""></style>
+<style lang="css">
+.marbot{
+    margin-bottom: 290px;
+}
+</style>

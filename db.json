@@ -1,0 +1,58 @@
+{
+  "pengajuan": [
+    {
+      "id": 1,
+      "Memo": "039",
+      "NIK": "P98352",
+      "Nama": "Badrus Zaman SMP",
+      "Divisi": "PASTI",
+      "Tanggal": "07 Juni 2023",
+      "Status": "Diajukan"
+    },
+    {
+      "id": 2,
+      "Memo": "040",
+      "NIK": "P98352",
+      "Nama": "Sofialaras",
+      "Divisi": "PASTI",
+      "Tanggal": "07 Juni 2023",
+      "Status": "Diajukan"
+    },
+    {
+      "id": 3,
+      "Memo": "041",
+      "NIK": "P98352",
+      "Nama": "Zachary Lutfy",
+      "Divisi": "PASTI",
+      "Tanggal": "07 Juni 2023",
+      "Status": "Diajukan"
+    },
+    {
+      "id": 4,
+      "Memo": "042",
+      "NIK": "P98352",
+      "Nama": "Daniel",
+      "Divisi": "PASTI",
+      "Tanggal": "07 Juni 2023",
+      "Status": "Diajukan"
+    },
+    {
+      "id": 5,
+      "Memo": "043",
+      "NIK": "P98352",
+      "Nama": "Marcel",
+      "Divisi": "PASTI",
+      "Tanggal": "07 Juni 2023",
+      "Status": "Diajukan"
+    },
+    {
+      "Memo": "012",
+      "NIK": "170845",
+      "Nama": "Zachary Dua",
+      "Divisi": "SELA",
+      "Tanggal": "07 Juli 2023",
+      "Status": "Diajukan",
+      "id": 6
+    }
+  ]
+}
