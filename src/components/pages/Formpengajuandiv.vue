@@ -327,14 +327,14 @@
                       </tr>
                       <tr v-for="pengajuans of pengajuan" v-bind:key="pengajuans.id">
                         <td>{{ pengajuans.id }}</td>
-                        <td>{{ pengajuans.Memo }}</td>
-                        <td>{{ pengajuans.NIK }}</td>
-                        <td>{{ pengajuans.Nama }}</td>
-                        <td>{{ pengajuans.Divisi }}</td>
-                        <td>{{ pengajuans.Tanggal }}</td>
-                        <td>{{ pengajuans.Status }}</td>
+                        <td><input type="text" v-model="pengajuans.Memo" /></td>
+                        <td><input type="text" v-model="pengajuans.NIK" /></td>
+                        <td><input type="text" v-model="pengajuans.Nama" /></td>
+                        <td><input type="text" v-model="pengajuans.Divisi" /></td>
+                        <td><input type="text" v-model="pengajuans.Tanggal" /></td>
+                        <td><input type="text" v-model="pengajuans.Status" /></td>
                         <td class="d-flex justify-content-center">
-                            <a href="#" class="btn btn-warning btn-circle mr-1">
+                            <a v-on:click="PutApi(pengajuans.id, pengajuans.Memo, pengajuans.NIK, pengajuans.Nama, pengajuans.Divisi, pengajuans.Tanggal, pengajuans.Status)" href="#" class="btn btn-warning btn-circle mr-1">
                                 <i class="fas fa-pen"></i>
                             </a>
                             <a v-on:click="DeleteApi(pengajuans.id)" href="#" class="btn btn-danger btn-circle">
@@ -405,6 +405,24 @@ export default {
         async DeleteApi(id) {
             await axios
                 .delete(baseUrl + id)
+                .then((resp) => {
+                    console.log(resp);
+                    this.GetApi();
+                })
+                .catch((err) => {
+                    console.log(err);
+                });
+        },
+        async PutApi(id, Memo, NIK, Nama, Divisi, Tanggal, Status) {
+            await axios
+                .put(baseUrl + id, {
+                    Memo: Memo,
+                    NIK: NIK,
+                    Nama: Nama,
+                    Divisi: Divisi,
+                    Tanggal: Tanggal,
+                    Status: Status,
+                })
                 .then((resp) => {
                     console.log(resp);
                     this.GetApi();
