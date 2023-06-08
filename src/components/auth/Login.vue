@@ -99,7 +99,7 @@ export default defineComponent({
         const response = await login(this.email, this.password);
         // Tanggapi respons sukses dari API
         // simpan token di LocalStorage dan arahkan ke dashboard admin divisi
-        localStorage.setItem("token", response.token);
+        // localStorage.setItem("token", response.token);
         this.$router.push("/homediv");
       } catch (error) {
         // Tanggapi kesalahan dari API
