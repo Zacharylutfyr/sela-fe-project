@@ -10,7 +10,7 @@
   
 <script>
 import Sidenav from '../../components/includes/Sidenav.vue'
-import Formpengajuandiv from '../../components/pages/Formpengajuandiv.vue'
+import Formpengajuandiv from '../../components/pages/form_pengajuan_div.vue'
 import Footer from '../../components/includes/Footer.vue'
 
 export default {
