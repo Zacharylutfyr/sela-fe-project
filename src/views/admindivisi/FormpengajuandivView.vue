@@ -8,7 +8,7 @@
     </div>
 </template>
 
-<script>
+<script lang="js">
 import Sidenav from '../../components/includes/Sidenav.vue'
 import Formpengajuandiv from '../../components/pages/Formpengajuandiv.vue'
 import Footer from '../../components/includes/Footer.vue'

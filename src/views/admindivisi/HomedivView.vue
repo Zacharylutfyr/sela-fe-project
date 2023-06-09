@@ -8,7 +8,7 @@
   </div>
 </template>
 
-<script>
+<script lang="js">
 import Sidenav from '../../components/includes/Sidenav.vue'
 import Homediv from '../../components/pages/Homediv.vue'
 import Footer from '../../components/includes/Footer.vue'
@@ -16,7 +16,7 @@ import Footer from '../../components/includes/Footer.vue'
 export default {
   name: "HomedivView",
   components: {
-    Sidenav, Homediv, Footer,
+    Sidenav, Homediv, Footer
     // Footer belum
   },
 };
