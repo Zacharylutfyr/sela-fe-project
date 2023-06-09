@@ -1,10 +1,24 @@
-import axios, { AxiosResponse } from 'axios';
+import axios, { AxiosResponse } from "axios";
 
-export async function login(email: string, password: string): Promise<AxiosResponse<any>> {
+// Set the base URL for your API
+axios.defaults.baseURL = "http://localhost:8080/api/v1"; // Replace with your API server URL
+
+// Enable CORS by including the necessary headers
+axios.defaults.headers.common["Access-Control-Allow-Origin"] = "*";
+axios.defaults.headers.common["Access-Control-Allow-Methods"] =
+  "GET, POST, PUT, DELETE";
+axios.defaults.headers.common["Access-Control-Allow-Headers"] =
+  "Origin, Accept, Content-Type";
+
+export async function loginApi(
+  userEmail: string,
+  password: string
+): Promise<AxiosResponse<any>> {
   try {
-    const response = await axios.post('http://localhost:8080/api/v1/login/save', { email, password });
+    const response = await axios.post('localhost:8080/api/v1/login/save', { email, password });
     return response.data;
   } catch (error) {
+    console.log(error);
     throw error;
   }
 }
