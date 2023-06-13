@@ -9,7 +9,7 @@
 </template>
 
 <script>
-import Sidenav from '../../components/includes/Sidenav.vue'
+import Sidenav from '../../components/includes/Side_nav.vue'
 import Homediv from '../../components/pages/Homediv.vue'
 import Footer from '../../components/includes/Footer.vue'
 
