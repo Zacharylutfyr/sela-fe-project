@@ -1,5 +1,6 @@
 <template lang="">
-  
+  <div class="sidenavcakep">
+
   <div id="page-top">
     <!-- Sidebar -->
     <ul class="navbar-nav bg-gradient-success sidebar sidebar-dark accordion" id="accordionSidebar">
@@ -55,15 +56,17 @@
 
 <!-- Nav Item - Dashboard -->
 <li class="nav-item active">
-    <a class="nav-link" href="index_.html">
+    <router-link class="nav-link" to="/homediv" >
         <i class="fas fa-home"></i>
-        <span>Dashboard</span></a>
+        <span>Dashboard</span>
+    </router-link>
 </li>
 <!-- Nav Item - Dashboard -->
 <li class="nav-item">
-    <a class="nav-link" href="formpengajuan.html">
+    <router-link class="nav-link" to="/formpengajuandiv" >
         <i class="fas fa-paper-plane"></i>
-        <span>Form Pengajuan</span></a>
+        <span>Form Pengajuan</span>
+    </router-link>
 </li>
 <!-- Nav Item - Dashboard -->
 <li class="nav-item">
@@ -178,6 +181,8 @@
 </ul>
     <!-- End of Sidebar -->
   </div>
+</div>
+
 </template>
 <script lang="ts">
 export default {
@@ -185,9 +190,12 @@ export default {
 }
 </script>
 <style lang="css">
-.marbot{
+.marbot {
     margin-bottom: 290px;
 }
+/* .sidenavcakep {
+    width: min-content;
+} */
 </style>
 
 

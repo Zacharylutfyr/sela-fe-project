@@ -15,7 +15,7 @@
             <div class="form-group">
               <input
                 type="email"
-                v-model="email"
+                v-model="userEmail"
                 class="input form-control form-control-user"
                 id="exampleInputEmail"
                 aria-describedby="emailHelp"
@@ -63,7 +63,6 @@
               >
                 Login
               </button>
-              <p>{{ data }}</p>
             </div>
             <hr />
 
@@ -99,8 +98,10 @@ export default defineComponent({
         const response = await loginApi(this.userEmail, this.password);
         // Tanggapi respons sukses dari API
         // simpan token di LocalStorage dan arahkan ke dashboard admin divisi
-        // localStorage.setItem("token", response.token);
-        this.$router.push("/homediv");
+        if (response.data != null) {
+          localStorage.setItem("token", response.data);
+          this.$router.push("/formpengajuandiv");
+        }
       } catch (error) {
         // Tanggapi kesalahan dari API
         console.error(error);

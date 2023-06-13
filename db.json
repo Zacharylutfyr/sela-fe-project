@@ -1,21 +1,12 @@
 {
   "pengajuan": [
     {
-      "Memo": "007",
-      "NIK": "14045",
-      "Nama": "Mamang",
-      "Divisi": "pasti sela",
-      "Tanggal": "17 Aug 1945",
-      "Status": "Pending",
-      "id": 1
-    },
-    {
-      "Memo": "007",
-      "NIK": "14045",
-      "Nama": "Saya Orang pertama",
-      "Divisi": "pasti sela",
-      "Tanggal": "17 Aug 1945",
-      "Status": "Pending",
+      "Memo": "010",
+      "NIK": "14000",
+      "Nama": "Saya yang kedua",
+      "Divisi": "Sajadeh",
+      "Tanggal": "17 Jul 1999",
+      "Status": "boongan",
       "id": 2
     },
     {
@@ -37,39 +28,22 @@
       "Status": "Diajukan"
     },
     {
-      "id": 5,
-      "Memo": "043",
-      "NIK": "P98352",
-      "Nama": "Marcel",
-      "Divisi": "PASTI",
-      "Tanggal": "07 Juni 2023",
-      "Status": "Diajukan"
-    }
-  ],
-  "stokmanajemen": [
-    {
-      "id": 1,
-      "Merk": "ASUS",
-      "Spek": "RAM 16GB Triple White",
-      "Stok": "10"
+      "Memo": "077",
+      "NIK": "12345",
+      "Nama": "Saya orang baru bgt",
+      "Divisi": "asli",
+      "Tanggal": "12 Feb 2018",
+      "Status": "Valid? yoi",
+      "id": 7
     },
     {
-      "id": 2,
-      "Merk": "Apple",
-      "Spek": "Macbook Pro, RAM 16GB Metalic Tiger",
-      "Stok": "25"
-    },
-    {
-      "id": 3,
-      "Merk": "Lenovo",
-      "Spek": "Ideapad Slim 3, RAM 8GB Dark Grey",
-      "Stok": "15"
-    },
-    {
-      "id": 4,
-      "Merk": "ASUS",
-      "Spek": "Republic of Gaming, RAM 16GB Bombastic Red",
-      "Stok": "25"
+      "Memo": "000",
+      "NIK": "12345",
+      "Nama": "Halo",
+      "Divisi": "Saya divisi gtw",
+      "Tanggal": "12 Dec 1978",
+      "Status": "Baru ae",
+      "id": 8
     }
   ]
 }
