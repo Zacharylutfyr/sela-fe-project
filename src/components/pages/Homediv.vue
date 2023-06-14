@@ -265,21 +265,19 @@
                     <thead>
                       <tr class="bg-gray-100 text-dark">
                         <th>No</th>
-                        <th>Memo</th>
-                        <th>NIK</th>
-                        <th>Nama</th>
-                        <th>Divisi</th>
+                        <th>ID User</th>
+                        <th>ID Karyawan</th>
+                        <th>No Memo</th>
                         <th>Tanggal</th>
                         <th>Status</th>
                       </tr>
-                      <tr v-for="pengajuans of pengajuan" v-bind:key="pengajuans.id">
-                        <td>{{ pengajuans.No }}</td>
-                        <td>{{ pengajuans.Memo }}</td>
-                        <td>{{ pengajuans.NIK }}</td>
-                        <td>{{ pengajuans.Nama }}</td>
-                        <td>{{ pengajuans.Divisi }}</td>
-                        <td>{{ pengajuans.Tanggal }}</td>
-                        <td>{{ pengajuans.Status }}</td>
+                      <tr v-for="(data,index) in pengajuan.data" v-bind:key="index">
+                        <td>{{ data.pengajuanId }}</td>
+                        <td>{{ data.userId }}</td>
+                        <td>{{ data.karyawanId }}</td>
+                        <td>{{ data.noMemo }}</td>
+                        <td>{{ data.tglPengajuan }}</td>
+                        <td>{{ data.status }}</td>
                       </tr>
                     </thead>
                   </table>
@@ -333,30 +331,27 @@
 </template>
 
 <script>
-import axios from "axios"
-const baseUrl = "http://localhost:3000/pengajuan/";
+import { getPengajuan } from "@/api";
+
 export default {
-  name: 'Homediv',
+  name: "Homepengajuandiv",
   data() {
     return {
       pengajuan: []
-    }
+    };
   },
   methods: {
-    async GetApi() {
-      await axios
-        .get(baseUrl)
-        .then((resp) => {
-          this.pengajuan = resp.data;
-        })
-        .catch((err) => {
-          console.log(err);
-        });
+    async getPengajuanApi() {
+      try {
+          const token = localStorage.getItem("token");
+          this.pengajuan = await getPengajuan(token);
+        } catch (error) {
+            console.error(error);
+        }
     },
-  },
-  mounted() {
-    this.GetApi();
+    mounted() {
+      this.getPengajuanApi();
+    },
   }
 }
-
 </script>

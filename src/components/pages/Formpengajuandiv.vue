@@ -309,7 +309,7 @@
                     <div class="row">
                         <div class="col-xl-6 col-md-6 mb-1">
                             <div class="mb-3">
-                                <label for="formGroupExampleInput" class="form-label">userId</label>
+                                <label for="formGroupExampleInput" class="form-label">User ID</label>
                                 <input type="text" v-model="userId" class="form-control" id="formGroupExampleInput"
                                     placeholder="User ID">
                             </div>
@@ -344,14 +344,7 @@
                         </div>
                         <div class="col-xl-12 col-md-12 mb-1">
                             <div class="my-2 float-right">
-                                <!-- <button
-                                type="button"
-                                value="save"
-                                class="btn btn-success button mt-4"
-                                @click=putPengajuan>
-                                    Tambah Data
-                                </button> -->
-                                <a href="#"  class="btn btn-success btn-icon-split" @click=putPengajuanApi>
+                                <a href="#" class="btn btn-success btn-icon-split" @click=postPengajuanApi>
                                     <span class="icon text-white-50">
                                         <i class="fas fa-check"></i>
                                     </span>
@@ -383,17 +376,17 @@
                         <th>Aksi</th>
                       </tr>
                       <tr v-for="(data,index) in pengajuan.data" v-bind:key="index">
-                        <td>{{ data.pengajuanId }}</td>
-                        <td>{{ data.userId }}</td>
-                        <td>{{ data.karyawanId }}</td>
-                        <td>{{ data.noMemo }}</td>
-                        <td>{{ data.tglPengajuan }}</td>
-                        <td>{{ data.status }}</td>
-                        <td class="d-flex justify-content-center">
-                            <a v-on:click="PutApi(pengajuans.id, pengajuans.Memo, pengajuans.NIK, pengajuans.Nama, pengajuans.Divisi, pengajuans.Tanggal, pengajuans.Status)" href="#" class="btn btn-warning btn-circle mr-1">
+                        <td>{{data.pengajuanId}}</td>
+                        <td><input class="form-control" type="text" v-model="data.userId"></td>
+                        <td><input class="form-control" type="text" v-model="data.karyawanId"></td>
+                        <td><input class="form-control" type="text" v-model="data.noMemo"></td>
+                        <td>>{{data.tglPengajuan}}</td>
+                        <td><input class="form-control" type="text" v-model="data.status"></td>
+                        <td class="justify-content-center align-content-center">
+                            <a @click=updatePengajuanApi href="#" class="btn btn-warning btn-circle mr-1">
                                 <i class="fas fa-pen"></i>
                             </a>
-                            <a v-on:click="DeleteApi(pengajuans.id)" href="#" class="btn btn-danger btn-circle">
+                            <a @click="() => deletePengajuanApi(data.pengajuanId)" href="#" class="btn btn-danger btn-circle">
                                 <i class="fas fa-trash"></i>
                             </a>
                         </td>
@@ -417,10 +410,8 @@
 <!-- End of Content Wrapper -->
 </template>
 <script lang="js">
-// const baseUrl = "http://localhost:8080/api/v1/pengajuan/get_all";
 import { loginApi } from "@/api";
-import { getPengajuan, putPengajuan } from "@/api";
-
+import { getPengajuan, postPengajuan, updatePengajuan, deletePengajuan } from "@/api";
 
 export default {
   name: "Formpengajuandiv",
@@ -430,6 +421,7 @@ export default {
     };
   },
   methods: {
+    // tampilkan data tabel
     async getPengajuanApi() {
       try {
           const token = localStorage.getItem("token");
@@ -438,34 +430,38 @@ export default {
             console.error(error);
         }
     },
-    async putPengajuanApi() {
+    // tambah data tabel
+    async postPengajuanApi() {
         console.log("Satu data Pengajuan sewa laptop berhasil ditambah!")
         try {
           const token = localStorage.getItem("token");
-          this.pengajuan = await putPengajuan(token, this.userId, this.karyawanId, this.noMemo, this.tglPengajuan, this.status);
+          this.pengajuan = await postPengajuan(token, this.userId, this.karyawanId, this.noMemo, this.tglPengajuan, this.status);
       } catch (error) {
         console.error(error);
       }
     },
-    //     async PostApi() {
-    //         await axios
-    //             .post(baseUrl, {
-    //                 Memo: this.Memois,
-    //                 NIK: this.NIKis,
-    //                 Nama: this.Namais,
-    //                 Divisi: this.Divisiis,
-    //                 Tanggal: this.Tanggalis,
-    //                 Status: this.Statusis,
-    //             })
-    //             .then((resp) => {
-    //                 console.log(resp);
-    //                 this.Namais = '',
-    //                     this.GetApi();
-    //             })
-    //             .catch((err) => {
-    //                 console.log(err);
-    //             });
-    //     },
+    //   update data tabel
+    async updatePengajuanApi() {
+        console.log("Data Pengajuan sewa laptop berhasil diubah!")
+        try {
+            const token = localStorage.getItem("token");
+            this.pengajuan = await updatePengajuan(token, this.pengajuanId, this.userId, this.karyawanId, this.noMemo, this.tglPengajuan, this.status);
+        } catch (error) {
+            console.error(error);
+        }
+    },
+
+    // delete data tabel
+    async deletePengajuanApi() {
+      try {
+        const token = localStorage.getItem("token");
+        await deletePengajuan(token, pengajuanId);
+        console.log("Pengajuan successfully deleted!");
+        // Add logic to update the list of pengajuan or perform any other necessary actions
+      } catch (error) {
+        console.error(error);
+      }
+    },
   },
   mounted() {
     this.getPengajuanApi();
