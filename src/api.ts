@@ -41,7 +41,7 @@ export async function postPengajuan(token: string, userId: BigInteger, karyawanI
 export async function updatePengajuan(token: string, pengajuanId: BigInteger, userId: BigInteger, karyawanId: BigInteger, noMemo: string, tglPengajuan: string, status: string): Promise<AxiosResponse<any>> {
   axios.defaults.headers.common['Authorization'] = 'Bearer ' + token;
   try {
-    const response = await axios.put(`/pengajuan/save`, { token, userId, karyawanId, noMemo, tglPengajuan, status });
+    const response = await axios.post(`/pengajuan/save`, { token, pengajuanId, userId, karyawanId, noMemo, tglPengajuan, status });
     return response.data;
   } catch (error) {
     console.log(error);
@@ -50,11 +50,11 @@ export async function updatePengajuan(token: string, pengajuanId: BigInteger, us
 }
 
 // Delete Data Pengajuan
-export async function deletePengajuan(token: string, pengajuanId: number): Promise<AxiosResponse<any>> {
+export async function deletePengajuan(token: string, pengajuanId: BigInteger): Promise<AxiosResponse<any>> {
   axios.defaults.headers.common['Authorization'] = 'Bearer ' + token;
   try {
     const response = await axios.delete(`/pengajuan/delete/${pengajuanId}`);
-    return response.data;
+    return response.data; 
   } catch (error) {
     console.log(error);
     throw error;

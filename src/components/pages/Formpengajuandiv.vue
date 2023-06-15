@@ -440,6 +440,7 @@ export default {
         console.error(error);
       }
     },
+    
     //   update data tabel
     async updatePengajuanApi() {
         console.log("Data Pengajuan sewa laptop berhasil diubah!")
