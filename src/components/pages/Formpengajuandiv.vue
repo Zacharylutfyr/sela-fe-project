@@ -414,59 +414,59 @@ import { loginApi } from "@/api";
 import { getPengajuan, postPengajuan, updatePengajuan, deletePengajuan } from "@/api";
 
 export default {
-  name: "Formpengajuandiv",
-  data() {
-    return {
-      pengajuan: []
-    };
-  },
-  methods: {
-    // tampilkan data tabel
-    async getPengajuanApi() {
-      try {
-          const token = localStorage.getItem("token");
-          this.pengajuan = await getPengajuan(token);
-        } catch (error) {
-            console.error(error);
-        }
+    name: "Formpengajuandiv",
+    data() {
+        return {
+            pengajuan: []
+        };
     },
-    // tambah data tabel
-    async postPengajuanApi() {
-        console.log("Satu data Pengajuan sewa laptop berhasil ditambah!")
-        try {
-          const token = localStorage.getItem("token");
-          this.pengajuan = await postPengajuan(token, this.userId, this.karyawanId, this.noMemo, this.tglPengajuan, this.status);
-      } catch (error) {
-        console.error(error);
-      }
-    },
-    
-    //   update data tabel
-    async updatePengajuanApi() {
-        console.log("Data Pengajuan sewa laptop berhasil diubah!")
-        try {
-            const token = localStorage.getItem("token");
-            this.pengajuan = await updatePengajuan(token, this.pengajuanId, this.userId, this.karyawanId, this.noMemo, this.tglPengajuan, this.status);
-        } catch (error) {
-            console.error(error);
-        }
-    },
+    methods: {
+        // tampilkan data tabel
+        async getPengajuanApi() {
+            try {
+                const token = localStorage.getItem("token");
+                this.pengajuan = await getPengajuan(token);
+            } catch (error) {
+                console.error(error);
+            }
+        },
+        // tambah data tabel
+        async postPengajuanApi() {
+            console.log("Satu data Pengajuan sewa laptop berhasil ditambah!")
+            try {
+                const token = localStorage.getItem("token");
+                this.pengajuan = await postPengajuan(token, this.userId, this.karyawanId, this.noMemo, this.tglPengajuan, this.status);
+            } catch (error) {
+                console.error(error);
+            }
+        },
 
-    // delete data tabel
-    async deletePengajuanApi() {
-      try {
-        const token = localStorage.getItem("token");
-        await deletePengajuan(token, pengajuanId);
-        console.log("Pengajuan successfully deleted!");
-        // Add logic to update the list of pengajuan or perform any other necessary actions
-      } catch (error) {
-        console.error(error);
-      }
+        //   update data tabel
+        async updatePengajuanApi() {
+            console.log("Data Pengajuan sewa laptop berhasil diubah!")
+            try {
+                const token = localStorage.getItem("token");
+                this.pengajuan = await updatePengajuan(token, this.pengajuanId, this.userId, this.karyawanId, this.noMemo, this.tglPengajuan, this.status);
+            } catch (error) {
+                console.error(error);
+            }
+        },
+
+        // delete data tabel
+        async deletePengajuanApi() {
+            try {
+                const token = localStorage.getItem("token");
+                await deletePengajuan(token, pengajuanId);
+                console.log("Pengajuan successfully deleted!");
+                // Add logic to update the list of pengajuan or perform any other necessary actions
+            } catch (error) {
+                console.error(error);
+            }
+        },
     },
-  },
-  mounted() {
-    this.getPengajuanApi();
-  },
+    mounted() {
+        this.getPengajuanApi();
+    },
 };
 
 // CRUD Dummy Data
