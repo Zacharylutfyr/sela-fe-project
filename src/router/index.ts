@@ -5,6 +5,9 @@ import ForgotPassword from "@/components/auth/ForgotPassword.vue";
 import NotFound from "@/components/pages/NotFound.vue";
 import Homediv from "@/views/admindivisi/HomedivView.vue";
 import Formpengajuandiv from "@/views/admindivisi/FormpengajuandivView.vue";
+import Form_device_view from "@/views/admin_mat/Form_device_view.vue";
+import Form_spek_view from "@/views/admin_mat/Form_spek_view.vue";
+import Homemat from "@/views/admin_mat/Home_mat_view.vue";
 
 const routes: Array<RouteRecordRaw> = [
   {
@@ -28,9 +31,24 @@ const routes: Array<RouteRecordRaw> = [
     component: Homediv,
   },
   {
+    path: "/homemat",
+    name: "HomematView",
+    component: Homemat,
+  },
+  {
     path: "/formpengajuandiv",
     name: "FormpengajuandivView",
     component: Formpengajuandiv,
+  },
+  {
+    path: "/formdevicemat",
+    name: "formdevicematView",
+    component: Form_device_view,
+  },
+  {
+    path: "/formspekmat",
+    name: "formspekView",
+    component: Form_spek_view,
   },
   {
     path: "/:catchAll(.*)",

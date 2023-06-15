@@ -2,21 +2,21 @@
     <div class="d-flex">
         <Sidenav />
         <div class="main-content">
-            <Formpengajuandiv />
-            <Footer />
+            <Formspekmat />
+            <!-- <Footer /> -->
         </div>
     </div>
 </template>
 
 <script lang="js">
 import Sidenav from '../../components/includes/Side_nav.vue'
-import Formpengajuandiv from '../../components/pages/Formpengajuandiv.vue'
+import Formspekmat from '../../components/pages/Form_spek.vue'
 import Footer from '../../components/includes/Footer.vue'
 
 export default {
-    name: "FormpengajuandivView",
+    name: "Form_spek_view",
     components: {
-        Sidenav, Formpengajuandiv, Footer
+        Sidenav, Formspekmat, Footer
     },
 };
 </script>
