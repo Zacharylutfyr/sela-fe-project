@@ -105,23 +105,26 @@ import router from '../../router'
 export default {
     name: "Sidenav",
     methods: {
-    isActive(route: string) {
-      const currentRoute = useRoute();
-      return currentRoute.path === route || currentRoute.path === route + '/';
-    },
-  }
+        isActive(route: string) {
+            const currentRoute = useRoute();
+            return currentRoute.path === route || currentRoute.path === route + '/';
+        },
+    }
 }
 </script>
 <style lang="css" scoped>
 .marbot {
     margin-bottom: 890px;
 }
-a.active,a.i {
+
+a.active,
+a.i {
     font-weight: 500;
     color: white;
-    background-color: black;
-    opacity: 0.6;
+    background-color: #023C40;
+    opacity: 0.8;
 }
+
 /* .sidenavcakep {
     width: min-content;
 } */

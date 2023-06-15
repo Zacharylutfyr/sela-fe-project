@@ -271,7 +271,7 @@
                         <th>Tanggal</th>
                         <th>Status</th>
                       </tr>
-                      <tr v-for="(data,index) in pengajuan.data" v-bind:key="index">
+                      <tr v-for="(data, index) in pengajuan.data" v-bind:key="index">
                         <td>{{ data.pengajuanId }}</td>
                         <td>{{ data.userId }}</td>
                         <td>{{ data.karyawanId }}</td>
@@ -343,15 +343,15 @@ export default {
   methods: {
     async getPengajuanApi() {
       try {
-          const token = localStorage.getItem("token");
-          this.pengajuan = await getPengajuan(token);
-        } catch (error) {
-            console.error(error);
-        }
+        const token = localStorage.getItem("token");
+        this.pengajuan = await getPengajuan(token);
+      } catch (error) {
+        console.error(error);
+      }
     },
+  },
     mounted() {
       this.getPengajuanApi();
-    },
   }
 }
 </script>
