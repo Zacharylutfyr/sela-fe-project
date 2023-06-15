@@ -386,24 +386,20 @@
                     <th class="w-10px">Aksi</th>
                   </tr>
                 </thead>
-                <!-- <tr
-                    v-for="(data, index) in pengajuan.data"
-                    v-bind:key="index"
-                  > -->
                 <tbody>
-                  <tr>
-                    <td>1</td>
-                    <td>Macbook</td>
+                  <tr v-for="(data, index) in device.data" v-bind:key="index">
+                    <td>{{ data.deviceId }}</td>
+                    <td>{{ data.deviceName }}</td>
                     <td class="d-flex justify-content-center">
                       <a
-                        v-on:click="PutApi()"
+                        v-on:click=""
                         href="#"
                         class="btn btn-warning btn-circle mr-1"
                       >
                         <i class="fas fa-pen"></i>
                       </a>
                       <a
-                        v-on:click="DeleteApi(pengajuans.id)"
+                        v-on:click=""
                         href="#"
                         class="btn btn-danger btn-circle"
                       >
@@ -428,56 +424,28 @@
 <script lang="js">
 // const baseUrl = "http://localhost:8080/api/v1/pengajuan/get_all";
 import { loginApi } from "@/api";
-import { getPengajuan, putPengajuan } from "@/api";
+import { getDevice } from "@/api";
 
 
 export default {
   name: "Form_device",
   data() {
     return {
-      pengajuan: []
+      device: []
     };
   },
   methods: {
-    async getPengajuanApi() {
+    async getDeviceApi() {
       try {
           const token = localStorage.getItem("token");
-          this.pengajuan = await getPengajuan(token);
+          this.device = await getDevice(token);
         } catch (error) {
             console.error(error);
         }
     },
-    async putPengajuanApi() {
-        console.log("Satu data Pengajuan sewa laptop berhasil ditambah!")
-        try {
-          const token = localStorage.getItem("token");
-          this.pengajuan = await putPengajuan(token, this.userId, this.karyawanId, this.noMemo, this.tglPengajuan, this.status);
-      } catch (error) {
-        console.error(error);
-      }
-    },
-    //     async PostApi() {
-    //         await axios
-    //             .post(baseUrl, {
-    //                 Memo: this.Memois,
-    //                 NIK: this.NIKis,
-    //                 Nama: this.Namais,
-    //                 Divisi: this.Divisiis,
-    //                 Tanggal: this.Tanggalis,
-    //                 Status: this.Statusis,
-    //             })
-    //             .then((resp) => {
-    //                 console.log(resp);
-    //                 this.Namais = '',
-    //                     this.GetApi();
-    //             })
-    //             .catch((err) => {
-    //                 console.log(err);
-    //             });
-    //     },
   },
   mounted() {
-    this.getPengajuanApi();
+    this.getDeviceApi();
   },
 };
 

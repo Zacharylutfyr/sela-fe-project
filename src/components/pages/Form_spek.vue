@@ -293,7 +293,7 @@
       <div class="container-fluid">
         <!-- Page Heading -->
         <div class="d-sm-flex align-items-center justify-content-between mb-4">
-          <h1 class="h3 mb-0 text-gray-800">Spesification</h1>
+          <h1 class="h3 mb-0 text-gray-800">Specification</h1>
         </div>
 
         <!-- Button Add
@@ -414,6 +414,10 @@
                   <tr class="bg-gray-100 text-dark">
                     <th>No</th>
                     <th>Device</th>
+                    <th>RAM</th>
+                    <th>GPU</th>
+                    <th>CPU</th>
+                    <th>Storage</th>
                     <th class="w-10px">Aksi</th>
                   </tr>
                 </thead>
@@ -422,19 +426,23 @@
                     v-bind:key="index"
                   > -->
                 <tbody>
-                  <tr>
-                    <td>1</td>
-                    <td>Macbook</td>
+                  <tr v-for="(data, index) in spek.data" v-bind:key="index">
+                    <td>{{ data.spek_id }}</td>
+                    <td>{{ data.device_id }}</td>
+                    <td>{{ data.storage }}</td>
+                    <td>{{ data.processor }}</td>
+                    <td>{{ data.ram }}</td>
+                    <td>{{ data.graphic_card }}</td>
                     <td class="d-flex justify-content-center">
                       <a
-                        v-on:click="PutApi()"
+                        v-on:click=""
                         href="#"
                         class="btn btn-warning btn-circle mr-1"
                       >
                         <i class="fas fa-pen"></i>
                       </a>
                       <a
-                        v-on:click="DeleteApi(pengajuans.id)"
+                        v-on:click=""
                         href="#"
                         class="btn btn-danger btn-circle"
                       >
@@ -457,8 +465,28 @@
   <!-- End of Content Wrapper -->
 </template>
 
-<script>
+<script lang="js">
+import { loginApi } from "@/api";
+import { getSpek } from "@/api";
 export default {
   name: "Form_spek",
+    data() {
+    return {
+      spek: []
+    };
+  },
+  methods: {
+    async getSpekApi() {
+      try {
+          const token = localStorage.getItem("token");
+          this.spek = await getSpek(token);
+        } catch (error) {
+            console.error(error);
+        }
+    },
+  },
+  mounted() {
+    this.getSpekApi();
+  }
 };
 </script>

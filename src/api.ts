@@ -61,6 +61,19 @@ export async function deletePengajuan(token: string, pengajuanId: BigInteger): P
   }
 }
 
+// Read Data Device
+export async function getDevice(token: String): Promise<AxiosResponse<any>> {
+  axios.defaults.headers.common['Authorization'] = 'Bearer ' + token;
+  const response = await axios.get('/device/get_all');
+  return response.data;
+}
+
+// Read Data Spek
+export async function getSpek(token: String): Promise<AxiosResponse<any>> {
+  axios.defaults.headers.common['Authorization'] = 'Bearer ' + token;
+  const response = await axios.get('/spesification/get_all');
+  return response.data;
+}
 // export async function formpengajuancrud(): Promise<void> {
 
 // }
