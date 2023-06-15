@@ -55,7 +55,13 @@ h1 {
 
 .login,
 .forgot-password {
-  background-color: #42ba96;
+  background: linear-gradient(145deg, #47c7a1, #3ba787);
+}
+
+.kotak{
+  display: flex;
+  box-shadow: 23px 23px 35px #379c7e,
+             -23px -23px 35px #4dd8ae;
 }
 
 .login .container .login-box,
