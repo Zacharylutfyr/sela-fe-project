@@ -145,14 +145,14 @@ import { useRoute } from "vue-router";
 import router from "../../router";
 
 export default {
-  name: "Sidenav",
+  name: "Side_nav",
   methods: {
     isActive(route: string) {
       const currentRoute = useRoute();
       return currentRoute.path === route || currentRoute.path === route + '/';
     },
-  }
-}
+  },
+};
 </script>
 <style lang="css" scoped>
 .sidenavcakep {
