@@ -4,7 +4,7 @@
 </template>
   
 <script>
-import SideNav from '../../components/includes/Side_nav.vue'
+import SideNav from '../../components/includes/Sidenav.vue'
 import Footer from '../../components/includes/Footer.vue'
 
 export default {
