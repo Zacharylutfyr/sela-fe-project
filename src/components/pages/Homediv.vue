@@ -378,14 +378,7 @@
                         <th>Tanggal</th>
                         <th>Status</th>
                       </tr>
-<<<<<<< HEAD
                       <tr v-for="(data, index) in pengajuan.data" v-bind:key="index">
-=======
-                      <tr
-                        v-for="(data, index) in pengajuan.data"
-                        v-bind:key="index"
-                      >
->>>>>>> 9dfc4e6f7510f23382c138c0c771dccea32fc405
                         <td>{{ data.pengajuanId }}</td>
                         <td>{{ data.userId }}</td>
                         <td>{{ data.karyawanId }}</td>
@@ -475,15 +468,8 @@ export default {
       }
     },
   },
-<<<<<<< HEAD
-    mounted() {
-      this.getPengajuanApi();
-  }
-}
-=======
   mounted() {
     this.getPengajuanApi();
   },
 };
->>>>>>> 9dfc4e6f7510f23382c138c0c771dccea32fc405
 </script>
