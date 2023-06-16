@@ -3,7 +3,7 @@
     <div id="page-top">
       <!-- Sidebar -->
       <ul
-        class="navbar-nav bg-gradient-success sidebar sidebar-dark accordion"
+        class="navbar-nav bg-success sidebar sidebar-dark accordion"
         id="accordionSidebar"
       >
         <!-- Sidebar - Brand -->
@@ -49,7 +49,7 @@
             class="nav-link"
             :class="{ 'router-link-active': isActive('/stockmanagement') }"
           >
-            <i class="fas fa-laptop"></i>
+          <i class="fas fa-box-open"></i>
             Manajemen Stok
           </router-link>
 
@@ -105,7 +105,7 @@
         <li class="nav-item">
           <router-link
             to="/formpengajuandiv"
-            class="nav-link"
+            class="nav-link collapsed"
             :class="{ 'router-link-active': isActive('/formpengajuandiv') }"
           >
             <i class="fas fa-paper-plane"></i>
@@ -145,49 +145,26 @@ import { useRoute } from "vue-router";
 import router from "../../router";
 
 export default {
-<<<<<<< HEAD:src/components/includes/Sidenav.vue
-    name: "Sidenav",
-    methods: {
-        isActive(route: string) {
-            const currentRoute = useRoute();
-            return currentRoute.path === route || currentRoute.path === route + '/';
-        },
-    }
-}
-=======
-  name: "Side_nav",
+  name: "Sidenav",
   methods: {
     isActive(route: string) {
       const currentRoute = useRoute();
-      return currentRoute.path === route || currentRoute.path === route + "/";
+      return currentRoute.path === route || currentRoute.path === route + '/';
     },
-  },
-};
->>>>>>> 9dfc4e6f7510f23382c138c0c771dccea32fc405:src/components/includes/Side_nav.vue
+  }
+}
 </script>
 <style lang="css" scoped>
-.navbar-nav {
-  height: 100%;
+.sidenavcakep {
+  height: auto;
+  background-color: #1cc88a;
 }
-<<<<<<< HEAD:src/components/includes/Sidenav.vue
 
-a.active,
-a.i {
-    font-weight: 500;
-    color: white;
-    background-color: #023C40;
-    opacity: 0.8;
-=======
 a.active,
 a.i {
   font-weight: 500;
   color: white;
-  background-color: black;
-  opacity: 0.6;
->>>>>>> 9dfc4e6f7510f23382c138c0c771dccea32fc405:src/components/includes/Side_nav.vue
+  background-color: #023C40;
+  opacity: 0.8;
 }
-
-/* .sidenavcakep {
-    width: min-content;
-} */
 </style>

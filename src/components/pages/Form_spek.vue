@@ -427,12 +427,12 @@
                   > -->
                 <tbody>
                   <tr v-for="(data, index) in spek.data" v-bind:key="index">
-                    <td>{{ data.spek_id }}</td>
-                    <td>{{ data.device_id }}</td>
+                    <td>{{ data.spekId }}</td>
+                    <td>{{ data.deviceId }}</td>
                     <td>{{ data.storage }}</td>
                     <td>{{ data.processor }}</td>
                     <td>{{ data.ram }}</td>
-                    <td>{{ data.graphic_card }}</td>
+                    <td>{{ data.graphicCard }}</td>
                     <td class="d-flex justify-content-center">
                       <a
                         v-on:click=""

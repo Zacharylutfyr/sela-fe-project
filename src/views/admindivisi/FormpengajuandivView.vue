@@ -9,7 +9,7 @@
 </template>
 
 <script lang="js">
-import Sidenav from '../../components/includes/Sidenav.vue'
+import Sidenav from '../../components/includes/Side_nav.vue'
 import Formpengajuandiv from '../../components/pages/Formpengajuandiv.vue'
 import Footer from '../../components/includes/Footer.vue'
 
@@ -22,9 +22,8 @@ export default {
 </script>
 
 <style>
-.main-content {
+/* .main-content {
     flex: 1;
-    /* Allow the main content to expand and fill the remaining space */
-}
+} */
 </style>
   
