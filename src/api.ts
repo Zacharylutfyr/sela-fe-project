@@ -68,12 +68,91 @@ export async function getDevice(token: String): Promise<AxiosResponse<any>> {
   return response.data;
 }
 
+// Create Data Device
+export async function postDevice(token: BigInteger, deviceName: string): Promise<AxiosResponse<any>> {
+  axios.defaults.headers.common['Authorization'] = 'Bearer ' + token;
+  try {
+    const response = await axios.post(`/device/save`, { token, deviceName});
+    return response.data;
+  } catch (error) {
+    console.log(error);
+    throw error;
+  }
+}
+
+// Update Data Device
+export async function updateDevice(token: string, deviceId: BigInteger, deviceName: string): Promise<AxiosResponse<any>> {
+  axios.defaults.headers.common['Authorization'] = 'Bearer ' + token;
+  try {
+    const response = await axios.post(`/device/save`, { token, deviceId, deviceName});
+    return response.data;
+  } catch (error) {
+    console.log(error);
+    throw error;
+  }
+}
+
+// Delete Data Device
+export async function deleteDevice(token: string, deviceId: BigInteger): Promise<AxiosResponse<any>> {
+  axios.defaults.headers.common['Authorization'] = 'Bearer ' + token;
+  try {
+    const response = await axios.delete(`/device/delete/${deviceId}`);
+    return response.data; 
+  } catch (error) {
+    console.log(error);
+    throw error;
+  }
+}
+
 // Read Data Spek
 export async function getSpek(token: String): Promise<AxiosResponse<any>> {
   axios.defaults.headers.common['Authorization'] = 'Bearer ' + token;
   const response = await axios.get('/spesification/get_all');
   return response.data;
 }
+
+// Create Data Spek
+export async function postSpek(token: BigInteger, deviceId: string, ram:string, graphic_card:string, processor:string, storage:string ): Promise<AxiosResponse<any>> {
+  axios.defaults.headers.common['Authorization'] = 'Bearer ' + token;
+  try {
+    const response = await axios.post(`/spesification/save`, { token, deviceId, ram, graphic_card, processor, storage });
+    return response.data;
+  } catch (error) {
+    console.log(error);
+    throw error;
+  }
+}
+
+// Update Data Spek
+export async function UpdateSpek(token: BigInteger, spekId: BigInteger, deviceId: BigInteger, ram:string, graphic_card:string, processor:string, storage:string ): Promise<AxiosResponse<any>> {
+  axios.defaults.headers.common['Authorization'] = 'Bearer ' + token;
+  try {
+    const response = await axios.post(`/spesification/save`, { token, spekId, deviceId, ram, graphic_card, processor, storage });
+    return response.data;
+  } catch (error) {
+    console.log(error);
+    throw error;
+  }
+}
+
+
+// Delete Data Spek
+export async function deleteSpek(token: string, SpekId: BigInteger): Promise<AxiosResponse<any>> {
+  axios.defaults.headers.common['Authorization'] = 'Bearer ' + token;
+  try {
+    const response = await axios.delete(`/spesification/delete/${SpekId}`);
+    return response.data; 
+  } catch (error) {
+    console.log(error);
+    throw error;
+  }
+}
+
+
+
+
+
+
 // export async function formpengajuancrud(): Promise<void> {
 
 // }

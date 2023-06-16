@@ -323,6 +323,7 @@
 
         <!-- Tombol untuk menampilkan modal-->
         <button
+          @click="postSpekApi"
           type="button"
           class="btn btn-success btn-md mb-4"
           data-toggle="modal"
@@ -421,28 +422,24 @@
                     <th class="w-10px">Aksi</th>
                   </tr>
                 </thead>
-                <!-- <tr
-                    v-for="(data, index) in pengajuan.data"
-                    v-bind:key="index"
-                  > -->
                 <tbody>
                   <tr v-for="(data, index) in spek.data" v-bind:key="index">
                     <td>{{ data.spek_id }}</td>
                     <td>{{ data.device_id }}</td>
-                    <td>{{ data.storage }}</td>
-                    <td>{{ data.processor }}</td>
                     <td>{{ data.ram }}</td>
                     <td>{{ data.graphic_card }}</td>
+                    <td>{{ data.processor }}</td>
+                    <td>{{ data.storage }}</td>
                     <td class="d-flex justify-content-center">
                       <a
-                        v-on:click=""
+                        @click="updateSpekApi"
                         href="#"
                         class="btn btn-warning btn-circle mr-1"
                       >
                         <i class="fas fa-pen"></i>
                       </a>
                       <a
-                        v-on:click=""
+                        @click="() => deleteSpekApi(data.spekId)"
                         href="#"
                         class="btn btn-danger btn-circle"
                       >
@@ -476,6 +473,7 @@ export default {
     };
   },
   methods: {
+    // tampilkan data tabel
     async getSpekApi() {
       try {
           const token = localStorage.getItem("token");
@@ -484,6 +482,41 @@ export default {
             console.error(error);
         }
     },
+ // tambah data tabel
+        async postSpekApi() {
+            console.log("Satu data Spek laptop berhasil ditambah!")
+            try {
+                const token = localStorage.getItem("token");
+                this.spek = await postSpek(token, this.deviceId, this.ram, this.graphic_card, this.processor, this.storage);
+            } catch (error) {
+                console.error(error);
+            }
+        },
+
+          //   update data tabel
+        async updateSpekApi() {
+            console.log("Data Spek laptop berhasil diubah!")
+            try {
+                const token = localStorage.getItem("token");
+                this.spek = await updateSpek(token, this.spekId, this.deviceId, this.ram, this.graphic_card, this.processor, this.storage);
+            } catch (error) {
+                console.error(error);
+            }
+        },
+
+     // delete data tabel
+        async deleteSpekApi() {
+            try {
+                const token = localStorage.getItem("token");
+                await deleteSpek(token, spekId);
+                console.log("Spek successfully deleted!");
+                // Add logic to update the list of Spek or perform any other necessary actions
+            } catch (error) {
+                console.error(error);
+            }
+        },
+
+
   },
   mounted() {
     this.getSpekApi();

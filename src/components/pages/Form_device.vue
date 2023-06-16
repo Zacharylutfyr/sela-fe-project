@@ -323,6 +323,7 @@
 
         <!-- Tombol untuk menampilkan modal-->
         <button
+        @click=postDeviceApi
           type="button"
           class="btn btn-success btn-md mb-4"
           data-toggle="modal"
@@ -392,14 +393,14 @@
                     <td>{{ data.deviceName }}</td>
                     <td class="d-flex justify-content-center">
                       <a
-                        v-on:click=""
+                        @click="updateDeviceApi"
                         href="#"
                         class="btn btn-warning btn-circle mr-1"
                       >
                         <i class="fas fa-pen"></i>
                       </a>
                       <a
-                        v-on:click=""
+                        @click="() => deleteDeviceApi(data.deviceId)"
                         href="#"
                         class="btn btn-danger btn-circle"
                       >
@@ -435,6 +436,7 @@ export default {
     };
   },
   methods: {
+    // tampilkan data tabel
     async getDeviceApi() {
       try {
           const token = localStorage.getItem("token");
@@ -444,6 +446,40 @@ export default {
         }
     },
   },
+
+ // tambah data tabel
+        async postDeviceApi() {
+            console.log("Satu data Device laptop berhasil ditambah!")
+            try {
+                const token = localStorage.getItem("token");
+                this.device = await postDevice(token, this.deviceName);
+            } catch (error) {
+                console.error(error);
+            }
+        },
+
+        //   update data tabel
+        async updateDeviceApi() {
+            console.log("Data Device laptop berhasil diubah!")
+            try {
+                const token = localStorage.getItem("token");
+                this.device = await updateDevice(token, this.deviceId);
+            } catch (error) {
+                console.error(error);
+            }
+        },
+               // delete data tabel
+        async deleteDeviceApi() {
+            try {
+                const token = localStorage.getItem("token");
+                await deleteDevice(token, deviceId);
+                console.log("Device successfully deleted!");
+                // Add logic to update the list of device or perform any other necessary actions
+            } catch (error) {
+                console.error(error);
+            }
+        },
+
   mounted() {
     this.getDeviceApi();
   },
