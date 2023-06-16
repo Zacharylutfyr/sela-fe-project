@@ -382,79 +382,7 @@
             </div>
         </div> -->
 
-        <!-- Form pengajuan final rest API -->
-        
-        <div class="card shadow mb-4 border-left-success">
-                        <div class="card-header py-3">
-                            <h6 class="m-0 font-weight-bold">Form Pengajuan Sewa Laptop</h6>
-                        </div>
-                        <div class="card-body">
-                            <div class="row">
-                                <div class="col-xl-12 col-md-12 mb-1">
-                                    <div class="mb-3">
-                                        <label for="formGroupExampleInput" class="form-label">Nomor
-                                            Memo</label>
-                                        <input type="text" class="form-control" id="formGroupExampleInput"
-                                            placeholder="No. Memo Pengaju">
-                                    </div>
-                                </div>
-                                <div class="col-xl-12 col-md-12 mb-1">
-                                    <div class="mb-3">
-                                        <label for="exampleFormControlSelect1">Device</label>
-                                        <select class="form-control" id="exampleFormControlSelect1">
-                                            <option>Select Device...</option>
-                                            <option>Macbook</option>
-                                            <option>Notebook</option>
-                                        </select>
-                                    </div>
-                                </div>
-                                <div class="col-xl-12 col-md-12 mb-1">
-                                    <div class="mb-3">
-                                        <label for="exampleFormControlSelect1">Spek</label>
-                                        <select class="form-control" id="exampleFormControlSelect1">
-                                            <option>Select Specification...</option>
-                                            <option>RAM 32GB, Storage 2TB, CPU 48-core, GPU 24-core</option>
-                                            <option>RAM 8GB, Storage 1TB, CPU 12-core</option>
-                                            <option>RAM 16GB, Storage 2TB, CPU 12-core, GPU 38-core</option>
-                                            <option>RAM 8GB, Storage 1TB, CPU 12-core, GPU-12core</option>
-                                        </select>
-                                    </div>
-                                </div>
-                                <div class="col-xl-12 col-md-12 mb-1">
-                                    <div class="mb-3">
-                                        <label for="formGroupExampleInput" class="form-label">NIK</label>
-                                        <input type="text" class="form-control" id="formGroupExampleInput"
-                                            placeholder="NIK Pengaju">
-                                    </div>
-                                </div>
-                                <div class="col-xl-12 col-md-12 mb-1">
-                                    <div class="mb-3">
-                                        <label for="formGroupExampleInput" class="form-label">Nama:</label>
-                                        <h6>Marcel King Cobra</h6>
-                                    </div>
-                                </div>
-                                <div class="col-xl-12 col-md-12 mb-1">
-                                    <div class="mb-3">
-                                        <label for="formGroupExampleInput" class="form-label">Divisi:</label>
-                                        <h6>SELA</h6>
-                                    </div>
-                                </div>
-                                <div class="col-xl-12 col-md-12 mb-1">
-                            <div class="my-2 float-right">
-                                <a href="#" class="btn btn-success btn-icon-split" @click=postPengajuanApi>
-                                    <span class="icon text-white-50">
-                                        <i class="fas fa-check"></i>
-                                    </span>
-                                    <span class="text">Ajukan Data Pengaju</span>
-                                </a>
-                            </div>
-                        </div>
-                            </div>
-                        </div>
-                    </div>
-
-        
-        <!-- Form pengajuan rest API -->
+        <!-- Form pengajuan dummy -->
         <div class="card shadow mb-4">
           <div class="card-header py-3">
             <h6 class="m-0 font-weight-bold">Form Pengajuan Sewa Laptop</h6>
@@ -553,42 +481,82 @@
 
         <!-- DataTables Example -->
         <div class="card shadow mb-4">
-            <div class="card-header py-3">
-                <h6 class="m-0 font-weight-bold">Recent Updates</h6>
+          <div class="card-header py-3">
+            <h6 class="m-0 font-weight-bold">Recent Updates</h6>
+          </div>
+          <div class="card-body">
+            <div class="table-responsive">
+              <table
+                class="table table-bordered"
+                id="dataTable"
+                width="100%"
+                cellspacing="0"
+              >
+                <thead>
+                  <tr class="bg-gray-100 text-dark">
+                    <th>No</th>
+                    <th>ID User</th>
+                    <th>ID Karyawan</th>
+                    <th>No Memo</th>
+                    <th>Tanggal</th>
+                    <th>Status</th>
+                    <th>Aksi</th>
+                  </tr>
+                  <tr
+                    v-for="(data, index) in pengajuan.data"
+                    v-bind:key="index"
+                  >
+                    <td>{{ data.pengajuanId }}</td>
+                    <td>
+                      <input
+                        class="form-control"
+                        type="text"
+                        v-model="data.userId"
+                      />
+                    </td>
+                    <td>
+                      <input
+                        class="form-control"
+                        type="text"
+                        v-model="data.karyawanId"
+                      />
+                    </td>
+                    <td>
+                      <input
+                        class="form-control"
+                        type="text"
+                        v-model="data.noMemo"
+                      />
+                    </td>
+                    <td>>{{ data.tglPengajuan }}</td>
+                    <td>
+                      <input
+                        class="form-control"
+                        type="text"
+                        v-model="data.status"
+                      />
+                    </td>
+                    <td class="justify-content-center align-content-center">
+                      <a
+                        @click="updatePengajuanApi"
+                        href="#"
+                        class="btn btn-warning btn-circle mr-1"
+                      >
+                        <i class="fas fa-pen"></i>
+                      </a>
+                      <a
+                        @click="() => deletePengajuanApi(data.pengajuanId)"
+                        href="#"
+                        class="btn btn-danger btn-circle"
+                      >
+                        <i class="fas fa-trash"></i>
+                      </a>
+                    </td>
+                  </tr>
+                </thead>
+              </table>
             </div>
-            <div class="card-body">
-                <div class="table-responsive">
-                    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                    <thead>
-                      <tr class="bg-gray-100 text-dark">
-                        <th>No</th>
-                        <th>ID User</th>
-                        <th>ID Karyawan</th>
-                        <th>No Memo</th>
-                        <th>Tanggal</th>
-                        <th>Status</th>
-                        <th>Aksi</th>
-                      </tr>
-                      <tr v-for="(data,index) in pengajuan.data" v-bind:key="index">
-                        <td>{{data.pengajuanId}}</td>
-                        <td><input class="form-control" type="text" v-model="data.userId"></td>
-                        <td><input class="form-control" type="text" v-model="data.karyawanId"></td>
-                        <td><input class="form-control" type="text" v-model="data.noMemo"></td>
-                        <td>>{{data.tglPengajuan}}</td>
-                        <td><input class="form-control" type="text" v-model="data.status"></td>
-                        <td class="justify-content-center align-content-center">
-                            <a @click=updatePengajuanApi href="#" class="btn btn-warning btn-circle mr-1">
-                                <i class="fas fa-pen"></i>
-                            </a>
-                            <a @click="() => deletePengajuanApi(data.pengajuanId)" href="#" class="btn btn-danger btn-circle">
-                                <i class="fas fa-trash"></i>
-                            </a>
-                        </td>
-                      </tr>
-                    </thead>
-                  </table>
-                </div>
-            </div>
+          </div>
         </div>
 
         <!-- Content Row -->
