@@ -8,6 +8,7 @@ import Formpengajuandiv from "@/views/admindivisi/FormpengajuandivView.vue";
 import Form_device_view from "@/views/admin_mat/Form_device_view.vue";
 import Form_spek_view from "@/views/admin_mat/Form_spek_view.vue";
 import Homemat from "@/views/admin_mat/Home_mat_view.vue";
+import Listpengajuanmat from "@/views/admin_mat/List_pengajuan_view.vue";
 import Stock_management from "@/views/admin_mat/Stock_management_view.vue"
 
 const routes: Array<RouteRecordRaw> = [
@@ -35,6 +36,11 @@ const routes: Array<RouteRecordRaw> = [
     path: "/homemat",
     name: "HomematView",
     component: Homemat,
+  },
+  {
+    path: "/listpengajuanmat",
+    name: "ListpengajuanmatView",
+    component: Listpengajuanmat,
   },
   {
     path: "/formpengajuandiv",

@@ -36,14 +36,18 @@
         </li>
         <!-- Nav Item - Dashboard -->
         <li class="nav-item">
-          <a class="nav-link" href="index.html">
+            <router-link
+          to="/listpengajuanmat"
+          class="nav-link"
+          :class="{ 'router-link-active': isActive('/listpengajuanmat') }"
+        >
             <i class="fas fa-list-ul"></i>
-            List Pengajuan</a
-          >
+            List Pengajuan          
+          </router-link>
+
         </li>
         <!-- Nav Item - Dashboard -->
         <li class="nav-item">
-
               <router-link
             to="/stockmanagement"
             class="nav-link"
@@ -150,17 +154,19 @@ export default {
     isActive(route: string) {
       const currentRoute = useRoute();
       return currentRoute.path === route || currentRoute.path === route + '/';
+
     },
   },
 };
 </script>
-<style lang="css" scoped>
+<style lang="css">
 .sidenavcakep {
   height: auto;
   background-color: #1cc88a;
 }
 
-a.active,
+a.isActive,
+a.router-link-active,
 a.i {
   font-weight: 500;
   color: white;
