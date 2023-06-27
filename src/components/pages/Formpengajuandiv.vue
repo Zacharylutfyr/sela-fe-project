@@ -317,42 +317,16 @@
                                 <input type="text" v-model="NIKis" class="form-control" id="formGroupExampleInput"
                                     placeholder="NIK Pengaju">
                             </div>
-                        </div>
-                        <div class="col-xl-6 col-md-6 mb-1">
-                            <div class="mb-3">
-                                <label for="formGroupExampleInput" class="form-label">Nama Lengkap</label>
-                                <input type="text" v-model="Namais" class="form-control" id="formGroupExampleInput"
-                                    placeholder="Nama Lengkap Pengaju">
-                            </div>
-                        </div>
-                        <div class="col-xl-6 col-md-6 mb-1">
-                            <div class="mb-3">
-                                <label for="formGroupExampleInput" class="form-label">Divisi</label>
-                                <input type="text" v-model="Divisiis" v-on:keyup.enter="PostApi()" class="form-control" id="formGroupExampleInput"
-                                    placeholder="Divisi Pengaju">
-                            </div>
-                        </div>
-                        <div class="col-xl-6 col-md-6 mb-1">
-                            <div class="mb-3">
-                                <label for="formGroupExampleInput" class="form-label">Tanggal</label>
-                                <input type="text" v-model="Tanggalis" class="form-control" id="formGroupExampleInput"
-                                    placeholder="Tanggal Pengajuan">
-                            </div>
-                        </div>
-                        <div class="col-xl-6 col-md-6 mb-1">
-                            <div class="mb-3">
-                                <label for="formGroupExampleInput" class="form-label">Status</label>
-                                <input type="text" v-model="Statusis" class="form-control" id="formGroupExampleInput"
-                                    placeholder="Status Pengajuan">
-                            </div>
-                        </div>
-                        <div class="col-xl-12 col-md-12 mb-1">
-                            <div class="my-2 float-right">
-                                <a href="#" type="submit" class="btn btn-success btn-icon-split">
-                                    <span class="icon text-white-50">
-                                        <i class="fas fa-check"></i>
-                                    </span>
-                                    <span class="text">Ajukan Data Pengaju</span>
+                              <div class="col-xl-2 col-md-2 mb-1">
+                                <a
+                                href="#"
+                                class="btn btn-success btn-icon-split"
+                                @click=""
+                                >
+                                <span class="icon text-white-50">
+                                    <i class="fas fa-check"></i>
+                                </span>
+                                <span class="text">Ajukan Data Pengaju</span>
                                 </a>
                             </div>
                         </div>
