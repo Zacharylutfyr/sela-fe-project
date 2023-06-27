@@ -7,29 +7,17 @@
         <!-- Main Content -->
         <div id="content">
           <!-- Topbar -->
-          <nav
-            class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow"
-          >
+          <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
             <!-- Sidebar Toggle (Topbar) -->
-            <button
-              id="sidebarToggleTop"
-              class="btn btn-link d-md-none rounded-circle mr-3"
-            >
+            <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
               <i class="fa fa-bars"></i>
             </button>
 
             <!-- Topbar Search -->
-            <form
-              class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search"
-            >
+            <form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
               <div class="input-group">
-                <input
-                  type="text"
-                  class="form-control bg-light border-0 small"
-                  placeholder="Search for..."
-                  aria-label="Search"
-                  aria-describedby="basic-addon2"
-                />
+                <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..."
+                  aria-label="Search" aria-describedby="basic-addon2" />
                 <div class="input-group-append">
                   <button class="btn btn-success" type="button">
                     <i class="fas fa-search fa-sm"></i>
@@ -42,31 +30,17 @@
             <ul class="navbar-nav ml-auto">
               <!-- Nav Item - Search Dropdown (Visible Only XS) -->
               <li class="nav-item dropdown no-arrow d-sm-none">
-                <a
-                  class="nav-link dropdown-toggle"
-                  href="#"
-                  id="searchDropdown"
-                  role="button"
-                  data-toggle="dropdown"
-                  aria-haspopup="true"
-                  aria-expanded="false"
-                >
+                <a class="nav-link dropdown-toggle" href="#" id="searchDropdown" role="button" data-toggle="dropdown"
+                  aria-haspopup="true" aria-expanded="false">
                   <i class="fas fa-search fa-fw"></i>
                 </a>
                 <!-- Dropdown - Messages -->
-                <div
-                  class="dropdown-menu dropdown-menu-right p-3 shadow animated--grow-in"
-                  aria-labelledby="searchDropdown"
-                >
+                <div class="dropdown-menu dropdown-menu-right p-3 shadow animated--grow-in"
+                  aria-labelledby="searchDropdown">
                   <form class="form-inline mr-auto w-100 navbar-search">
                     <div class="input-group">
-                      <input
-                        type="text"
-                        class="form-control bg-light border-0 small"
-                        placeholder="Search for..."
-                        aria-label="Search"
-                        aria-describedby="basic-addon2"
-                      />
+                      <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..."
+                        aria-label="Search" aria-describedby="basic-addon2" />
                       <div class="input-group-append">
                         <button class="btn btn-primary" type="button">
                           <i class="fas fa-search fa-sm"></i>
@@ -79,24 +53,15 @@
 
               <!-- Nav Item - Alerts -->
               <li class="nav-item dropdown no-arrow mx-1">
-                <a
-                  class="nav-link dropdown-toggle"
-                  href="#"
-                  id="alertsDropdown"
-                  role="button"
-                  data-toggle="dropdown"
-                  aria-haspopup="true"
-                  aria-expanded="false"
-                >
+                <a class="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button" data-toggle="dropdown"
+                  aria-haspopup="true" aria-expanded="false">
                   <i class="fas fa-bell fa-fw"></i>
                   <!-- Counter - Alerts -->
                   <span class="badge badge-danger badge-counter">3+</span>
                 </a>
                 <!-- Dropdown - Alerts -->
-                <div
-                  class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in"
-                  aria-labelledby="alertsDropdown"
-                >
+                <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in"
+                  aria-labelledby="alertsDropdown">
                   <h6 class="dropdown-header">Alerts Center</h6>
                   <a class="dropdown-item d-flex align-items-center" href="#">
                     <div class="mr-3">
@@ -106,9 +71,7 @@
                     </div>
                     <div>
                       <div class="small text-gray-500">December 12, 2019</div>
-                      <span class="font-weight-bold"
-                        >A new monthly report is ready to download!</span
-                      >
+                      <span class="font-weight-bold">A new monthly report is ready to download!</span>
                     </div>
                   </a>
                   <a class="dropdown-item d-flex align-items-center" href="#">
@@ -134,42 +97,25 @@
                       your account.
                     </div>
                   </a>
-                  <a
-                    class="dropdown-item text-center small text-gray-500"
-                    href="#"
-                    >Show All Alerts</a
-                  >
+                  <a class="dropdown-item text-center small text-gray-500" href="#">Show All Alerts</a>
                 </div>
               </li>
 
               <!-- Nav Item - Messages -->
               <li class="nav-item dropdown no-arrow mx-1">
-                <a
-                  class="nav-link dropdown-toggle"
-                  href="#"
-                  id="messagesDropdown"
-                  role="button"
-                  data-toggle="dropdown"
-                  aria-haspopup="true"
-                  aria-expanded="false"
-                >
+                <a class="nav-link dropdown-toggle" href="#" id="messagesDropdown" role="button" data-toggle="dropdown"
+                  aria-haspopup="true" aria-expanded="false">
                   <i class="fas fa-envelope fa-fw"></i>
                   <!-- Counter - Messages -->
                   <span class="badge badge-danger badge-counter">7</span>
                 </a>
                 <!-- Dropdown - Messages -->
-                <div
-                  class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in"
-                  aria-labelledby="messagesDropdown"
-                >
+                <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in"
+                  aria-labelledby="messagesDropdown">
                   <h6 class="dropdown-header">Message Center</h6>
                   <a class="dropdown-item d-flex align-items-center" href="#">
                     <div class="dropdown-list-image mr-3">
-                      <img
-                        class="rounded-circle"
-                        src="img/undraw_profile_1.svg"
-                        alt="..."
-                      />
+                      <img class="rounded-circle" src="img/undraw_profile_1.svg" alt="..." />
                       <div class="status-indicator bg-success"></div>
                     </div>
                     <div class="font-weight-bold">
@@ -182,11 +128,7 @@
                   </a>
                   <a class="dropdown-item d-flex align-items-center" href="#">
                     <div class="dropdown-list-image mr-3">
-                      <img
-                        class="rounded-circle"
-                        src="img/undraw_profile_2.svg"
-                        alt="..."
-                      />
+                      <img class="rounded-circle" src="img/undraw_profile_2.svg" alt="..." />
                       <div class="status-indicator"></div>
                     </div>
                     <div>
@@ -199,11 +141,7 @@
                   </a>
                   <a class="dropdown-item d-flex align-items-center" href="#">
                     <div class="dropdown-list-image mr-3">
-                      <img
-                        class="rounded-circle"
-                        src="img/undraw_profile_3.svg"
-                        alt="..."
-                      />
+                      <img class="rounded-circle" src="img/undraw_profile_3.svg" alt="..." />
                       <div class="status-indicator bg-warning"></div>
                     </div>
                     <div>
@@ -216,11 +154,7 @@
                   </a>
                   <a class="dropdown-item d-flex align-items-center" href="#">
                     <div class="dropdown-list-image mr-3">
-                      <img
-                        class="rounded-circle"
-                        src="https://source.unsplash.com/Mv9hjnEUHR4/60x60"
-                        alt="..."
-                      />
+                      <img class="rounded-circle" src="https://source.unsplash.com/Mv9hjnEUHR4/60x60" alt="..." />
                       <div class="status-indicator bg-success"></div>
                     </div>
                     <div>
@@ -234,11 +168,7 @@
                       </div>
                     </div>
                   </a>
-                  <a
-                    class="dropdown-item text-center small text-gray-500"
-                    href="#"
-                    >Read More Messages</a
-                  >
+                  <a class="dropdown-item text-center small text-gray-500" href="#">Read More Messages</a>
                 </div>
               </li>
 
@@ -246,28 +176,13 @@
 
               <!-- Nav Item - User Information -->
               <li class="nav-item dropdown no-arrow">
-                <a
-                  class="nav-link dropdown-toggle"
-                  href="#"
-                  id="userDropdown"
-                  role="button"
-                  data-toggle="dropdown"
-                  aria-haspopup="true"
-                  aria-expanded="false"
-                >
-                  <span class="mr-2 d-none d-lg-inline text-gray-600 small"
-                    >Douglas McGee</span
-                  >
-                  <img
-                    class="img-profile rounded-circle"
-                    src="img/undraw_profile.svg"
-                  />
+                <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown"
+                  aria-haspopup="true" aria-expanded="false">
+                  <span class="mr-2 d-none d-lg-inline text-gray-600 small">Douglas McGee</span>
+                  <img class="img-profile rounded-circle" src="img/undraw_profile.svg" />
                 </a>
                 <!-- Dropdown - User Information -->
-                <div
-                  class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
-                  aria-labelledby="userDropdown"
-                >
+                <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
                   <a class="dropdown-item" href="#">
                     <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
                     Profile
@@ -281,15 +196,8 @@
                     Activity Log
                   </a>
                   <div class="dropdown-divider"></div>
-                  <a
-                    class="dropdown-item"
-                    href="#"
-                    data-toggle="modal"
-                    data-target="#logoutModal"
-                  >
-                    <i
-                      class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"
-                    ></i>
+                  <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
+                    <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
                     Logout
                   </a>
                 </div>
@@ -301,9 +209,7 @@
           <!-- Begin Page Content -->
           <div class="container-fluid">
             <!-- Page Heading -->
-            <div
-              class="d-sm-flex align-items-center justify-content-between mb-4"
-            >
+            <div class="d-sm-flex align-items-center justify-content-between mb-4">
               <h1 class="h3 mb-0 text-gray-800">Dashboard</h1>
             </div>
 
@@ -315,13 +221,11 @@
                   <div class="card-body">
                     <div class="row no-gutters align-items-center">
                       <div class="col mr-2">
-                        <div
-                          class="text-xs font-weight-bold text-success text-uppercase mb-1"
-                        >
+                        <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
                           Total Sewa
                         </div>
                         <div class="h5 mb-0 font-weight-bold text-gray-800">
-                          5
+                          {{ totalData }}
                         </div>
                       </div>
                       <div class="col-auto">
@@ -338,9 +242,7 @@
                   <div class="card-body">
                     <div class="row no-gutters align-items-center">
                       <div class="col mr-2">
-                        <div
-                          class="text-xs font-weight-bold text-danger text-uppercase mb-1"
-                        >
+                        <div class="text-xs font-weight-bold text-danger text-uppercase mb-1">
                           Total Expired
                         </div>
                         <div class="h5 mb-0 font-weight-bold text-gray-800">
@@ -363,27 +265,26 @@
               </div>
               <div class="card-body">
                 <div class="table-responsive">
-                  <table
-                    class="table table-bordered"
-                    id="dataTable"
-                    width="100%"
-                    cellspacing="0"
-                  >
+                  <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                     <thead>
                       <tr class="bg-gray-100 text-dark">
                         <th>No</th>
-                        <th>ID User</th>
+                        <th>ID Pengajuan</th>
+                        <th>ID Spek</th>
                         <th>ID Karyawan</th>
                         <th>No Memo</th>
-                        <th>Tanggal</th>
+                        <th>Tanggal Pengajuan</th>
+                        <th>Tanggal Penerimaan</th>
                         <th>Status</th>
                       </tr>
                       <tr v-for="(data, index) in pengajuan.data" v-bind:key="index">
+                        <td>{{ index + 1 }}</td>
                         <td>{{ data.pengajuanId }}</td>
-                        <td>{{ data.userId }}</td>
+                        <td>{{ data.spekId }}</td>
                         <td>{{ data.karyawanId }}</td>
                         <td>{{ data.noMemo }}</td>
                         <td>{{ data.tglPengajuan }}</td>
+                        <td>{{ data.tglPenerima }}</td>
                         <td>{{ data.status }}</td>
                       </tr>
                     </thead>
@@ -408,24 +309,13 @@
     </a>
 
     <!-- Logout Modal-->
-    <div
-      class="modal fade"
-      id="logoutModal"
-      tabindex="-1"
-      role="dialog"
-      aria-labelledby="exampleModalLabel"
-      aria-hidden="true"
-    >
+    <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+      aria-hidden="true">
       <div class="modal-dialog" role="document">
         <div class="modal-content">
           <div class="modal-header">
             <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
-            <button
-              class="close"
-              type="button"
-              data-dismiss="modal"
-              aria-label="Close"
-            >
+            <button class="close" type="button" data-dismiss="modal" aria-label="Close">
               <span aria-hidden="true">×</span>
             </button>
           </div>
@@ -433,11 +323,7 @@
             Select "Logout" below if you are ready to end your current session.
           </div>
           <div class="modal-footer">
-            <button
-              class="btn btn-secondary"
-              type="button"
-              data-dismiss="modal"
-            >
+            <button class="btn btn-secondary" type="button" data-dismiss="modal">
               Cancel
             </button>
             <a class="btn btn-primary" href="../../">Logout</a>
@@ -456,6 +342,8 @@ export default {
   data() {
     return {
       pengajuan: [],
+      totalData: 0,
+      spek: []
     };
   },
   methods: {
@@ -463,6 +351,7 @@ export default {
       try {
         const token = localStorage.getItem("token");
         this.pengajuan = await getPengajuan(token);
+        this.totalData = this.pengajuan.data.length;
       } catch (error) {
         console.error(error);
       }

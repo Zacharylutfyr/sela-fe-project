@@ -94,7 +94,9 @@ export default defineComponent({
       password: "sela",
     };
   },
+  
   methods: {
+    
     async login() {
       try {
         const response = await loginApi(this.userEmail, this.password);

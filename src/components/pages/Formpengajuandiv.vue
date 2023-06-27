@@ -296,267 +296,125 @@
           <h1 class="h3 mb-0 text-gray-800">Dashboard</h1>
         </div>
 
-        <!-- Form pengajuan rest API -->
-        <!-- <div class="card shadow mb-4">
+        <!-- Form pengajuan with Rest API -->
+        <div class="card shadow mb-4 border-left-success">
             <div class="card-header py-3">
-                <h6 class="m-0 font-weight-bold">Form Pengajuan Sewa Laptop with Rest API</h6>
+                <h6 class="m-0 font-weight-bold">Form Pengajuan Sewa Laptop</h6>
             </div>
             <div class="card-body">
-                <form v-on:keyup.enter="PostApi(pengajuan)" v-on:submit.prevent>
+
+                <form v-on:keyup.enter="postPengajuanApi()" v-on:submit.prevent>
                     <div class="row">
-                        <div class="col-xl-6 col-md-6 mb-1">
+                        <div class="col-xl-12 col-md-12 mb-1">
                             <div class="mb-3">
-                                <label for="formGroupExampleInput" class="form-label">Nomor Memo</label>
-                                <input type="text" v-model="Memois" class="form-control" id="formGroupExampleInput"
-                                    placeholder="No. Memo Pengaju">
-                            </div>
-                        </div>
-                        <div class="col-xl-6 col-md-6 mb-1">
-                            <div class="mb-3">
-                                <label for="formGroupExampleInput" class="form-label">NIK</label>
-                                <input type="text" v-model="NIKis" class="form-control" id="formGroupExampleInput"
-                                    placeholder="NIK Pengaju">
-                            </div>
-                        </div>
-                        <div class="col-xl-6 col-md-6 mb-1">
-                            <div class="mb-3">
-                                <label for="formGroupExampleInput" class="form-label">Nama Lengkap</label>
-                                <input type="text" v-model="Namais" class="form-control" id="formGroupExampleInput"
-                                    placeholder="Nama Lengkap Pengaju">
-                            </div>
-                        </div>
-                        <div class="col-xl-6 col-md-6 mb-1">
-                            <div class="mb-3">
-                                <label for="formGroupExampleInput" class="form-label">Divisi</label>
-                                <input type="text" v-model="Divisiis" v-on:keyup.enter="PostApi()" class="form-control" id="formGroupExampleInput"
-                                    placeholder="Divisi Pengaju">
-                            </div>
-                        </div>
-                        <div class="col-xl-6 col-md-6 mb-1">
-                            <div class="mb-3">
-                                <label for="formGroupExampleInput" class="form-label">Tanggal</label>
-                                <input type="text" v-model="Tanggalis" class="form-control" id="formGroupExampleInput"
-                                    placeholder="Tanggal Pengajuan">
-                            </div>
-                        </div>
-                        <div class="col-xl-6 col-md-6 mb-1">
-                            <div class="mb-3">
-                                <label for="formGroupExampleInput" class="form-label">Status</label>
-                                <input type="text" v-model="Statusis" class="form-control" id="formGroupExampleInput"
-                                    placeholder="Status Pengajuan">
+                          <label class="form-label">Spesifikasi</label>
+                                <input type="number" v-model="spekId" class="form-control" id="formGroupExampleInput"
+                                    placeholder="spekId">
                             </div>
                         </div>
                         <div class="col-xl-12 col-md-12 mb-1">
+                            <div class="mb-3">
+                          <label class="form-label">ID Karyawan</label>
+                                <input type="number" v-model="karyawanId" class="form-control" id="formGroupExampleInput"
+                                    placeholder="karyawanId">
+                            </div>
+                        </div>
+                        <div class="col-xl-12 col-md-12 mb-1">
+                            <div class="mb-3">
+                          <label class="form-label">No Memo</label>
+                                <input type="text" v-model="noMemo" class="form-control" id="formGroupExampleInput"
+                                    placeholder="noMemo">
+                            </div>
+                        </div>
+                        <div class="col-xl-12 col-md-12 mb-1">
+                            <div class="mb-3">
+                          <label class="form-label">Tanggal Pengajuan</label>
+                                <input type="text" v-model="tglPengajuan" class="form-control" id="formGroupExampleInput"
+                                    placeholder="tglPengajuan">
+                            </div>
+                        </div>
+                        <div class="col-xl-12 col-md-12 mb-1">
+                            <div class="mb-3">
+                          <label class="form-label">Tanggal Penerima</label>
+                                <input type="text" v-model="tglPenerima" class="form-control" id="formGroupExampleInput"
+                                    placeholder="tglPenerima">
+                            </div>
+                        </div>
+                        <div class="col-xl-12 col-md-12 mb-1">
+                            <div class="mb-3">
+                          <label class="form-label">Status</label>
+                                <input type="text" v-model="status" class="form-control" id="formGroupExampleInput"
+                                    placeholder="status">
+                            </div>
+                        </div>
+                            <div class="mb-3">
+                                <label>Spek</label>
+                                <select class="form-control">
+                                    <option v-for="(data, index) in allspek.data" v-bind:key="index">
+                                        {{data.deviceName + 
+                                          ' ' + 
+                                          data.storage + 
+                                          ' ' + 
+                                          data.processor + 
+                                          ' ' + 
+                                          data.ram + 
+                                          ' ' + 
+                                          data.graphicCard 
+                                          }}</option>
+                                </select>
+                            </div>
+                        </div> -->
+                        <div class="col-xl-12 col-md-12 mb-1">
                             <div class="my-2 float-right">
-                                <a href="#" type="submit" class="btn btn-success btn-icon-split">
-                                    <span class="icon text-white-50">
-                                        <i class="fas fa-check"></i>
-                                    </span>
-                                    <span class="text">Ajukan Data Pengaju</span>
+                                <a
+                                href="#"
+                                class="btn btn-success btn-icon-split"
+                                @click="postPengajuanApi"
+                                >
+                                <span class="icon text-white-50">
+                                    <i class="fas fa-check"></i>
+                                </span>
+                                <span class="text">Ajukan Data Pengaju</span>
                                 </a>
                             </div>
                         </div>
                     </div>
                 </form>
-            </div>
-        </div> -->
 
-        <!-- Data Tables Rest API -->
-        <!-- <div class="card shadow mb-4">
+            </div>
+        </div>
+        <div class="card shadow mb-4 border-left-success">
             <div class="card-header py-3">
-                <h6 class="m-0 font-weight-bold">Data Tables with Rest API</h6>
+                <h6 class="m-0 font-weight-bold">Form Pengajuan Sewa Laptop</h6>
             </div>
             <div class="card-body">
-                <div class="table-responsive">
-                    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                    <thead>
-                      <tr class="bg-gray-100 text-dark">
-                        <th>No</th>
-                      </tr>
-                      <tr v-for="pengajuans of pengajuan" v-bind:key="pengajuans.id">
-                        <td>{{ pengajuans.id }}</td>
-                      </tr>
-                    </thead>
-                  </table>
-                </div>
-            </div>
-        </div> -->
-
-        <!-- Form pengajuan dummy -->
-        <div class="card shadow mb-4">
-          <div class="card-header py-3">
-            <h6 class="m-0 font-weight-bold">Form Pengajuan Sewa Laptop</h6>
-          </div>
-          <div class="card-body">
-            <form>
-              <div class="row">
-                <div class="col-xl-6 col-md-6 mb-1">
-                  <div class="mb-3">
-                    <label for="formGroupExampleInput" class="form-label"
-                      >User ID</label
-                    >
-                    <input
-                      type="text"
-                      v-model="userId"
-                      class="form-control"
-                      id="formGroupExampleInput"
-                      placeholder="User ID"
-                    />
-                  </div>
-                </div>
-                <div class="col-xl-6 col-md-6 mb-1">
-                  <div class="mb-3">
-                    <label for="formGroupExampleInput" class="form-label"
-                      >Karyawan ID</label
-                    >
-                    <input
-                      type="text"
-                      v-model="karyawanId"
-                      class="form-control"
-                      id="formGroupExampleInput"
-                      placeholder="Karyawan ID"
-                    />
-                  </div>
-                </div>
-                <div class="col-xl-6 col-md-6 mb-1">
-                  <div class="mb-3">
-                    <label for="formGroupExampleInput" class="form-label"
-                      >No Memo</label
-                    >
-                    <input
-                      type="text"
-                      v-model="noMemo"
-                      class="form-control"
-                      id="formGroupExampleInput"
-                      placeholder="Masukkan No. Memo"
-                    />
-                  </div>
-                </div>
-                <div class="col-xl-6 col-md-6 mb-1">
-                  <div class="mb-3">
-                    <label for="formGroupExampleInput" class="form-label"
-                      >Tanggal Pengajuan</label
-                    >
-                    <input
-                      type="text"
-                      v-model="tglPengajuan"
-                      class="form-control"
-                      id="formGroupExampleInput"
-                      placeholder="Masukkan Tanggal Pengajuan"
-                    />
-                  </div>
-                </div>
-                <div class="col-xl-6 col-md-6 mb-1">
-                  <div class="mb-3">
-                    <label for="formGroupExampleInput" class="form-label"
-                      >Status</label
-                    >
-                    <input
-                      type="text"
-                      v-model="status"
-                      class="form-control"
-                      id="formGroupExampleInput"
-                      placeholder="Masukkan Status Pengajuan Sewa"
-                    />
-                  </div>
-                </div>
-                <div class="col-xl-12 col-md-12 mb-1">
-                  <div class="my-2 float-right">
-                    <a
-                      href="#"
-                      class="btn btn-success btn-icon-split"
-                      @click="postPengajuanApi"
-                    >
-                      <span class="icon text-white-50">
-                        <i class="fas fa-check"></i>
-                      </span>
-                      <span class="text">Ajukan Data Pengaju</span>
-                    </a>
-                  </div>
-                </div>
-              </div>
-            </form>
-          </div>
-        </div>
-
-        <!-- DataTables Example -->
-        <div class="card shadow mb-4">
-          <div class="card-header py-3">
-            <h6 class="m-0 font-weight-bold">Recent Updates</h6>
-          </div>
-          <div class="card-body">
-            <div class="table-responsive">
-              <table
-                class="table table-bordered"
-                id="dataTable"
-                width="100%"
-                cellspacing="0"
-              >
+        <div class="table-responsive">
+            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                 <thead>
-                  <tr class="bg-gray-100 text-dark">
+                <tr class="bg-gray-100 text-dark">
                     <th>No</th>
-                    <th>ID User</th>
-                    <th>ID Karyawan</th>
+                    <th>Spek Laptop</th>
+                    <th>NIK Karyawan</th>
+                    <th>Karyawan</th>
                     <th>No Memo</th>
-                    <th>Tanggal</th>
+                    <th>Tanggal Pengajuan</th>
+                    <th>Tanggal Penerimaan</th>
                     <th>Status</th>
-                    <th>Aksi</th>
-                  </tr>
-                  <tr
-                    v-for="(data, index) in pengajuan.data"
-                    v-bind:key="index"
-                  >
-                    <td>{{ data.pengajuanId }}</td>
-                    <td>
-                      <input
-                        class="form-control"
-                        type="text"
-                        v-model="data.userId"
-                      />
-                    </td>
-                    <td>
-                      <input
-                        class="form-control"
-                        type="text"
-                        v-model="data.karyawanId"
-                      />
-                    </td>
-                    <td>
-                      <input
-                        class="form-control"
-                        type="text"
-                        v-model="data.noMemo"
-                      />
-                    </td>
+                </tr>
+                <tr v-for="(data, index) in pengajuan.data" v-bind:key="index">
+                    <td>{{ index + 1  }}</td>
+                    <td>{{ data.device.deviceName + " " + data.spesifikasi.storage + " " + data.spesifikasi.processor + " " + data.spesifikasi.ram + " " + data.spesifikasi.graphicCard }}</td>
+                    <td>{{ data.karyawan.nikKaryawan }}</td>
+                    <td>{{ data.karyawan.namaDepan + " " + data.karyawan.namaBelakang }}</td>
+                    <td>{{ data.noMemo }}</td>
                     <td>{{ data.tglPengajuan }}</td>
-                    <td>
-                      <input
-                        class="form-control"
-                        type="text"
-                        v-model="data.status"
-                      />
-                    </td>
-                    <td class="justify-content-center align-content-center">
-                      <a
-                        @click="updatePengajuanApi"
-                        href="#"
-                        class="btn btn-warning btn-circle mr-1"
-                      >
-                        <i class="fas fa-pen"></i>
-                      </a>
-                      <a
-                        @click="() => deletePengajuanApi(data.pengajuanId)"
-                        href="#"
-                        class="btn btn-danger btn-circle"
-                      >
-                        <i class="fas fa-trash"></i>
-                      </a>
-                    </td>
-                  </tr>
+                    <td>{{ data.tglPenerima }}</td>
+                    <td>{{ data.status }}</td>
+                </tr>
                 </thead>
-              </table>
-            </div>
-          </div>
+            </table>
+        </div>
+        </div>
         </div>
 
         <!-- Content Row -->
@@ -569,132 +427,85 @@
 </template>
 <script lang="js">
 import { loginApi } from "@/api";
-import { getPengajuan, postPengajuan, updatePengajuan, deletePengajuan } from "@/api";
+import {
+  getPengajuan,
+  postPengajuan,
+  getDevice,
+  getSpek
+} from "@/api";
 
 export default {
-    name: "Formpengajuandiv",
-    data() {
-        return {
-            pengajuan: []
-        };
+  name: "Formpengajuandiv",
+  data() {
+    return {
+      pengajuan: [],
+      alldevice: [],
+      allspek: []
+    };
+  },
+  methods: {
+    // baca data pengajuan sewa laptop
+    async getPengajuanApi() {
+      try {
+        const token = localStorage.getItem("token");
+        this.pengajuan = await getPengajuan(token);
+        this.totalData = await getPengajuan.length; // Set the total count
+      } catch (error) {
+        console.error(error);
+      }
     },
-    methods: {
-        // tampilkan data tabel
-        async getPengajuanApi() {
-            try {
-                const token = localStorage.getItem("token");
-                this.pengajuan = await getPengajuan(token);
-            } catch (error) {
-                console.error(error);
-            }
-        },
-        // tambah data tabel
-        async postPengajuanApi() {
-            console.log("Satu data Pengajuan sewa laptop berhasil ditambah!")
-            try {
-                const token = localStorage.getItem("token");
-                this.pengajuan = await postPengajuan(token, this.userId, this.karyawanId, this.noMemo, this.tglPengajuan, this.status);
-            } catch (error) {
-                console.error(error);
-            }
-        },
+    // Hubungkan fungsi dibawah ke API postPengajuan
+    async postPengajuanApi() {
+      try {
+        console.log("Satu data Pengajuan sewa laptop berhasil ditambah!")
+        const token = localStorage.getItem("token");
+        this.pengajuan = await postPengajuan(
+          token,
+          this.spekId,
+          this.karyawanId,
+          this.noMemo,
+          this.tglPengajuan,
+          this.tglPenerima,
+          this.status
+        );
+      } catch (error) {
+        console.error("Data gagal ditambah.");
+      }
+    },
+    // get all device
+    async getAllDeviceApi() {
+      try {
+        const token = localStorage.getItem("token");
+        this.alldevice = await getDevice(token);
+      } catch (error) {
+        console.error(error);
+      }
+    },
+    // get all spek
+    async getSpekApi() {
+      try {
+        const token = localStorage.getItem("token");
+        this.allspek = await getSpek(token);
+      } catch (error) {
+        console.error(error);
+      }
+    },
 
-        //   update data tabel
-        async updatePengajuanApi() {
-            console.log("Data Pengajuan sewa laptop berhasil diubah!")
-            try {
-                const token = localStorage.getItem("token");
-                this.pengajuan = await updatePengajuan(token, this.pengajuanId, this.userId, this.karyawanId, this.noMemo, this.tglPengajuan, this.status);
-            } catch (error) {
-                console.error(error);
-            }
-        },
+  },
+  mounted() {
+    this.getPengajuanApi();
 
-        // delete data tabel
-        async deletePengajuanApi() {
-            try {
-                const token = localStorage.getItem("token");
-                await deletePengajuan(token, pengajuanId);
-                console.log("Pengajuan successfully deleted!");
-                // Add logic to update the list of pengajuan or perform any other necessary actions
-            } catch (error) {
-                console.error(error);
-            }
-        },
-    },
-    mounted() {
-        this.getPengajuanApi();
-    },
+    // dummy pengajuan
+    // this.pengajuanId = 99;
+    // this.spekId = 402;
+    // this.karyawanId = 153;
+    // this.noMemo = "1998/07/12";
+    // this.tglPengajuan = "99";
+    // this.tglPenerima = "99";
+    // this.status = "diterima";
+
+    this.getAllDeviceApi();
+    this.getSpekApi();
+  },
 };
-
-// CRUD Dummy Data
-// data() {
-    //     return {
-    //         pengajuan: [],
-    //         Namais: ''
-    //     }
-    // },
-    // methods: {
-    //     async GetApi() {
-    //         await axios
-    //             .get(baseUrl)
-    //             .then((resp) => {
-    //                 this.pengajuan = resp.data;
-    //             })
-    //             .catch((err) => {
-    //                 console.log(err);
-    //             });
-    //     },
-    //     async PostApi() {
-    //         await axios
-    //             .post(baseUrl, {
-    //                 Memo: this.Memois,
-    //                 NIK: this.NIKis,
-    //                 Nama: this.Namais,
-    //                 Divisi: this.Divisiis,
-    //                 Tanggal: this.Tanggalis,
-    //                 Status: this.Statusis,
-    //             })
-    //             .then((resp) => {
-    //                 console.log(resp);
-    //                 this.Namais = '',
-    //                     this.GetApi();
-    //             })
-    //             .catch((err) => {
-    //                 console.log(err);
-    //             });
-    //     },
-    //     async DeleteApi(id) {
-    //         await axios
-    //             .delete(baseUrl + id)
-    //             .then((resp) => {
-    //                 console.log(resp);
-    //                 this.GetApi();
-    //             })
-    //             .catch((err) => {
-    //                 console.log(err);
-    //             });
-    //     },
-    //     async PutApi(id, Memo, NIK, Nama, Divisi, Tanggal, Status) {
-    //         await axios
-    //             .put(baseUrl + id, {
-    //                 Memo: Memo,
-    //                 NIK: NIK,
-    //                 Nama: Nama,
-    //                 Divisi: Divisi,
-    //                 Tanggal: Tanggal,
-    //                 Status: Status,
-    //             })
-    //             .then((resp) => {
-    //                 console.log(resp);
-    //                 this.GetApi();
-    //             })
-    //             .catch((err) => {
-    //                 console.log(err);
-    //             });
-    //     }
-    // },
-    // mounted() {
-    //     this.GetApi();
-    // }
 </script>
