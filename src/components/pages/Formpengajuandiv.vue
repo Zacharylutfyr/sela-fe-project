@@ -528,7 +528,7 @@
                         v-model="data.noMemo"
                       />
                     </td>
-                    <td>>{{ data.tglPengajuan }}</td>
+                    <td>{{ data.tglPengajuan }}</td>
                     <td>
                       <input
                         class="form-control"

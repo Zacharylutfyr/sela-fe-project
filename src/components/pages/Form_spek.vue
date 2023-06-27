@@ -296,34 +296,9 @@
           <h1 class="h3 mb-0 text-gray-800">Specification</h1>
         </div>
 
-        <!-- Button Add
-        <div class="d-flex justify-content-between mb-4">
-          <a
-            href="#"
-            class="btn btn-success btn-icon-split"
-            @click="tambahdatadevice"
-          >
-            <span class="text">
-              <i class="fa fa-plus-circle"></i>
-              Tambah Data</span
-            >
-          </a>
-          <a
-            href="#"
-            class="btn btn-primary btn-icon-split"
-            @click="downloaddatadevice"
-          >
-            <span class="text">
-              <i class="fa fa-download"></i>
-              Download</span
-            >
-          </a>
-        </div>
- -->
 
         <!-- Tombol untuk menampilkan modal-->
         <button
-          @click="postSpekApi"
           type="button"
           class="btn btn-success btn-md mb-4"
           data-toggle="modal"
@@ -341,52 +316,63 @@
               <!-- heading modal -->
               <div class="modal-header">
                 <!-- <button type="button" class="close" data-dismiss="modal">&times;</button> -->
-                <h4 class="modal-title">Form Spesification</h4>
+                <h4 class="modal-title">Form Input Specification</h4>
               </div>
               <!-- body modal -->
               <div class="modal-body">
-                <label for="exampleFormControlSelect1">Device :</label>
-                <select class="form-control" id="exampleFormControlSelect1">
+                <label for="exampleFormControlSelect1">Device</label>
+                <select
+                  class="form-control"
+                  id="exampleFormControlSelect1"
+                  v-model="deviceName"
+                >
                   <option>Select Device...</option>
-                  <option>Macbook</option>
-                  <option>Notebook</option>
+                  <option value="MAC BOOK">MACBOOK</option>
+                  <option value="NOTE BOOK">NOTEBOOK</option>
+                  <option value="PC">PC</option>
                 </select>
+            
                 <br />
-                <label for="exampleFormControlSelect1">RAM :</label>
+                <label>RAM</label>
                 <input
+                  v-model="ram"
                   class="form-control"
                   type="text"
-                  placeholder="16 GB"
+                  placeholder=""
                   aria-label="default input example"
                 />
                 <br />
-                <label for="exampleFormControlSelect1">GPU :</label>
+                <label>GPU</label>
                 <input
+                  v-model="graphicCard"
                   class="form-control"
                   type="text"
-                  placeholder="Nvidia GeForce GTX 1080 (8GB GDDR5x)"
+                  placeholder=""
                   aria-label="default input example"
                 />
                 <br />
-                <label for="exampleFormControlSelect1">CPU :</label>
+                <label>CPU</label>
                 <input
+                  v-model="processor"
                   class="form-control"
                   type="text"
-                  placeholder="intel core i7-7820HK 8MB Cache ,2.9Ghz - 3.9GHz"
+                  placeholder=""
                   aria-label="default input example"
                 />
                 <br />
-                <label for="exampleFormControlSelect1">Storage :</label>
+                <label>Storage</label>
                 <input
+                  v-model="storage"
                   class="form-control"
                   type="text"
-                  placeholder="1  TB  HDD"
+                  placeholder=""
                   aria-label="default input example"
                 />
               </div>
               <!-- footer modal -->
               <div class="modal-footer">
                 <button
+                  @click="postSpekApi"
                   type="button"
                   class="btn btn-success"
                   data-dismiss="modal"
@@ -401,7 +387,7 @@
         <!-- DataTables Example -->
         <div class="card shadow mb-4">
           <div class="card-header py-3">
-            <h6 class="m-0 font-weight-bold">Device</h6>
+            <h6 class="m-0 font-weight-bold">Specification</h6>
           </div>
           <div class="card-body">
             <div class="table-responsive">
@@ -413,7 +399,7 @@
               >
                 <thead class="text-center">
                   <tr class="bg-gray-100 text-dark">
-                    <th>No</th>
+                    <th>Spek Id</th>
                     <th>Device</th>
                     <th>RAM</th>
                     <th>GPU</th>
@@ -425,24 +411,127 @@
                 <tbody>
                   <tr v-for="(data, index) in spek.data" v-bind:key="index">
                     <td>{{ data.spekId }}</td>
-                    <td>{{ data.deviceId }}</td>
+                    <td>{{ data.deviceName }}</td>
                     <td>{{ data.ram }}</td>
                     <td>{{ data.graphicCard }}</td>
+                    <td>{{ data.processor }}</td>
+                    <td>{{ data.storage }}</td>
                     <td class="d-flex justify-content-center">
                       <a
-                        @click="updateSpekApi"
+                        data-toggle="modal"
+                        data-target="#myModal2"
                         href="#"
                         class="btn btn-warning btn-circle mr-1"
                       >
                         <i class="fas fa-pen"></i>
                       </a>
-                      <a
-                        @click="() => deleteSpekApi(data.spekId)"
+                      <!-- Modal 2 -->
+                      <div id="myModal2" class="modal fade" role="dialog">
+                        <div class="modal-dialog">
+                          <!-- konten modal-->
+                          <div class="modal-content">
+                            <!-- heading modal -->
+                            <div class="modal-header">
+                              <!-- <button type="button" class="close" data-dismiss="modal">&times;</button> -->
+                              <h4 class="modal-title">
+                                Form Update Specification
+                              </h4>
+                            </div>
+                            <!-- body modal -->
+                            <div class="modal-body">
+                              <br />
+                              <label>Spek Id</label>
+                              <input                              
+                                v-model="spekId"
+                                class="form-control"
+                                type="number"
+                                placeholder=""
+                                aria-label="default input example"
+                              />
+                              <br />
+                              <label for="exampleFormControlSelect1"
+                                >Device</label
+                              >
+
+                              <select
+                                class="form-control"
+                                id="exampleFormControlSelect1"
+                                v-model="deviceName"
+                              >
+                                <option>Select Device...</option>
+                                <option value="MAC BOOK">MACBOOK</option>
+                                <option value="NOTE BOOK">NOTEBOOK</option>
+                                <option value="PC">PC</option>
+                              </select>
+                                      
+                              <br />
+                              <label>Device Id</label>
+                              <input
+                                v-model="deviceId"
+                                class="form-control"
+                                type="number"
+                                placeholder=""
+                                aria-label="default input example"
+                              />
+                              <br />
+                              <label>RAM</label>
+                              <input
+                                v-model="ram"
+                                class="form-control"
+                                type="text"
+                                placeholder=""
+                                aria-label="default input example"
+                              />
+                              <br />
+                              <label>GPU</label>
+                              <input
+                                v-model="graphicCard"
+                                class="form-control"
+                                type="text"
+                                placeholder=""
+                                aria-label="default input example"
+                              />
+                              <br />
+                              <label>CPU</label>
+                              <input
+                                v-model="processor"
+                                class="form-control"
+                                type="text"
+                                placeholder=""
+                                aria-label="default input example"
+                              />
+                              <br />
+                              <label>Storage</label>
+                              <input
+                                v-model="storage"
+                                class="form-control"
+                                type="text"
+                                placeholder=""
+                                aria-label="default input example"
+                              />
+                            </div>
+                            <!-- footer modal -->
+                            <div class="modal-footer">
+                              <button
+                              
+                                @click="putSpekApi"
+                                type="button"
+                                class="btn btn-info"
+                                data-dismiss="modal"
+                              >
+                                Save
+                              </button>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <button
+                        @click="deleteSpekApi"
                         href="#"
                         class="btn btn-danger btn-circle"
                       >
                         <i class="fas fa-trash"></i>
-                      </a>
+                      </button>
                     </td>
                   </tr>
                 </tbody>
@@ -459,13 +548,15 @@
   </div>
   <!-- End of Content Wrapper -->
 </template>
-
 <script lang="js">
+// const baseUrl = "http://localhost:8080/api/v1/pengajuan/get_all";
 import { loginApi } from "@/api";
-import { getSpek } from "@/api";
+import { getSpek, postSpek, putSpek, deleteSpek  } from "@/api";
+
+
 export default {
   name: "Form_spek",
-    data() {
+  data() {
     return {
       spek: []
     };
@@ -480,44 +571,46 @@ export default {
             console.error(error);
         }
     },
- // tambah data tabel
+
+    // tambah data tabel
         async postSpekApi() {
             console.log("Satu data Spek laptop berhasil ditambah!")
             try {
                 const token = localStorage.getItem("token");
-                this.spek = await postSpek(token, this.deviceId, this.ram, this.graphic_card, this.processor, this.storage);
+                this.spek = await postSpek(token, this.spekId, this.deviceName,  this.ram, this.graphicCard, this.processor, this.storage );
             } catch (error) {
                 console.error(error);
             }
         },
 
-          //   update data tabel
-        async updateSpekApi() {
+        //   put data tabel
+        async putSpekApi() {
             console.log("Data Spek laptop berhasil diubah!")
             try {
                 const token = localStorage.getItem("token");
-                this.spek = await updateSpek(token, this.spekId, this.deviceId, this.ram, this.graphic_card, this.processor, this.storage);
+                this.spek = await putSpek(token, this.spekId, this.deviceId, this.deviceName,  this.ram, this.graphicCard, this.processor, this.storage  );
             } catch (error) {
                 console.error(error);
             }
         },
-
-     // delete data tabel
+               // delete data tabel
         async deleteSpekApi() {
+          console.log("Spek successfully deleted!");
             try {
                 const token = localStorage.getItem("token");
-                await deleteSpek(token, spekId);
-                console.log("Spek successfully deleted!");
-                // Add logic to update the list of Spek or perform any other necessary actions
+                this.spek = await deleteSpek(token, this.spekId);
+                // Add logic to put the list of spek or perform any other necessary actions
             } catch (error) {
                 console.error(error);
             }
         },
 
-
   },
+
   mounted() {
     this.getSpekApi();
-  }
+  },
 };
+
+
 </script>

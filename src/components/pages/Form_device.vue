@@ -323,7 +323,6 @@
 
         <!-- Tombol untuk menampilkan modal-->
         <button
-        @click=postDeviceApi
           type="button"
           class="btn btn-success btn-md mb-4"
           data-toggle="modal"
@@ -347,6 +346,7 @@
               <div class="modal-body">
                 <p>Device Name</p>
                 <input
+                v-model="deviceName"
                   class="form-control"
                   type="text"
                   placeholder=""
@@ -356,6 +356,7 @@
               <!-- footer modal -->
               <div class="modal-footer">
                 <button
+                  @click="postDeviceApi"
                   type="button"
                   class="btn btn-success"
                   data-dismiss="modal"
@@ -389,7 +390,7 @@
                 </thead>
                 <tbody>
                   <tr v-for="(data, index) in device.data" v-bind:key="index">
-                    <td>{{ data.deviceId }}</td>
+                    <td>{{ index + 1 }}</td>
                     <td>{{ data.deviceName }}</td>
                     <td class="d-flex justify-content-center">
                       <a
@@ -425,7 +426,7 @@
 <script lang="js">
 // const baseUrl = "http://localhost:8080/api/v1/pengajuan/get_all";
 import { loginApi } from "@/api";
-import { getDevice } from "@/api";
+import { getDevice, postDevice, putDevice, deleteDevice } from "@/api";
 
 
 export default {
@@ -445,14 +446,12 @@ export default {
             console.error(error);
         }
     },
-  },
-
- // tambah data tabel
+    // tambah data tabel
         async postDeviceApi() {
             console.log("Satu data Device laptop berhasil ditambah!")
             try {
                 const token = localStorage.getItem("token");
-                this.device = await postDevice(token, this.deviceName);
+                this.device = await postDevice(token, this.deviceId, this.deviceName);
             } catch (error) {
                 console.error(error);
             }
@@ -479,6 +478,9 @@ export default {
                 console.error(error);
             }
         },
+
+  },
+
 
   mounted() {
     this.getDeviceApi();
