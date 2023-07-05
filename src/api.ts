@@ -1,10 +1,8 @@
 import axios, { AxiosResponse } from "axios";
 
 // Set the base URL for your API
-axios.defaults.baseURL = 'http://localhost:8080/api/v1';// Replace with your API server URL
+axios.defaults.baseURL = "http://localhost:8080/api/v1"; // Replace with your API server URL
 // axios.defaults.baseURL = 'https://api-sela.rvldyfrmsyh.my.id/api/v1';// Replace with your API server URL
-
-axios.defaults.baseURL = "http://localhost:8080/api/v1"; // Local API server
 
 // Enable CORS by including the necessary headers
 axios.defaults.headers.common["Access-Control-Allow-Origin"] = "*";
@@ -28,16 +26,26 @@ export async function loginApi(
 
 // Read Data Pengajuan
 export async function getKaryawan(token: string): Promise<AxiosResponse<any>> {
-  axios.defaults.headers.common['Authorization'] = 'Bearer ' + token;
-  const response = await axios.get('/pengajuan/get_all');
+  axios.defaults.headers.common["Authorization"] = "Bearer " + token;
+  const response = await axios.get("/pengajuan/get_all");
+  console.log(response.data);
+  return response.data;
+}
+
+// Read Data Pengajuan
+export async function getgroup(token: string): Promise<AxiosResponse<any>> {
+  axios.defaults.headers.common["Authorization"] = "Bearer " + token;
+  const response = await axios.get("/user_group/get_all");
+  const data = response.data;
+  localStorage.setItem("userRole", data.data.namaGroup);
   console.log(response.data);
   return response.data;
 }
 
 // Read Data Pengajuan
 export async function getPengajuan(token: string): Promise<AxiosResponse<any>> {
-  axios.defaults.headers.common['Authorization'] = 'Bearer ' + token;
-  const response = await axios.get('/pengajuan/get_all');
+  axios.defaults.headers.common["Authorization"] = "Bearer " + token;
+  const response = await axios.get("/pengajuan/get_all");
   console.log(response.data);
   return response.data;
 }
@@ -52,7 +60,7 @@ export async function postPengajuan(
   tglPenerima: string,
   status: string
 ): Promise<AxiosResponse<any>> {
-  axios.defaults.headers.common['Authorization'] = 'Bearer ' + token;
+  axios.defaults.headers.common["Authorization"] = "Bearer " + token;
   try {
     const response = await axios.post(`/pengajuan/save`, {
       spekId,
@@ -60,7 +68,7 @@ export async function postPengajuan(
       noMemo,
       tglPengajuan,
       tglPenerima,
-      status
+      status,
     });
     return response.data;
   } catch (error) {
@@ -70,10 +78,26 @@ export async function postPengajuan(
 }
 
 // Update Data Pengajuan
-export async function updatePengajuan(token: string, pengajuanId: BigInteger, userId: BigInteger, karyawanId: BigInteger, noMemo: string, tglPengajuan: string, status: string): Promise<AxiosResponse<any>> {
-  axios.defaults.headers.common['Authorization'] = 'Bearer ' + token;
+export async function updatePengajuan(
+  token: string,
+  pengajuanId: BigInteger,
+  userId: BigInteger,
+  karyawanId: BigInteger,
+  noMemo: string,
+  tglPengajuan: string,
+  status: string
+): Promise<AxiosResponse<any>> {
+  axios.defaults.headers.common["Authorization"] = "Bearer " + token;
   try {
-    const response = await axios.post(`/pengajuan/save`, { token, pengajuanId, userId, karyawanId, noMemo, tglPengajuan, status });
+    const response = await axios.post(`/pengajuan/save`, {
+      token,
+      pengajuanId,
+      userId,
+      karyawanId,
+      noMemo,
+      tglPengajuan,
+      status,
+    });
     return response.data;
   } catch (error) {
     console.log(error);
@@ -237,11 +261,6 @@ export async function deleteSpek(
     throw error;
   }
 }
-
-
-
-
-
 
 // export async function formpengajuancrud(): Promise<void> {
 

@@ -11,7 +11,11 @@
           </div>
           <div class="right-container">
             <form>
-              <img class="logo" src="../../assets/images/sela-logo.jpg" alt="" />
+              <img
+                class="logo"
+                src="../../assets/images/sela-logo.jpg"
+                alt=""
+              />
               <div class="right-container-top"></div>
               <div class="form-group">
                 <input
@@ -40,7 +44,10 @@
                     value=""
                     id="flexCheckDefault"
                   />
-                  <label class="form-check-label checkbox" for="flexCheckDefault">
+                  <label
+                    class="form-check-label checkbox"
+                    for="flexCheckDefault"
+                  >
                     Remember Me
                   </label>
                 </div>
@@ -60,7 +67,7 @@
                   type="button"
                   value="save"
                   class="btn button mt-4"
-                  @click=login
+                  @click="login"
                 >
                   Login
                 </button>
@@ -77,7 +84,7 @@
               </div>
             </form>
           </div>
-      </div>
+        </div>
       </div>
     </div>
   </div>
@@ -90,21 +97,25 @@ import { loginApi } from "@/api";
 export default defineComponent({
   data() {
     return {
-      userEmail: "tesla@gmail.com",
+      userEmail: "nathan@gmail.com",
       password: "sela",
     };
   },
-  
+
   methods: {
-    
     async login() {
       try {
         const response = await loginApi(this.userEmail, this.password);
         // Tanggapi respons sukses dari API
         // simpan token di LocalStorage dan arahkan ke dashboard admin divisi
         if (response.data != null) {
-          localStorage.setItem("token", response.data);
-          this.$router.push("/homediv");
+          localStorage.setItem("token", response.data.user.token);
+          // this.$router.push("/homediv");
+          if (response.data.user.ugId == 1) {
+            this.$router.push("/homemat");
+          } else if (response.data.user.ugId == 2) {
+            this.$router.push("/homediv");
+          }
         }
       } catch (error) {
         // Tanggapi kesalahan dari API

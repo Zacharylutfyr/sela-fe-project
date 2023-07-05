@@ -320,7 +320,7 @@
 
         <!-- Modal -->
         <div id="myModal" class="modal fade" role="dialog">
-          <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-dialog">
             <!-- konten modal-->
             <div class="modal-content">
               <!-- heading modal -->

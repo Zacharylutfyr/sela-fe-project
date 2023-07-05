@@ -298,100 +298,138 @@
 
         <!-- Form pengajuan with Rest API -->
         <div class="card shadow mb-4 border-left-success">
-            <div class="card-header py-3">
-                <h6 class="m-0 font-weight-bold">Form Pengajuan Sewa Laptop</h6>
-            </div>
-            <div class="card-body">
+          <div class="card-header py-3">
+            <h6 class="m-0 font-weight-bold">Form Pengajuan Sewa Laptop</h6>
+          </div>
+          <div class="card-body">
+            <form v-on:keyup.enter="postPengajuanApi()" v-on:submit.prevent>
+              <div class="row">
+                <div class="col-xl-12 col-md-12 mb-1">
+                  <div class="mb-3">
+                    <label class="form-label">Spesifikasi</label>
+                    <input
+                      type="number"
+                      v-model="spekId"
+                      class="form-control"
+                      id="formGroupExampleInput"
+                      placeholder="spekId"
+                    />
+                  </div>
+                </div>
+                <div class="col-xl-12 col-md-12 mb-1">
+                  <div class="mb-3">
+                    <label class="form-label">ID Karyawan</label>
+                    <input
+                      type="number"
+                      v-model="karyawanId"
+                      class="form-control"
+                      id="formGroupExampleInput"
+                      placeholder="karyawanId"
+                    />
+                  </div>
+                </div>
+                <div class="col-xl-12 col-md-12 mb-1">
+                  <div class="mb-3">
+                    <label class="form-label">No Memo</label>
+                    <input
+                      type="text"
+                      v-model="noMemo"
+                      class="form-control"
+                      id="formGroupExampleInput"
+                      placeholder="noMemo"
+                    />
+                  </div>
+                </div>
+                <div class="col-xl-12 col-md-12 mb-1">
+                  <div class="mb-3">
+                    <label class="form-label">Tanggal Pengajuan</label>
+                    <input
+                      type="text"
+                      v-model="tglPengajuan"
+                      class="form-control"
+                      id="formGroupExampleInput"
+                      placeholder="tglPengajuan"
+                    />
+                  </div>
+                </div>
+                <div class="col-xl-12 col-md-12 mb-1">
+                  <div class="mb-3">
+                    <label class="form-label">Tanggal Penerima</label>
+                    <input
+                      type="text"
+                      v-model="tglPenerima"
+                      class="form-control"
+                      id="formGroupExampleInput"
+                      placeholder="tglPenerima"
+                    />
+                  </div>
+                </div>
+                <div class="col-xl-12 col-md-12 mb-1">
+                  <div class="mb-3">
+                    <label class="form-label">Status</label>
+                    <input
+                      type="text"
+                      v-model="status"
+                      class="form-control"
+                      id="formGroupExampleInput"
+                      placeholder="status"
+                    />
+                  </div>
+                </div>
+                <div class="mb-3">
+                  <label>Spek</label>
+                  <select class="form-control">
+                    <option
+                      v-for="(data, index) in allspek.data"
+                      v-bind:key="index"
+                    >
+                      {{
+                        data.deviceName +
+                        " " +
+                        data.storage +
+                        " " +
+                        data.processor +
+                        " " +
+                        data.ram +
+                        " " +
+                        data.graphicCard
+                      }}
+                    </option>
+                  </select>
+                </div>
+              </div>
 
-                <form v-on:keyup.enter="postPengajuanApi()" v-on:submit.prevent>
-                    <div class="row">
-                        <div class="col-xl-12 col-md-12 mb-1">
-                            <div class="mb-3">
-                          <label class="form-label">Spesifikasi</label>
-                                <input type="number" v-model="spekId" class="form-control" id="formGroupExampleInput"
-                                    placeholder="spekId">
-                            </div>
-                        </div>
-                        <div class="col-xl-12 col-md-12 mb-1">
-                            <div class="mb-3">
-                          <label class="form-label">ID Karyawan</label>
-                                <input type="number" v-model="karyawanId" class="form-control" id="formGroupExampleInput"
-                                    placeholder="karyawanId">
-                            </div>
-                        </div>
-                        <div class="col-xl-12 col-md-12 mb-1">
-                            <div class="mb-3">
-                          <label class="form-label">No Memo</label>
-                                <input type="text" v-model="noMemo" class="form-control" id="formGroupExampleInput"
-                                    placeholder="noMemo">
-                            </div>
-                        </div>
-                        <div class="col-xl-12 col-md-12 mb-1">
-                            <div class="mb-3">
-                          <label class="form-label">Tanggal Pengajuan</label>
-                                <input type="text" v-model="tglPengajuan" class="form-control" id="formGroupExampleInput"
-                                    placeholder="tglPengajuan">
-                            </div>
-                        </div>
-                        <div class="col-xl-12 col-md-12 mb-1">
-                            <div class="mb-3">
-                          <label class="form-label">Tanggal Penerima</label>
-                                <input type="text" v-model="tglPenerima" class="form-control" id="formGroupExampleInput"
-                                    placeholder="tglPenerima">
-                            </div>
-                        </div>
-                        <div class="col-xl-12 col-md-12 mb-1">
-                            <div class="mb-3">
-                          <label class="form-label">Status</label>
-                                <input type="text" v-model="status" class="form-control" id="formGroupExampleInput"
-                                    placeholder="status">
-                            </div>
-                        </div>
-                            <div class="mb-3">
-                                <label>Spek</label>
-                                <select class="form-control">
-                                    <option v-for="(data, index) in allspek.data" v-bind:key="index">
-                                        {{data.deviceName + 
-                                          ' ' + 
-                                          data.storage + 
-                                          ' ' + 
-                                          data.processor + 
-                                          ' ' + 
-                                          data.ram + 
-                                          ' ' + 
-                                          data.graphicCard 
-                                          }}</option>
-                                </select>
-                            </div>
-                        </div> -->
-                        <div class="col-xl-12 col-md-12 mb-1">
-                            <div class="my-2 float-right">
-                                <a
-                                href="#"
-                                class="btn btn-success btn-icon-split"
-                                @click="postPengajuanApi"
-                                >
-                                <span class="icon text-white-50">
-                                    <i class="fas fa-check"></i>
-                                </span>
-                                <span class="text">Ajukan Data Pengaju</span>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </form>
-
-            </div>
+              <div class="col-xl-12 col-md-12 mb-1">
+                <div class="my-2 float-right">
+                  <a
+                    href="#"
+                    class="btn btn-success btn-icon-split"
+                    @click="postPengajuanApi"
+                  >
+                    <span class="icon text-white-50">
+                      <i class="fas fa-check"></i>
+                    </span>
+                    <span class="text">Ajukan Data Pengaju</span>
+                  </a>
+                </div>
+              </div>
+            </form>
+          </div>
         </div>
         <div class="card shadow mb-4 border-left-success">
-            <div class="card-header py-3">
-                <h6 class="m-0 font-weight-bold">Form Pengajuan Sewa Laptop</h6>
-            </div>
-            <div class="card-body">
-        <div class="table-responsive">
-            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+          <div class="card-header py-3">
+            <h6 class="m-0 font-weight-bold">Form Pengajuan Sewa Laptop</h6>
+          </div>
+          <div class="card-body">
+            <div class="table-responsive">
+              <table
+                class="table table-bordered"
+                id="dataTable"
+                width="100%"
+                cellspacing="0"
+              >
                 <thead>
-                <tr class="bg-gray-100 text-dark">
+                  <tr class="bg-gray-100 text-dark">
                     <th>No</th>
                     <th>Spek Laptop</th>
                     <th>NIK Karyawan</th>
@@ -400,21 +438,42 @@
                     <th>Tanggal Pengajuan</th>
                     <th>Tanggal Penerimaan</th>
                     <th>Status</th>
-                </tr>
-                <tr v-for="(data, index) in pengajuan.data" v-bind:key="index">
-                    <td>{{ index + 1  }}</td>
-                    <td>{{ data.device.deviceName + " " + data.spesifikasi.storage + " " + data.spesifikasi.processor + " " + data.spesifikasi.ram + " " + data.spesifikasi.graphicCard }}</td>
+                  </tr>
+                  <tr
+                    v-for="(data, index) in pengajuan.data"
+                    v-bind:key="index"
+                  >
+                    <td>{{ index + 1 }}</td>
+                    <td>
+                      {{
+                        data.device.deviceName +
+                        " " +
+                        data.spesifikasi.storage +
+                        " " +
+                        data.spesifikasi.processor +
+                        " " +
+                        data.spesifikasi.ram +
+                        " " +
+                        data.spesifikasi.graphicCard
+                      }}
+                    </td>
                     <td>{{ data.karyawan.nikKaryawan }}</td>
-                    <td>{{ data.karyawan.namaDepan + " " + data.karyawan.namaBelakang }}</td>
+                    <td>
+                      {{
+                        data.karyawan.namaDepan +
+                        " " +
+                        data.karyawan.namaBelakang
+                      }}
+                    </td>
                     <td>{{ data.noMemo }}</td>
                     <td>{{ data.tglPengajuan }}</td>
                     <td>{{ data.tglPenerima }}</td>
                     <td>{{ data.status }}</td>
-                </tr>
+                  </tr>
                 </thead>
-            </table>
-        </div>
-        </div>
+              </table>
+            </div>
+          </div>
         </div>
 
         <!-- Content Row -->

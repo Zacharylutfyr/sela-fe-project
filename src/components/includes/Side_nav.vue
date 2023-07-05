@@ -36,27 +36,25 @@
         </li>
         <!-- Nav Item - Dashboard -->
         <li class="nav-item">
-            <router-link
-          to="/listpengajuanmat"
-          class="nav-link"
-          :class="{ 'router-link-active': isActive('/listpengajuanmat') }"
-        >
+          <router-link
+            to="/listpengajuanmat"
+            class="nav-link"
+            :class="{ 'router-link-active': isActive('/listpengajuanmat') }"
+          >
             <i class="fas fa-list-ul"></i>
-            List Pengajuan          
+            List Pengajuan
           </router-link>
-
         </li>
         <!-- Nav Item - Dashboard -->
         <li class="nav-item">
-              <router-link
+          <router-link
             to="/stockmanagement"
             class="nav-link"
             :class="{ 'router-link-active': isActive('/stockmanagement') }"
           >
-          <i class="fas fa-box-open"></i>
+            <i class="fas fa-box-open"></i>
             Manajemen Stok
           </router-link>
-
         </li>
         <!-- Nav Item - Device -->
         <li class="nav-item">
@@ -118,17 +116,26 @@
         </li>
         <!-- Nav Item - Dashboard -->
         <li class="nav-item">
-          <a class="nav-link" href="index_.html">
+          <router-link
+            to="/listpengajuanmat"
+            class="nav-link"
+            :class="{ 'router-link-active': isActive('/listpengajuanmat') }"
+          >
             <i class="fas fa-list-ul"></i>
-            List Pengajuan</a
-          >
+            List Pengajuan
+          </router-link>
         </li>
-        <!-- Nav Item - Dashboard -->
+        <!-- Nav Item - Tracking -->
+
         <li class="nav-item">
-          <a class="nav-link" href="index_.html">
-            <i class="far fa-compass"></i>
-            Tracking</a
+          <router-link
+            to="/tracking"
+            class="nav-link"
+            :class="{ 'router-link-active': isActive('/tracking') }"
           >
+            <i class="far fa-compass"></i>
+            Tracking
+          </router-link>
         </li>
 
         <!-- Divider -->
@@ -153,8 +160,7 @@ export default {
   methods: {
     isActive(route: string) {
       const currentRoute = useRoute();
-      return currentRoute.path === route || currentRoute.path === route + '/';
-
+      return currentRoute.path === route || currentRoute.path === route + "/";
     },
   },
 };
@@ -170,7 +176,7 @@ a.router-link-active,
 a.i {
   font-weight: 500;
   color: white;
-  background-color: #023C40;
+  background-color: #023c40;
   opacity: 0.8;
 }
 </style>

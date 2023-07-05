@@ -293,71 +293,46 @@
       <div class="container-fluid">
         <!-- Page Heading -->
         <div class="d-sm-flex align-items-center justify-content-between mb-4">
-          <h1 class="h3 mb-0 text-gray-800">Device</h1>
+          <h1 class="h3 mb-0 text-gray-800">Tracking</h1>
         </div>
 
-        <!-- Tombol untuk menampilkan modal-->
-        <div class="button d-flex justify-content-between">
-          <button
-            type="button"
-            class="btn btn-success btn-md mb-4"
-            data-toggle="modal"
-            data-target="#myModal"
-          >
-            <i class="fa fa-plus-circle"></i>
-            Tambah Data
-          </button>
-          <button
-            type="button"
-            class="btn btn-info btn-md mb-4"
-            data-toggle="modal"
-            data-target="#myModal3"
-          >
-            <i class="fas fa-download"></i>
-            Download
-          </button>
-        </div>
-
-        <!-- Modal -->
-        <div id="myModal" class="modal fade" role="dialog">
-          <div class="modal-dialog modal-dialog-centered">
-            <!-- konten modal-->
-            <div class="modal-content">
-              <!-- heading modal -->
-              <div class="modal-header">
-                <!-- <button type="button" class="close" data-dismiss="modal">&times;</button> -->
-                <h4 class="modal-title">Form Input Device</h4>
-              </div>
-              <!-- body modal -->
-              <div class="modal-body">
-                <p>Device Name</p>
-                <input
-                  v-model="deviceName"
-                  class="form-control"
-                  type="text"
-                  placeholder=""
-                  aria-label="default input example"
-                />
-              </div>
-              <!-- footer modal -->
-              <div class="modal-footer">
-                <button
-                  @click="postDeviceApi"
-                  type="button"
-                  class="btn btn-success"
-                  data-dismiss="modal"
-                >
-                  Save
-                </button>
-              </div>
-            </div>
+        <!-- Tracking Line -->
+        <div class="tracking-line d-flex justify-content-around mt-5">
+          <div class="start text-center">
+            -------------------<a href="#" class="btn btn-success btn-circle mb-2"> </a>-------------------
+            <p></p>
+          </div>
+          <div class="disetujui text-center">
+            -----------------
+            <a href="#" class="btn btn-dark btn-circle mb-2"> 
+                <i class="fas fa-check"></i>
+            </a>-----------------
+            <p>Disetujui</p>
+          </div>
+          <div class="on-progress text-center">
+            -----------------<a href="#" class="btn btn-dark btn-circle mb-2"> 
+                <i class="fas fa-user-check"></i>
+            </a>-----------------
+            <p>On Progress MAT</p>
+          </div>
+          <div class="instalasi-oiti text-center">
+            -----------------<a href="#" class="btn btn-dark btn-circle mb-2">
+                <i class="fas fa-box-open"></i>
+            </a>-----------------
+            <p>Instalasi OITI</p>
+          </div>
+          <div class="tersedia text-center">
+            -----------------<a href="#" class="btn btn-dark btn-circle mb-2">
+                <i class="fas fa-hand-holding-medical"></i>
+            </a>-----------------
+            <p>Tersedia</p>
           </div>
         </div>
 
         <!-- DataTables Example -->
-        <div class="card shadow mb-4">
+        <div class="card shadow mb-4 mt-5">
           <div class="card-header py-3">
-            <h6 class="m-0 font-weight-bold">Device</h6>
+            <h6 class="m-0 font-weight-bold">Proses</h6>
           </div>
           <div class="card-body">
             <div class="table-responsive">
@@ -370,30 +345,18 @@
                 <thead class="text-center">
                   <tr class="bg-gray-100 text-dark">
                     <th>No</th>
-                    <th>Device</th>
-                    <th class="w-10px">Aksi</th>
+                    <th>Memo</th>
+                    <th>Tanggal Pengajuan</th>
                   </tr>
                 </thead>
                 <tbody>
-                  <tr v-for="(data, index) in device.data" v-bind:key="index">
+                  <tr
+                    v-for="(data, index) in pengajuan.data"
+                    v-bind:key="index"
+                  >
                     <td>{{ index + 1 }}</td>
-                    <td>{{ data.deviceName }}</td>
-                    <td class="d-flex justify-content-center">
-                      <a
-                        @click="updateDeviceApi"
-                        href="#"
-                        class="btn btn-warning btn-circle mr-1"
-                      >
-                        <i class="fas fa-pen"></i>
-                      </a>
-                      <a
-                        @click="() => deleteDeviceApi(data.deviceId)"
-                        href="#"
-                        class="btn btn-danger btn-circle"
-                      >
-                        <i class="fas fa-trash"></i>
-                      </a>
-                    </td>
+                    <td class="text-center">{{ data.noMemo }}</td>
+                    <td class="text-center">{{ data.tglPengajuan }}</td>
                   </tr>
                 </tbody>
               </table>
@@ -411,66 +374,58 @@
 </template>
 
 <script lang="js">
-// const baseUrl = "http://localhost:8080/api/v1/pengajuan/get_all";
 import { loginApi } from "@/api";
-import { getDevice, postDevice, putDevice, deleteDevice } from "@/api";
-
+import {
+  getPengajuan,
+  postPengajuan,
+  getDevice,
+  getSpek
+} from "@/api";
 
 export default {
-  name: "Form_device",
+  name: "Tracking",
   data() {
     return {
-      device: []
+      pengajuan: [],
+      alldevice: [],
+      allspek: []
     };
   },
   methods: {
-    // tampilkan data tabel
-    async getDeviceApi() {
+    // baca data pengajuan sewa laptop
+    async getPengajuanApi() {
       try {
-          const token = localStorage.getItem("token");
-          this.device = await getDevice(token);
-        } catch (error) {
-            console.error(error);
-        }
+        const token = localStorage.getItem("token");
+        this.pengajuan = await getPengajuan(token);
+        this.totalData = await getPengajuan.length; // Set the total count
+      } catch (error) {
+        console.error(error);
+      }
     },
-    // tambah data tabel
-        async postDeviceApi() {
-            console.log("Satu data Device laptop berhasil ditambah!")
-            try {
-                const token = localStorage.getItem("token");
-                this.device = await postDevice(token, this.deviceId, this.deviceName);
-            } catch (error) {
-                console.error(error);
-            }
-        },
+    // Hubungkan fungsi dibawah ke API postPengajuan
+    async postPengajuanApi() {
+      try {
+        console.log("Satu data Pengajuan sewa laptop berhasil ditambah!")
+        const token = localStorage.getItem("token");
+        this.pengajuan = await postPengajuan(
+          token,
+          this.spekId,
+          this.karyawanId,
+          this.noMemo,
+          this.tglPengajuan,
+          this.tglPenerima,
+          this.status
+        );
+      } catch (error) {
+        console.error("Data gagal ditambah.");
+      }
+    },
 
-        //   update data tabel
-        async updateDeviceApi() {
-            console.log("Data Device laptop berhasil diubah!")
-            try {
-                const token = localStorage.getItem("token");
-                this.device = await updateDevice(token, this.deviceId);
-            } catch (error) {
-                console.error(error);
-            }
-        },
-               // delete data tabel
-        async deleteDeviceApi() {
-            try {
-                const token = localStorage.getItem("token");
-                await deleteDevice(token, deviceId);
-                console.log("Device successfully deleted!");
-                // Add logic to update the list of device or perform any other necessary actions
-            } catch (error) {
-                console.error(error);
-            }
-        },
+
 
   },
-
-
   mounted() {
-    this.getDeviceApi();
+    this.getPengajuanApi();
   },
 };
 </script>

@@ -223,7 +223,7 @@
                         dan Hapus data sesuai dengan kebutuhan MAT.</p>
                     <div class="d-flex justify-content-between">
 
-                        <a href="#" class="btn btn-primary btn-icon-split" data-toggle="modal"
+                        <a href="#" class="btn btn-success btn-icon-split" data-toggle="modal"
                             data-target="#TambahDataModal">
                             <span class="icon text-white-50">
                                 <i class="fas fa-plus"></i>
@@ -488,7 +488,7 @@
                 </div>
                 <div class="modal-footer">
                     <button class="btn btn-secondary" type="button" data-dismiss="modal">Batal</button>
-                    <a class="btn btn-primary" href="login.html">Tambah Data</a>
+                    <a class="btn btn-succes" href="">Tambah Data</a>
                 </div>
             </div>
         </div>

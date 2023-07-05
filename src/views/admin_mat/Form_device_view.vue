@@ -3,7 +3,7 @@
         <Sidenav />
         <div class="main-content">
             <Formdevicemat />
-            <!-- <Footer /> -->
+            <Footer />
         </div>
     </div>
 </template>

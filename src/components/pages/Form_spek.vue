@@ -296,21 +296,31 @@
           <h1 class="h3 mb-0 text-gray-800">Specification</h1>
         </div>
 
-
         <!-- Tombol untuk menampilkan modal-->
-        <button
-          type="button"
-          class="btn btn-success btn-md mb-4"
-          data-toggle="modal"
-          data-target="#myModal"
-        >
-          <i class="fa fa-plus-circle"></i>
-          Tambah Data
-        </button>
+        <div class="button d-flex justify-content-between">
+          <button
+            type="button"
+            class="btn btn-success btn-md mb-4"
+            data-toggle="modal"
+            data-target="#myModal"
+          >
+            <i class="fa fa-plus-circle"></i>
+            Tambah Data
+          </button>
+          <button
+            type="button"
+            class="btn btn-info btn-md mb-4"
+            data-toggle="modal"
+            data-target="#myModal3"
+          >
+            <i class="fas fa-download"></i>
+            Download
+          </button>
+        </div>
 
         <!-- Modal -->
         <div id="myModal" class="modal fade" role="dialog">
-          <div class="modal-dialog">
+          <div class="modal-dialog modal-dialog-centered">
             <!-- konten modal-->
             <div class="modal-content">
               <!-- heading modal -->
@@ -321,17 +331,15 @@
               <!-- body modal -->
               <div class="modal-body">
                 <label for="exampleFormControlSelect1">Device</label>
-                <select
-                  class="form-control"
-                  id="exampleFormControlSelect1"
-                  v-model="deviceName"
-                >
-                  <option>Select Device...</option>
-                  <option value="MAC BOOK">MACBOOK</option>
-                  <option value="NOTE BOOK">NOTEBOOK</option>
-                  <option value="PC">PC</option>
+                <select class="form-control">
+                  <option
+                    v-for="(data, index) in alldevice.data"
+                    v-bind:key="index"
+                  >
+                    {{ data.deviceName + " " }}
+                  </option>
                 </select>
-            
+
                 <br />
                 <label>RAM</label>
                 <input
@@ -441,7 +449,7 @@
                             <div class="modal-body">
                               <br />
                               <label>Spek Id</label>
-                              <input                              
+                              <input
                                 v-model="spekId"
                                 class="form-control"
                                 type="number"
@@ -452,18 +460,14 @@
                               <label for="exampleFormControlSelect1"
                                 >Device</label
                               >
-
-                              <select
-                                class="form-control"
-                                id="exampleFormControlSelect1"
-                                v-model="deviceName"
-                              >
-                                <option>Select Device...</option>
-                                <option value="MAC BOOK">MACBOOK</option>
-                                <option value="NOTE BOOK">NOTEBOOK</option>
-                                <option value="PC">PC</option>
+                              <select class="form-control">
+                                <option
+                                  v-for="(data, index) in alldevice.data"
+                                  v-bind:key="index"
+                                >
+                                  {{ data.deviceName + " " }}
+                                </option>
                               </select>
-                                      
                               <br />
                               <label>Device Id</label>
                               <input
@@ -513,7 +517,6 @@
                             <!-- footer modal -->
                             <div class="modal-footer">
                               <button
-                              
                                 @click="putSpekApi"
                                 type="button"
                                 class="btn btn-info"
@@ -551,13 +554,14 @@
 <script lang="js">
 // const baseUrl = "http://localhost:8080/api/v1/pengajuan/get_all";
 import { loginApi } from "@/api";
-import { getSpek, postSpek, putSpek, deleteSpek  } from "@/api";
+import { getSpek, postSpek, putSpek, deleteSpek, getDevice } from "@/api";
 
 
 export default {
   name: "Form_spek",
   data() {
     return {
+       alldevice: [],
       spek: []
     };
   },
@@ -570,6 +574,16 @@ export default {
         } catch (error) {
             console.error(error);
         }
+    },
+
+      // get all device
+      async getAllDeviceApi() {
+      try {
+        const token = localStorage.getItem("token");
+        this.alldevice = await getDevice(token);
+      } catch (error) {
+        console.error(error);
+      }
     },
 
     // tambah data tabel
@@ -609,8 +623,7 @@ export default {
 
   mounted() {
     this.getSpekApi();
+    this.getAllDeviceApi();
   },
 };
-
-
 </script>

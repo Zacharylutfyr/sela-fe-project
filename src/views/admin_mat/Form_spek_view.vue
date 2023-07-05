@@ -3,7 +3,7 @@
         <Sidenav />
         <div class="main-content">
             <Formspekmat />
-            <!-- <Footer /> -->
+            <Footer />
         </div>
     </div>
 </template>

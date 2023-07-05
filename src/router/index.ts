@@ -10,6 +10,7 @@ import Form_spek_view from "@/views/admin_mat/Form_spek_view.vue";
 import Homemat from "@/views/admin_mat/Home_mat_view.vue";
 import Listpengajuanmat from "@/views/admin_mat/List_pengajuan_view.vue";
 import Stock_management from "@/views/admin_mat/Stock_management_view.vue"
+import  Tracking_view from "@/views/admindivisi/TrackingView.vue"
 
 const routes: Array<RouteRecordRaw> = [
   {
@@ -61,6 +62,11 @@ const routes: Array<RouteRecordRaw> = [
     path: "/formspekmat",
     name: "formspekView",
     component: Form_spek_view,
+  },
+  {
+    path: "/tracking",
+    name: "TrackingView",
+    component: Tracking_view,
   },
   {
     path: "/:catchAll(.*)",
