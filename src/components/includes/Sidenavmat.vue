@@ -7,15 +7,16 @@
         id="accordionSidebar"
       >
         <!-- Sidebar - Brand -->
-        <a
-          class="sidebar-brand d-flex align-items-center justify-content-center"
-          href="index.html"
-        >
+        <router-link
+            to="/homediv"
+            class="nav-link sidebar-brand d-flex align-items-center justify-content-center"
+            :class="{ 'router-link-active': isActive('/homediv') }"
+          >
           <div class="sidebar-brand-icon">
             <i class="fab fa-stripe-s"></i>
           </div>
           <div class="sidebar-brand-text mx-3">SELA</div>
-        </a>
+          </router-link>
 
         <!-- Divider -->
         <hr class="sidebar-divider" />
@@ -91,49 +92,6 @@
         <!-- Divider -->
         <hr class="sidebar-divider" />
 
-        <!-- Heading -->
-        <div class="sidebar-heading">Admin Divisi</div>
-
-        <!-- Nav Item - Dashboard -->
-        <li class="nav-item">
-          <router-link
-            to="/homediv"
-            class="nav-link"
-            :class="{ 'router-link-active': isActive('/homediv') }"
-          >
-            <i class="fas fa-home"></i>
-            Dashboard
-          </router-link>
-        </li>
-        <!-- Nav Item - Dashboard -->
-        <li class="nav-item">
-          <router-link
-            to="/formpengajuandiv"
-            class="nav-link collapsed"
-            :class="{ 'router-link-active': isActive('/formpengajuandiv') }"
-          >
-            <i class="fas fa-paper-plane"></i>
-            Form Pengajuan
-          </router-link>
-        </li>
-        <!-- Nav Item - Dashboard -->
-        <li class="nav-item">
-          <a class="nav-link" href="index_.html">
-            <i class="fas fa-list-ul"></i>
-            List Pengajuan</a
-          >
-        </li>
-        <!-- Nav Item - Dashboard -->
-        <li class="nav-item">
-          <a class="nav-link" href="index_.html">
-            <i class="far fa-compass"></i>
-            Tracking</a
-          >
-        </li>
-
-        <!-- Divider -->
-        <hr class="sidebar-divider d-none d-md-block" />
-
         <!-- Sidebar Toggler (Sidebar) -->
         <div class="text-center d-none d-md-inline">
           <button class="rounded-circle border-0" id="sidebarToggle"></button>
@@ -149,7 +107,7 @@ import { useRoute } from "vue-router";
 import router from "../../router";
 
 export default {
-  name: "Side_nav",
+  name: "Sidenavmat",
   methods: {
     isActive(route: string) {
       const currentRoute = useRoute();

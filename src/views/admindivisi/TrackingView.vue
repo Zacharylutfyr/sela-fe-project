@@ -1,30 +1,31 @@
 <template>
     <div class="d-flex">
-        <Sidenavmat />
+        <Sidenav />
         <div class="main-content">
-            <Formdevicemat />
-            <!-- <Footer /> -->
+            <Tracking />
+            <Footer />
         </div>
     </div>
 </template>
-
+  
+  
 <script lang="js">
-import Sidenavmat from '../../components/includes/Sidenavmat.vue'
-import Formdevicemat from '../../components/pages/Form_device.vue'
+import Sidenav from '../../components/includes/Sidenavdiv.vue'
+import Tracking from '../../components/pages/Tracking.vue'
 import Footer from '../../components/includes/Footer.vue'
 
 export default {
-    name: "Form_device_view",
+    name: "TrackingView",
     components: {
-        Sidenavmat, Formdevicemat, Footer
+        Sidenav, Tracking, Footer
+        // Footer belum
     },
 };
 </script>
-
+  
 <style>
 .main-content {
     flex: 1;
     /* Allow the main content to expand and fill the remaining space */
 }
 </style>
-  

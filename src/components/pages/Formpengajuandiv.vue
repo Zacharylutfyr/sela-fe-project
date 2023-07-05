@@ -247,7 +247,7 @@
               aria-expanded="false"
             >
               <span class="mr-2 d-none d-lg-inline text-gray-600 small"
-                >Douglas McGee</span
+                >Nicola Tesla</span
               >
               <img
                 class="img-profile rounded-circle"
@@ -347,6 +347,7 @@
                                     placeholder="status">
                             </div>
                         </div>
+                        <div class="col-xl-12 col-md-12 mb-1">
                             <div class="mb-3">
                                 <label>Spek</label>
                                 <select class="form-control">
@@ -363,7 +364,7 @@
                                           }}</option>
                                 </select>
                             </div>
-                        </div> -->
+                        </div>
                         <div class="col-xl-12 col-md-12 mb-1">
                             <div class="my-2 float-right">
                                 <a

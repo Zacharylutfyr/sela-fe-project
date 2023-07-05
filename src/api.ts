@@ -85,9 +85,27 @@ export async function updatePengajuan(
   tglPenerima: string,
   status: string
 ): Promise<AxiosResponse<any>> {
+  console.log({
+    pengajuanId,
+    karyawanId,
+    spekId,
+    noMemo,
+    tglPengajuan,
+    tglPenerima,
+    status
+  })
   axios.defaults.headers.common['Authorization'] = 'Bearer ' + token;
   try {
-    const response = await axios.post(`/pengajuan/save`, { token, pengajuanId, karyawanId, spekId, noMemo, tglPengajuan, tglPenerima, status });
+    const response = await axios.post(`/pengajuan/save`, {
+      token,
+      pengajuanId,
+      karyawanId,
+      spekId,
+      noMemo,
+      tglPengajuan,
+      tglPenerima,
+      status
+    });
     return response.data;
   } catch (error) {
     console.log(error);

@@ -1,4 +1,4 @@
-<template lang="">
+<template>
   <!-- Content Wrapper -->
   <div id="content-wrapper" class="d-flex flex-column">
     <!-- Main Content -->
@@ -296,42 +296,27 @@
           <h1 class="h3 mb-0 text-gray-800">Device</h1>
         </div>
 
-        <!-- Button Add
-        <div class="d-flex justify-content-between mb-4">
-          <a
-            href="#"
-            class="btn btn-success btn-icon-split"
-            @click="tambahdatadevice"
-          >
-            <span class="text">
-              <i class="fa fa-plus-circle"></i>
-              Tambah Data</span
-            >
-          </a>
-          <a
-            href="#"
-            class="btn btn-primary btn-icon-split"
-            @click="downloaddatadevice"
-          >
-            <span class="text">
-              <i class="fa fa-download"></i>
-              Download</span
-            >
-          </a>
-        </div>
- -->
-
         <!-- Tombol untuk menampilkan modal-->
-        <button
-        @click=postDeviceApi
-          type="button"
-          class="btn btn-success btn-md mb-4"
-          data-toggle="modal"
-          data-target="#myModal"
-        >
-          <i class="fa fa-plus-circle"></i>
-          Tambah Data
-        </button>
+        <div class="button d-flex justify-content-between">
+          <button
+            type="button"
+            class="btn btn-success btn-md mb-4"
+            data-toggle="modal"
+            data-target="#myModal"
+          >
+            <i class="fa fa-plus-circle"></i>
+            Tambah Data
+          </button>
+          <button
+            type="button"
+            class="btn btn-info btn-md mb-4"
+            data-toggle="modal"
+            data-target="#myModal3"
+          >
+            <i class="fas fa-download"></i>
+            Download
+          </button>
+        </div>
 
         <!-- Modal -->
         <div id="myModal" class="modal fade" role="dialog">
@@ -347,6 +332,7 @@
               <div class="modal-body">
                 <p>Device Name</p>
                 <input
+                  v-model="deviceName"
                   class="form-control"
                   type="text"
                   placeholder=""
@@ -356,6 +342,7 @@
               <!-- footer modal -->
               <div class="modal-footer">
                 <button
+                  @click="postDeviceApi"
                   type="button"
                   class="btn btn-success"
                   data-dismiss="modal"
@@ -389,7 +376,7 @@
                 </thead>
                 <tbody>
                   <tr v-for="(data, index) in device.data" v-bind:key="index">
-                    <td>{{ data.deviceId }}</td>
+                    <td>{{ index + 1 }}</td>
                     <td>{{ data.deviceName }}</td>
                     <td class="d-flex justify-content-center">
                       <a
@@ -422,10 +409,11 @@
   </div>
   <!-- End of Content Wrapper -->
 </template>
+
 <script lang="js">
 // const baseUrl = "http://localhost:8080/api/v1/pengajuan/get_all";
 import { loginApi } from "@/api";
-import { getDevice } from "@/api";
+import { getDevice, postDevice, putDevice, deleteDevice } from "@/api";
 
 
 export default {
@@ -445,14 +433,12 @@ export default {
             console.error(error);
         }
     },
-  },
-
- // tambah data tabel
+    // tambah data tabel
         async postDeviceApi() {
             console.log("Satu data Device laptop berhasil ditambah!")
             try {
                 const token = localStorage.getItem("token");
-                this.device = await postDevice(token, this.deviceName);
+                this.device = await postDevice(token, this.deviceId, this.deviceName);
             } catch (error) {
                 console.error(error);
             }
@@ -480,79 +466,11 @@ export default {
             }
         },
 
+  },
+
+
   mounted() {
     this.getDeviceApi();
   },
 };
-
-// CRUD Dummy Data
-// data() {
-    //     return {
-    //         pengajuan: [],
-    //         Namais: ''
-    //     }
-    // },
-    // methods: {
-    //     async GetApi() {
-    //         await axios
-    //             .get(baseUrl)
-    //             .then((resp) => {
-    //                 this.pengajuan = resp.data;
-    //             })
-    //             .catch((err) => {
-    //                 console.log(err);
-    //             });
-    //     },
-    //     async PostApi() {
-    //         await axios
-    //             .post(baseUrl, {
-    //                 Memo: this.Memois,
-    //                 NIK: this.NIKis,
-    //                 Nama: this.Namais,
-    //                 Divisi: this.Divisiis,
-    //                 Tanggal: this.Tanggalis,
-    //                 Status: this.Statusis,
-    //             })
-    //             .then((resp) => {
-    //                 console.log(resp);
-    //                 this.Namais = '',
-    //                     this.GetApi();
-    //             })
-    //             .catch((err) => {
-    //                 console.log(err);
-    //             });
-    //     },
-    //     async DeleteApi(id) {
-    //         await axios
-    //             .delete(baseUrl + id)
-    //             .then((resp) => {
-    //                 console.log(resp);
-    //                 this.GetApi();
-    //             })
-    //             .catch((err) => {
-    //                 console.log(err);
-    //             });
-    //     },
-    //     async PutApi(id, Memo, NIK, Nama, Divisi, Tanggal, Status) {
-    //         await axios
-    //             .put(baseUrl + id, {
-    //                 Memo: Memo,
-    //                 NIK: NIK,
-    //                 Nama: Nama,
-    //                 Divisi: Divisi,
-    //                 Tanggal: Tanggal,
-    //                 Status: Status,
-    //             })
-    //             .then((resp) => {
-    //                 console.log(resp);
-    //                 this.GetApi();
-    //             })
-    //             .catch((err) => {
-    //                 console.log(err);
-    //             });
-    //     }
-    // },
-    // mounted() {
-    //     this.GetApi();
-    // }
 </script>
