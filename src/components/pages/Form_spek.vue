@@ -296,6 +296,7 @@
           <h1 class="h3 mb-0 text-gray-800">Specification</h1>
         </div>
 
+
         <!-- Tombol untuk menampilkan modal-->
         <div class="button d-flex justify-content-between">
           <button
@@ -626,4 +627,6 @@ export default {
     this.getAllDeviceApi();
   },
 };
+
+
 </script>
