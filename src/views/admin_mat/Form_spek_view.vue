@@ -1,6 +1,6 @@
 <template>
     <div class="d-flex">
-        <Sidenav />
+        <Sidenavmat />
         <div class="main-content">
             <Formspekmat />
             <Footer />
@@ -9,14 +9,14 @@
 </template>
 
 <script lang="js">
-import Sidenav from '../../components/includes/Side_nav.vue'
+import Sidenavmat from '../../components/includes/Sidenavmat.vue'
 import Formspekmat from '../../components/pages/Form_spek.vue'
 import Footer from '../../components/includes/Footer.vue'
 
 export default {
     name: "Form_spek_view",
     components: {
-        Sidenav, Formspekmat, Footer
+        Sidenavmat, Formspekmat, Footer
     },
 };
 </script>

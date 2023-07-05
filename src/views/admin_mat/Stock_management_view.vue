@@ -1,6 +1,6 @@
 <template>
   <div class="d-flex">
-    <Sidenav />
+    <Sidenavmat />
     <div class="main-content">
       <StockManagement />
       <Footer />
@@ -10,14 +10,14 @@
 
 
 <script lang="js">
-import Sidenav from '../../components/includes/Side_nav.vue'
+import Sidenavmat from '../../components/includes/Sidenavmat.vue'
 import StockManagement from '../../components/pages/Stock_management.vue'
 import Footer from '../../components/includes/Footer.vue'
 
 export default {
   name: "StockManagementView",
   components: {
-    Sidenav, StockManagement, Footer
+    Sidenavmat, StockManagement, Footer
     // Footer belum
   },
 };

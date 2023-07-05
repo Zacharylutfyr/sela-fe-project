@@ -7,15 +7,16 @@
         id="accordionSidebar"
       >
         <!-- Sidebar - Brand -->
-        <a
-          class="sidebar-brand d-flex align-items-center justify-content-center"
-          href="index.html"
-        >
+        <router-link
+            to="/homediv"
+            class="nav-link sidebar-brand d-flex align-items-center justify-content-center"
+            :class="{ 'router-link-active': isActive('/homediv') }"
+          >
           <div class="sidebar-brand-icon">
             <i class="fab fa-stripe-s"></i>
           </div>
           <div class="sidebar-brand-text mx-3">SELA</div>
-        </a>
+          </router-link>
 
         <!-- Divider -->
         <hr class="sidebar-divider" />
@@ -156,7 +157,7 @@ import { useRoute } from "vue-router";
 import router from "../../router";
 
 export default {
-  name: "Side_nav",
+  name: "Sidenavmat",
   methods: {
     isActive(route: string) {
       const currentRoute = useRoute();

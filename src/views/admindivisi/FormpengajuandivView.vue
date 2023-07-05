@@ -1,6 +1,6 @@
 <template>
     <div class="d-flex">
-        <Sidenav />
+        <Sidenavdiv />
         <div class="main-content">
             <Formpengajuandiv />
             <Footer />
@@ -9,14 +9,14 @@
 </template>
 
 <script lang="js">
-import Sidenav from '../../components/includes/Side_nav.vue'
+import Sidenavdiv from '../../components/includes/Sidenavdiv.vue'
 import Formpengajuandiv from '../../components/pages/Formpengajuandiv.vue'
 import Footer from '../../components/includes/Footer.vue'
 
 export default {
     name: "FormpengajuandivView",
     components: {
-        Sidenav, Formpengajuandiv, Footer
+        Sidenavdiv, Formpengajuandiv, Footer
     },
 };
 </script>

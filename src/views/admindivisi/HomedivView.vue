@@ -1,6 +1,6 @@
 <template>
   <div class="d-flex">
-    <Sidenav />
+    <Sidenavdiv />
     <div class="main-content">
       <Homediv />
       <Footer />
@@ -10,14 +10,14 @@
 
 
 <script lang="js">
-import Sidenav from '../../components/includes/Side_nav.vue'
+import Sidenavdiv from '../../components/includes/Sidenavdiv.vue'
 import Homediv from '../../components/pages/Homediv.vue'
 import Footer from '../../components/includes/Footer.vue'
 
 export default {
   name: "HomedivView",
   components: {
-    Sidenav, Homediv, Footer
+    Sidenavdiv, Homediv, Footer
     // Footer belum
   },
 };

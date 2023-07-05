@@ -247,7 +247,7 @@
               aria-expanded="false"
             >
               <span class="mr-2 d-none d-lg-inline text-gray-600 small"
-                >Douglas McGee</span
+                >Nicola Tesla</span
               >
               <img
                 class="img-profile rounded-circle"
@@ -399,6 +399,7 @@
                 </div>
               </div>
 
+<<<<<<< HEAD
               <div class="col-xl-12 col-md-12 mb-1">
                 <div class="my-2 float-right">
                   <a
@@ -415,6 +416,88 @@
               </div>
             </form>
           </div>
+=======
+                <form v-on:keyup.enter="postPengajuanApi()" v-on:submit.prevent>
+                    <div class="row">
+                        <div class="col-xl-12 col-md-12 mb-1">
+                            <div class="mb-3">
+                          <label class="form-label">Spesifikasi</label>
+                                <input type="number" v-model="spekId" class="form-control" id="formGroupExampleInput"
+                                    placeholder="spekId">
+                            </div>
+                        </div>
+                        <div class="col-xl-12 col-md-12 mb-1">
+                            <div class="mb-3">
+                          <label class="form-label">ID Karyawan</label>
+                                <input type="number" v-model="karyawanId" class="form-control" id="formGroupExampleInput"
+                                    placeholder="karyawanId">
+                            </div>
+                        </div>
+                        <div class="col-xl-12 col-md-12 mb-1">
+                            <div class="mb-3">
+                          <label class="form-label">No Memo</label>
+                                <input type="text" v-model="noMemo" class="form-control" id="formGroupExampleInput"
+                                    placeholder="noMemo">
+                            </div>
+                        </div>
+                        <div class="col-xl-12 col-md-12 mb-1">
+                            <div class="mb-3">
+                          <label class="form-label">Tanggal Pengajuan</label>
+                                <input type="text" v-model="tglPengajuan" class="form-control" id="formGroupExampleInput"
+                                    placeholder="tglPengajuan">
+                            </div>
+                        </div>
+                        <div class="col-xl-12 col-md-12 mb-1">
+                            <div class="mb-3">
+                          <label class="form-label">Tanggal Penerima</label>
+                                <input type="text" v-model="tglPenerima" class="form-control" id="formGroupExampleInput"
+                                    placeholder="tglPenerima">
+                            </div>
+                        </div>
+                        <div class="col-xl-12 col-md-12 mb-1">
+                            <div class="mb-3">
+                          <label class="form-label">Status</label>
+                                <input type="text" v-model="status" class="form-control" id="formGroupExampleInput"
+                                    placeholder="status">
+                            </div>
+                        </div>
+                        <div class="col-xl-12 col-md-12 mb-1">
+                            <div class="mb-3">
+                                <label>Spek</label>
+                                <select class="form-control">
+                                    <option v-for="(data, index) in allspek.data" v-bind:key="index">
+                                        {{data.deviceName + 
+                                          ' ' + 
+                                          data.storage + 
+                                          ' ' + 
+                                          data.processor + 
+                                          ' ' + 
+                                          data.ram + 
+                                          ' ' + 
+                                          data.graphicCard 
+                                          }}</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-xl-12 col-md-12 mb-1">
+                            <div class="my-2 float-right">
+                                <a
+                                href="#"
+                                class="btn btn-success btn-icon-split"
+                                @click="postPengajuanApi"
+                                >
+                                <span class="icon text-white-50">
+                                    <i class="fas fa-check"></i>
+                                </span>
+                                <span class="text">Ajukan Data Pengaju</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+
+            </div>
+>>>>>>> a6f6c6901962cbe8be903f9f0454a939532365d1
         </div>
         <div class="card shadow mb-4 border-left-success">
           <div class="card-header py-3">

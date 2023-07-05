@@ -1,6 +1,6 @@
 <template>
     <div class="d-flex">
-      <Sidenav />
+      <Sidenavmat />
       <div class="main-content">
         <listpengajuanmat />
         <Footer />
@@ -10,14 +10,14 @@
   
   
   <script lang="js">
-  import Sidenav from '../../components/includes/Side_nav.vue'
+  import Sidenavmat from '../../components/includes/Sidenavmat.vue'
   import Listpengajuanmat from '../../components/pages/Listpengajuanmat.vue'
   import Footer from '../../components/includes/Footer.vue'
   
   export default {
     name: "ListpengajuanmatView",
     components: {
-      Sidenav, Listpengajuanmat, Footer
+      Sidenavmat, Listpengajuanmat, Footer
       // Footer belum
     },
   };

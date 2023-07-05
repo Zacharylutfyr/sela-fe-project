@@ -1,6 +1,6 @@
 <template>
     <div class="d-flex">
-        <Sidenav />
+        <Sidenavmat />
         <div class="main-content">
             <Formdevicemat />
             <Footer />
@@ -9,14 +9,14 @@
 </template>
 
 <script lang="js">
-import Sidenav from '../../components/includes/Side_nav.vue'
+import Sidenavmat from '../../components/includes/Sidenavmat.vue'
 import Formdevicemat from '../../components/pages/Form_device.vue'
 import Footer from '../../components/includes/Footer.vue'
 
 export default {
     name: "Form_device_view",
     components: {
-        Sidenav, Formdevicemat, Footer
+        Sidenavmat, Formdevicemat, Footer
     },
 };
 </script>
